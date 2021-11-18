@@ -65,10 +65,10 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'user' => 'string',
         'remote_created_at' => '\DateTime',
-        'activity_type' => 'ActivityTypeEnum',
+        'activity_type' => 'string',
         'subject' => 'string',
         'body' => 'string',
-        'visibility' => 'VisibilityEnum',
+        'visibility' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -354,7 +354,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets activity_type
      *
-     * @return ActivityTypeEnum|null
+     * @return string|null
      */
     public function getActivityType()
     {
@@ -364,7 +364,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets activity_type
      *
-     * @param ActivityTypeEnum|null $activity_type The activity's type.
+     * @param string|null $activity_type activity_type
      *
      * @return self
      */
@@ -426,7 +426,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets visibility
      *
-     * @return VisibilityEnum|null
+     * @return string|null
      */
     public function getVisibility()
     {
@@ -436,7 +436,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets visibility
      *
-     * @param VisibilityEnum|null $visibility The activity's visibility.
+     * @param string|null $visibility visibility
      *
      * @return self
      */

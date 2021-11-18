@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **end_at** | [**\DateTime**](\DateTime.md) | When the interview was ended. | [optional]
 **remote_created_at** | [**\DateTime**](\DateTime.md) | When the third party&#39;s interview was created. | [optional]
 **remote_updated_at** | [**\DateTime**](\DateTime.md) | When the third party&#39;s interview was updated. | [optional]
-**status** | [**ScheduledInterviewStatusEnum**](ScheduledInterviewStatusEnum.md) | The interview&#39;s status. | [optional]
+**status** | **string** |  | [optional] [readonly]
 **remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

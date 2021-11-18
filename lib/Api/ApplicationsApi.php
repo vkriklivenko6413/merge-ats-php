@@ -425,7 +425,6 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -438,9 +437,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedApplicationList
      */
-    public function applicationsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
-        list($response) = $this->applicationsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        list($response) = $this->applicationsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
         return $response;
     }
 
@@ -454,7 +453,6 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -467,9 +465,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedApplicationList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applicationsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
-        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -552,7 +550,6 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -564,9 +561,9 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
-        return $this->applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id)
+        return $this->applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -584,7 +581,6 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -596,10 +592,10 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedApplicationList';
-        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -644,7 +640,6 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -656,7 +651,7 @@ class ApplicationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applicationsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -736,17 +731,6 @@ class ApplicationsApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -901,16 +885,15 @@ class ApplicationsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Application
      */
-    public function applicationsRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function applicationsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->applicationsRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->applicationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -919,16 +902,15 @@ class ApplicationsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applicationsRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function applicationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->applicationsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->applicationsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1006,15 +988,14 @@ class ApplicationsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function applicationsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->applicationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->applicationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1027,16 +1008,15 @@ class ApplicationsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function applicationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\MergeHRISClient\Model\Application';
-        $request = $this->applicationsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->applicationsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1076,13 +1056,12 @@ class ApplicationsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applicationsRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function applicationsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1104,17 +1083,6 @@ class ApplicationsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

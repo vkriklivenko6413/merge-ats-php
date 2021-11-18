@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `jobsList()`
 
 ```php
-jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status): \MergeHRISClient\Model\PaginatedJobList
+jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status): \MergeHRISClient\Model\PaginatedJobList
 ```
 
 
@@ -42,7 +42,6 @@ $code = 'code_example'; // string | If provided, will only return jobs with this
 $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created after this datetime.
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
-$expand = departments,offices,hiring_managers; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
 $modified_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified before this datetime.
@@ -51,7 +50,7 @@ $remote_id = 'remote_id_example'; // string | The API provider's ID for the give
 $status = 'status_example'; // string | If provided, will only return jobs with this status. Options: ('OPEN', 'CLOSED', 'DRAFT', 'ARCHIVED', 'PENDING')
 
 try {
-    $result = $apiInstance->jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
+    $result = $apiInstance->jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobsList: ', $e->getMessage(), PHP_EOL;
@@ -67,7 +66,6 @@ Name | Type | Description  | Notes
  **created_after** | **\DateTime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
  **modified_before** | **\DateTime**| If provided, will only return objects modified before this datetime. | [optional]
@@ -95,7 +93,7 @@ Name | Type | Description  | Notes
 ## `jobsRetrieve()`
 
 ```php
-jobsRetrieve($x_account_token, $id, $expand, $include_remote_data): \MergeHRISClient\Model\Job
+jobsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Job
 ```
 
 
@@ -123,11 +121,10 @@ $apiInstance = new MergeHRISClient\Api\JobsApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = departments,offices,hiring_managers; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->jobsRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->jobsRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -140,7 +137,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

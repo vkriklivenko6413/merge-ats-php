@@ -122,7 +122,6 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -134,9 +133,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedJobInterviewStageList
      */
-    public function jobInterviewStagesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->jobInterviewStagesListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->jobInterviewStagesListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -147,7 +146,6 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -159,9 +157,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedJobInterviewStageList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobInterviewStagesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -241,7 +239,6 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -252,9 +249,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -269,7 +266,6 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -280,10 +276,10 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedJobInterviewStageList';
-        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -325,7 +321,6 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -336,7 +331,7 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function jobInterviewStagesListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -383,17 +378,6 @@ class JobInterviewStagesApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -537,16 +521,15 @@ class JobInterviewStagesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\JobInterviewStage
      */
-    public function jobInterviewStagesRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function jobInterviewStagesRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->jobInterviewStagesRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->jobInterviewStagesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -555,16 +538,15 @@ class JobInterviewStagesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\JobInterviewStage, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobInterviewStagesRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function jobInterviewStagesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->jobInterviewStagesRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->jobInterviewStagesRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -642,15 +624,14 @@ class JobInterviewStagesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function jobInterviewStagesRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->jobInterviewStagesRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->jobInterviewStagesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -663,16 +644,15 @@ class JobInterviewStagesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function jobInterviewStagesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\MergeHRISClient\Model\JobInterviewStage';
-        $request = $this->jobInterviewStagesRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->jobInterviewStagesRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -712,13 +692,12 @@ class JobInterviewStagesApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function jobInterviewStagesRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function jobInterviewStagesRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -740,17 +719,6 @@ class JobInterviewStagesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

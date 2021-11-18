@@ -62,7 +62,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'url_type' => 'UrlTypeEnum'
+        'url_type' => 'string'
     ];
 
     /**
@@ -248,7 +248,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets url_type
      *
-     * @return UrlTypeEnum|null
+     * @return string|null
      */
     public function getUrlType()
     {
@@ -258,7 +258,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url_type
      *
-     * @param UrlTypeEnum|null $url_type The type of site.
+     * @param string|null $url_type url_type
      *
      * @return self
      */

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **interviewer** | **string** | The interviewer doing the scoring. | [optional]
 **remote_created_at** | [**\DateTime**](\DateTime.md) | When the third party&#39;s scorecard was created. | [optional]
 **submitted_at** | [**\DateTime**](\DateTime.md) | When the scorecard was submitted. | [optional]
-**overall_recommendation** | [**OverallRecommendationEnum**](OverallRecommendationEnum.md) | The inteviewer&#39;s recommendation. | [optional]
+**overall_recommendation** | **string** |  | [optional] [readonly]
 **remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

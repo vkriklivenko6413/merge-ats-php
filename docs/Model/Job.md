@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **string** | The job&#39;s name. | [optional]
 **description** | **string** | The job&#39;s description. | [optional]
 **code** | **string** | The job&#39;s code. Typically an additional identifier used to reference the particular job that is displayed on the ATS. | [optional]
-**status** | [**JobStatusEnum**](JobStatusEnum.md) | The job&#39;s status. | [optional]
+**status** | **string** |  | [optional] [readonly]
 **remote_created_at** | [**\DateTime**](\DateTime.md) | When the third party&#39;s job was created. | [optional]
 **remote_updated_at** | [**\DateTime**](\DateTime.md) | When the third party&#39;s job was updated. | [optional]
 **confidential** | **bool** | Whether the job is confidential. | [optional]

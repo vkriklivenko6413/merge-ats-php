@@ -66,7 +66,7 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'code' => 'string',
-        'status' => 'JobStatusEnum',
+        'status' => 'string',
         'remote_created_at' => '\DateTime',
         'remote_updated_at' => '\DateTime',
         'confidential' => 'bool',
@@ -402,7 +402,7 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return JobStatusEnum|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -412,7 +412,7 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param JobStatusEnum|null $status The job's status.
+     * @param string|null $status status
      *
      * @return self
      */

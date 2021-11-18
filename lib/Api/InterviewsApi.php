@@ -423,7 +423,6 @@ class InterviewsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_interview_stage_id If provided, will only return interviews at this stage. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -436,9 +435,9 @@ class InterviewsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedScheduledInterviewList
      */
-    public function interviewsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
+    public function interviewsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->interviewsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
+        list($response) = $this->interviewsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
         return $response;
     }
 
@@ -450,7 +449,6 @@ class InterviewsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_interview_stage_id If provided, will only return interviews at this stage. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -463,9 +461,9 @@ class InterviewsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedScheduledInterviewList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function interviewsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
+    public function interviewsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->interviewsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
+        $request = $this->interviewsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -546,7 +544,6 @@ class InterviewsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_interview_stage_id If provided, will only return interviews at this stage. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -558,9 +555,9 @@ class InterviewsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function interviewsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
+    public function interviewsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
-        return $this->interviewsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id)
+        return $this->interviewsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -576,7 +573,6 @@ class InterviewsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_interview_stage_id If provided, will only return interviews at this stage. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -588,10 +584,10 @@ class InterviewsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function interviewsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
+    public function interviewsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedScheduledInterviewList';
-        $request = $this->interviewsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
+        $request = $this->interviewsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -634,7 +630,6 @@ class InterviewsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_interview_stage_id If provided, will only return interviews at this stage. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -646,7 +641,7 @@ class InterviewsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function interviewsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
+    public function interviewsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -704,17 +699,6 @@ class InterviewsApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -869,16 +853,15 @@ class InterviewsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\ScheduledInterview
      */
-    public function interviewsRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function interviewsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->interviewsRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->interviewsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -887,16 +870,15 @@ class InterviewsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\ScheduledInterview, HTTP status code, HTTP response headers (array of strings)
      */
-    public function interviewsRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function interviewsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->interviewsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->interviewsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -974,15 +956,14 @@ class InterviewsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function interviewsRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function interviewsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->interviewsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->interviewsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -995,16 +976,15 @@ class InterviewsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function interviewsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function interviewsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\MergeHRISClient\Model\ScheduledInterview';
-        $request = $this->interviewsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->interviewsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1044,13 +1024,12 @@ class InterviewsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function interviewsRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function interviewsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1072,17 +1051,6 @@ class InterviewsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

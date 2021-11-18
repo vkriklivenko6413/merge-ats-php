@@ -124,7 +124,6 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -135,9 +134,9 @@ class OffersApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedOfferList
      */
-    public function offersList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->offersListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->offersListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -150,7 +149,6 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -161,9 +159,9 @@ class OffersApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedOfferList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offersListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,7 +243,6 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -255,9 +252,9 @@ class OffersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->offersListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->offersListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -274,7 +271,6 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -284,10 +280,10 @@ class OffersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedOfferList';
-        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $expand, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -331,7 +327,6 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
@@ -341,7 +336,7 @@ class OffersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offersListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $expand = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -410,17 +405,6 @@ class OffersApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -553,16 +537,15 @@ class OffersApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Offer
      */
-    public function offersRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function offersRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->offersRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -571,16 +554,15 @@ class OffersApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Offer, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offersRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->offersRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -658,15 +640,14 @@ class OffersApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function offersRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -679,16 +660,15 @@ class OffersApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\MergeHRISClient\Model\Offer';
-        $request = $this->offersRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -728,13 +708,12 @@ class OffersApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offersRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function offersRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -756,17 +735,6 @@ class OffersApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

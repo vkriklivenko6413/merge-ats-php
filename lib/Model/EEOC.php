@@ -65,10 +65,10 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'candidate' => 'string',
         'submitted_at' => '\DateTime',
-        'race' => 'RaceEnum',
-        'gender' => 'GenderEnum',
-        'veteran_status' => 'VeteranStatusEnum',
-        'disability_status' => 'DisabilityStatusEnum',
+        'race' => 'string',
+        'gender' => 'string',
+        'veteran_status' => 'string',
+        'disability_status' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -354,7 +354,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets race
      *
-     * @return RaceEnum|null
+     * @return string|null
      */
     public function getRace()
     {
@@ -364,7 +364,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets race
      *
-     * @param RaceEnum|null $race The candidate's race.
+     * @param string|null $race race
      *
      * @return self
      */
@@ -378,7 +378,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gender
      *
-     * @return GenderEnum|null
+     * @return string|null
      */
     public function getGender()
     {
@@ -388,7 +388,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gender
      *
-     * @param GenderEnum|null $gender The candidate's gender.
+     * @param string|null $gender gender
      *
      * @return self
      */
@@ -402,7 +402,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets veteran_status
      *
-     * @return VeteranStatusEnum|null
+     * @return string|null
      */
     public function getVeteranStatus()
     {
@@ -412,7 +412,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets veteran_status
      *
-     * @param VeteranStatusEnum|null $veteran_status The candidate's veteran status.
+     * @param string|null $veteran_status veteran_status
      *
      * @return self
      */
@@ -426,7 +426,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets disability_status
      *
-     * @return DisabilityStatusEnum|null
+     * @return string|null
      */
     public function getDisabilityStatus()
     {
@@ -436,7 +436,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disability_status
      *
-     * @param DisabilityStatusEnum|null $disability_status The candidate's disability status.
+     * @param string|null $disability_status disability_status
      *
      * @return self
      */

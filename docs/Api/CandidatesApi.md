@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `candidatesList()`
 
 ```php
-candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $expand, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag): \MergeHRISClient\Model\PaginatedCandidateList
+candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag): \MergeHRISClient\Model\PaginatedCandidateList
 ```
 
 
@@ -111,7 +111,6 @@ $created_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If p
 $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects created before this datetime.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $email_address = 'email_address_example'; // string | If provided, will only return candidates with this email_address.
-$expand = applications,attachments; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $first_name = 'first_name_example'; // string | If provided, will only return candidates with this first name.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $last_name = 'last_name_example'; // string | If provided, will only return candidates with this last name.
@@ -122,7 +121,7 @@ $remote_id = 'remote_id_example'; // string | The API provider's ID for the give
 $tag = 'tag_example'; // string | If provided, will only return candidates with this tag.
 
 try {
-    $result = $apiInstance->candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $expand, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag);
+    $result = $apiInstance->candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CandidatesApi->candidatesList: ', $e->getMessage(), PHP_EOL;
@@ -138,7 +137,6 @@ Name | Type | Description  | Notes
  **created_before** | **\DateTime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
  **email_address** | **string**| If provided, will only return candidates with this email_address. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **first_name** | **string**| If provided, will only return candidates with this first name. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **last_name** | **string**| If provided, will only return candidates with this last name. | [optional]
@@ -168,7 +166,7 @@ Name | Type | Description  | Notes
 ## `candidatesRetrieve()`
 
 ```php
-candidatesRetrieve($x_account_token, $id, $expand, $include_remote_data): \MergeHRISClient\Model\Candidate
+candidatesRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Candidate
 ```
 
 
@@ -196,11 +194,10 @@ $apiInstance = new MergeHRISClient\Api\CandidatesApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = applications,attachments; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->candidatesRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->candidatesRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CandidatesApi->candidatesRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -213,7 +210,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

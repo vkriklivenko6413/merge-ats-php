@@ -62,7 +62,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'email_address_type' => 'EmailAddressTypeEnum'
+        'email_address_type' => 'string'
     ];
 
     /**
@@ -248,7 +248,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email_address_type
      *
-     * @return EmailAddressTypeEnum|null
+     * @return string|null
      */
     public function getEmailAddressType()
     {
@@ -258,7 +258,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email_address_type
      *
-     * @param EmailAddressTypeEnum|null $email_address_type The type of email address.
+     * @param string|null $email_address_type email_address_type
      *
      * @return self
      */

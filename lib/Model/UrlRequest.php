@@ -61,8 +61,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string',
-        'url_type' => 'UrlTypeEnum'
+        'value' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => 'uri',
-        'url_type' => null
+        'value' => 'uri'
     ];
 
     /**
@@ -104,8 +102,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'url_type' => 'url_type'
+        'value' => 'value'
     ];
 
     /**
@@ -114,8 +111,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'url_type' => 'setUrlType'
+        'value' => 'setValue'
     ];
 
     /**
@@ -124,8 +120,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'url_type' => 'getUrlType'
+        'value' => 'getValue'
     ];
 
     /**
@@ -186,7 +181,6 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
-        $this->container['url_type'] = $data['url_type'] ?? null;
     }
 
     /**
@@ -241,30 +235,6 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets url_type
-     *
-     * @return UrlTypeEnum|null
-     */
-    public function getUrlType()
-    {
-        return $this->container['url_type'];
-    }
-
-    /**
-     * Sets url_type
-     *
-     * @param UrlTypeEnum|null $url_type The type of site.
-     *
-     * @return self
-     */
-    public function setUrlType($url_type)
-    {
-        $this->container['url_type'] = $url_type;
 
         return $this;
     }

@@ -68,7 +68,7 @@ class RemoteUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'email' => 'string',
         'disabled' => 'bool',
         'remote_created_at' => '\DateTime',
-        'access_role' => 'AccessRoleEnum',
+        'access_role' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -434,7 +434,7 @@ class RemoteUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets access_role
      *
-     * @return AccessRoleEnum|null
+     * @return string|null
      */
     public function getAccessRole()
     {
@@ -444,7 +444,7 @@ class RemoteUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets access_role
      *
-     * @param AccessRoleEnum|null $access_role The user's role.
+     * @param string|null $access_role access_role
      *
      * @return self
      */

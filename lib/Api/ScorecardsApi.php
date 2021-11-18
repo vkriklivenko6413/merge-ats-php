@@ -423,7 +423,6 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
@@ -436,9 +435,9 @@ class ScorecardsApi
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\PaginatedScorecardList
      */
-    public function scorecardsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->scorecardsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->scorecardsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -450,7 +449,6 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
@@ -463,9 +461,9 @@ class ScorecardsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\PaginatedScorecardList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scorecardsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -546,7 +544,6 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
@@ -558,9 +555,9 @@ class ScorecardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->scorecardsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->scorecardsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -576,7 +573,6 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
@@ -588,10 +584,10 @@ class ScorecardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeHRISClient\Model\PaginatedScorecardList';
-        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $expand, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -634,7 +630,6 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
@@ -646,7 +641,7 @@ class ScorecardsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scorecardsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $expand = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -704,17 +699,6 @@ class ScorecardsApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
-            }
-        }
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
             }
         }
         // query params
@@ -869,16 +853,15 @@ class ScorecardsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeHRISClient\Model\Scorecard
      */
-    public function scorecardsRetrieve($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function scorecardsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
-        list($response) = $this->scorecardsRetrieveWithHttpInfo($x_account_token, $id, $expand, $include_remote_data);
+        list($response) = $this->scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
         return $response;
     }
 
@@ -887,16 +870,15 @@ class ScorecardsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \MergeHRISClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeHRISClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scorecardsRetrieveWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -974,15 +956,14 @@ class ScorecardsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsRetrieveAsync($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function scorecardsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
     {
-        return $this->scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand, $include_remote_data)
+        return $this->scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -995,16 +976,15 @@ class ScorecardsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
         $returnType = '\MergeHRISClient\Model\Scorecard';
-        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $expand, $include_remote_data);
+        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1044,13 +1024,12 @@ class ScorecardsApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
-     * @param  string $expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scorecardsRetrieveRequest($x_account_token, $id, $expand = null, $include_remote_data = null)
+    public function scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1072,17 +1051,6 @@ class ScorecardsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($expand !== null) {
-            if('form' === 'form' && is_array($expand)) {
-                foreach($expand as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['expand'] = $expand;
-            }
-        }
         // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {

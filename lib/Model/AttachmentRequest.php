@@ -64,8 +64,7 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'string',
         'file_name' => 'string',
         'file_url' => 'string',
-        'candidate' => 'string',
-        'attachment_type' => 'AttachmentTypeEnum'
+        'candidate' => 'string'
     ];
 
     /**
@@ -79,8 +78,7 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => null,
         'file_name' => null,
         'file_url' => 'uri',
-        'candidate' => 'uuid',
-        'attachment_type' => null
+        'candidate' => 'uuid'
     ];
 
     /**
@@ -113,8 +111,7 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'remote_id',
         'file_name' => 'file_name',
         'file_url' => 'file_url',
-        'candidate' => 'candidate',
-        'attachment_type' => 'attachment_type'
+        'candidate' => 'candidate'
     ];
 
     /**
@@ -126,8 +123,7 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'setRemoteId',
         'file_name' => 'setFileName',
         'file_url' => 'setFileUrl',
-        'candidate' => 'setCandidate',
-        'attachment_type' => 'setAttachmentType'
+        'candidate' => 'setCandidate'
     ];
 
     /**
@@ -139,8 +135,7 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'getRemoteId',
         'file_name' => 'getFileName',
         'file_url' => 'getFileUrl',
-        'candidate' => 'getCandidate',
-        'attachment_type' => 'getAttachmentType'
+        'candidate' => 'getCandidate'
     ];
 
     /**
@@ -204,7 +199,6 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['file_name'] = $data['file_name'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['candidate'] = $data['candidate'] ?? null;
-        $this->container['attachment_type'] = $data['attachment_type'] ?? null;
     }
 
     /**
@@ -331,30 +325,6 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setCandidate($candidate)
     {
         $this->container['candidate'] = $candidate;
-
-        return $this;
-    }
-
-    /**
-     * Gets attachment_type
-     *
-     * @return AttachmentTypeEnum|null
-     */
-    public function getAttachmentType()
-    {
-        return $this->container['attachment_type'];
-    }
-
-    /**
-     * Sets attachment_type
-     *
-     * @param AttachmentTypeEnum|null $attachment_type The attachment's type.
-     *
-     * @return self
-     */
-    public function setAttachmentType($attachment_type)
-    {
-        $this->container['attachment_type'] = $attachment_type;
 
         return $this;
     }

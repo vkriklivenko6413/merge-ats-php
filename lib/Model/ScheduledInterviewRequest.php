@@ -70,8 +70,7 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         'start_at' => '\DateTime',
         'end_at' => '\DateTime',
         'remote_created_at' => '\DateTime',
-        'remote_updated_at' => '\DateTime',
-        'status' => 'ScheduledInterviewStatusEnum'
+        'remote_updated_at' => '\DateTime'
     ];
 
     /**
@@ -91,8 +90,7 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         'start_at' => 'date-time',
         'end_at' => 'date-time',
         'remote_created_at' => 'date-time',
-        'remote_updated_at' => 'date-time',
-        'status' => null
+        'remote_updated_at' => 'date-time'
     ];
 
     /**
@@ -131,8 +129,7 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         'start_at' => 'start_at',
         'end_at' => 'end_at',
         'remote_created_at' => 'remote_created_at',
-        'remote_updated_at' => 'remote_updated_at',
-        'status' => 'status'
+        'remote_updated_at' => 'remote_updated_at'
     ];
 
     /**
@@ -150,8 +147,7 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         'start_at' => 'setStartAt',
         'end_at' => 'setEndAt',
         'remote_created_at' => 'setRemoteCreatedAt',
-        'remote_updated_at' => 'setRemoteUpdatedAt',
-        'status' => 'setStatus'
+        'remote_updated_at' => 'setRemoteUpdatedAt'
     ];
 
     /**
@@ -169,8 +165,7 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         'start_at' => 'getStartAt',
         'end_at' => 'getEndAt',
         'remote_created_at' => 'getRemoteCreatedAt',
-        'remote_updated_at' => 'getRemoteUpdatedAt',
-        'status' => 'getStatus'
+        'remote_updated_at' => 'getRemoteUpdatedAt'
     ];
 
     /**
@@ -240,7 +235,6 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['end_at'] = $data['end_at'] ?? null;
         $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
         $this->container['remote_updated_at'] = $data['remote_updated_at'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
@@ -503,30 +497,6 @@ class ScheduledInterviewRequest implements ModelInterface, ArrayAccess, \JsonSer
     public function setRemoteUpdatedAt($remote_updated_at)
     {
         $this->container['remote_updated_at'] = $remote_updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return ScheduledInterviewStatusEnum|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param ScheduledInterviewStatusEnum|null $status The interview's status.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
 
         return $this;
     }

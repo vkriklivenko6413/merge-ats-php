@@ -69,7 +69,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed_at' => '\DateTime',
         'sent_at' => '\DateTime',
         'start_date' => '\DateTime',
-        'status' => 'OfferStatusEnum',
+        'status' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -456,7 +456,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return OfferStatusEnum|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -466,7 +466,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param OfferStatusEnum|null $status The offer's status.
+     * @param string|null $status status
      *
      * @return self
      */

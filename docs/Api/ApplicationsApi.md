@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `applicationsList()`
 
 ```php
-applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id): \MergeHRISClient\Model\PaginatedApplicationList
+applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id): \MergeHRISClient\Model\PaginatedApplicationList
 ```
 
 
@@ -113,7 +113,6 @@ $created_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If 
 $credited_to_id = 'credited_to_id_example'; // string | If provided, will only return applications credited to this user.
 $current_stage_id = 'current_stage_id_example'; // string | If provided, will only return applications at this interview stage.
 $cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
-$expand = candidate,job,credited_to,current_stage,reject_reason; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 $job_id = 'job_id_example'; // string | If provided, will only return applications for this job.
 $modified_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return objects modified after this datetime.
@@ -123,7 +122,7 @@ $reject_reason_id = 'reject_reason_id_example'; // string | If provided, will on
 $remote_id = 'remote_id_example'; // string | The API provider's ID for the given object.
 
 try {
-    $result = $apiInstance->applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $expand, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+    $result = $apiInstance->applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationsApi->applicationsList: ', $e->getMessage(), PHP_EOL;
@@ -141,7 +140,6 @@ Name | Type | Description  | Notes
  **credited_to_id** | **string**| If provided, will only return applications credited to this user. | [optional]
  **current_stage_id** | **string**| If provided, will only return applications at this interview stage. | [optional]
  **cursor** | **string**| The pagination cursor value. | [optional]
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
  **job_id** | **string**| If provided, will only return applications for this job. | [optional]
  **modified_after** | **\DateTime**| If provided, will only return objects modified after this datetime. | [optional]
@@ -170,7 +168,7 @@ Name | Type | Description  | Notes
 ## `applicationsRetrieve()`
 
 ```php
-applicationsRetrieve($x_account_token, $id, $expand, $include_remote_data): \MergeHRISClient\Model\Application
+applicationsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Application
 ```
 
 
@@ -198,11 +196,10 @@ $apiInstance = new MergeHRISClient\Api\ApplicationsApi(
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $id = 'id_example'; // string
-$expand = candidate,job,credited_to,current_stage,reject_reason; // string | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
 $include_remote_data = True; // bool | Whether to include the original data Merge fetched from the third-party to produce these models.
 
 try {
-    $result = $apiInstance->applicationsRetrieve($x_account_token, $id, $expand, $include_remote_data);
+    $result = $apiInstance->applicationsRetrieve($x_account_token, $id, $include_remote_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationsApi->applicationsRetrieve: ', $e->getMessage(), PHP_EOL;
@@ -215,7 +212,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
  **id** | [**string**](../Model/.md)|  |
- **expand** | **string**| Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. | [optional]
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
 
 ### Return type

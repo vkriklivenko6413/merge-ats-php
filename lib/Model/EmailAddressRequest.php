@@ -61,8 +61,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string',
-        'email_address_type' => 'EmailAddressTypeEnum'
+        'value' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => 'email',
-        'email_address_type' => null
+        'value' => 'email'
     ];
 
     /**
@@ -104,8 +102,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'email_address_type' => 'email_address_type'
+        'value' => 'value'
     ];
 
     /**
@@ -114,8 +111,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'email_address_type' => 'setEmailAddressType'
+        'value' => 'setValue'
     ];
 
     /**
@@ -124,8 +120,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'email_address_type' => 'getEmailAddressType'
+        'value' => 'getValue'
     ];
 
     /**
@@ -186,7 +181,6 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
-        $this->container['email_address_type'] = $data['email_address_type'] ?? null;
     }
 
     /**
@@ -241,30 +235,6 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_address_type
-     *
-     * @return EmailAddressTypeEnum|null
-     */
-    public function getEmailAddressType()
-    {
-        return $this->container['email_address_type'];
-    }
-
-    /**
-     * Sets email_address_type
-     *
-     * @param EmailAddressTypeEnum|null $email_address_type The type of email address.
-     *
-     * @return self
-     */
-    public function setEmailAddressType($email_address_type)
-    {
-        $this->container['email_address_type'] = $email_address_type;
 
         return $this;
     }

@@ -66,8 +66,7 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'last_name' => 'string',
         'email' => 'string',
         'disabled' => 'bool',
-        'remote_created_at' => '\DateTime',
-        'access_role' => 'AccessRoleEnum'
+        'remote_created_at' => '\DateTime'
     ];
 
     /**
@@ -83,8 +82,7 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'last_name' => null,
         'email' => 'email',
         'disabled' => null,
-        'remote_created_at' => 'date-time',
-        'access_role' => null
+        'remote_created_at' => 'date-time'
     ];
 
     /**
@@ -119,8 +117,7 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'last_name' => 'last_name',
         'email' => 'email',
         'disabled' => 'disabled',
-        'remote_created_at' => 'remote_created_at',
-        'access_role' => 'access_role'
+        'remote_created_at' => 'remote_created_at'
     ];
 
     /**
@@ -134,8 +131,7 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'last_name' => 'setLastName',
         'email' => 'setEmail',
         'disabled' => 'setDisabled',
-        'remote_created_at' => 'setRemoteCreatedAt',
-        'access_role' => 'setAccessRole'
+        'remote_created_at' => 'setRemoteCreatedAt'
     ];
 
     /**
@@ -149,8 +145,7 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'last_name' => 'getLastName',
         'email' => 'getEmail',
         'disabled' => 'getDisabled',
-        'remote_created_at' => 'getRemoteCreatedAt',
-        'access_role' => 'getAccessRole'
+        'remote_created_at' => 'getRemoteCreatedAt'
     ];
 
     /**
@@ -216,7 +211,6 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['email'] = $data['email'] ?? null;
         $this->container['disabled'] = $data['disabled'] ?? null;
         $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
-        $this->container['access_role'] = $data['access_role'] ?? null;
     }
 
     /**
@@ -391,30 +385,6 @@ class RemoteUserRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setRemoteCreatedAt($remote_created_at)
     {
         $this->container['remote_created_at'] = $remote_created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets access_role
-     *
-     * @return AccessRoleEnum|null
-     */
-    public function getAccessRole()
-    {
-        return $this->container['access_role'];
-    }
-
-    /**
-     * Sets access_role
-     *
-     * @param AccessRoleEnum|null $access_role The user's role.
-     *
-     * @return self
-     */
-    public function setAccessRole($access_role)
-    {
-        $this->container['access_role'] = $access_role;
 
         return $this;
     }

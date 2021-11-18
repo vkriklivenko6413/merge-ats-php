@@ -72,7 +72,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_at' => '\DateTime',
         'remote_created_at' => '\DateTime',
         'remote_updated_at' => '\DateTime',
-        'status' => 'ScheduledInterviewStatusEnum',
+        'status' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -546,7 +546,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets status
      *
-     * @return ScheduledInterviewStatusEnum|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -556,7 +556,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param ScheduledInterviewStatusEnum|null $status The interview's status.
+     * @param string|null $status status
      *
      * @return self
      */

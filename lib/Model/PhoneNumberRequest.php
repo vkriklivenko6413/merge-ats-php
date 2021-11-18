@@ -61,8 +61,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string',
-        'phone_number_type' => 'PhoneNumberTypeEnum'
+        'value' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => null,
-        'phone_number_type' => null
+        'value' => null
     ];
 
     /**
@@ -104,8 +102,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value',
-        'phone_number_type' => 'phone_number_type'
+        'value' => 'value'
     ];
 
     /**
@@ -114,8 +111,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue',
-        'phone_number_type' => 'setPhoneNumberType'
+        'value' => 'setValue'
     ];
 
     /**
@@ -124,8 +120,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue',
-        'phone_number_type' => 'getPhoneNumberType'
+        'value' => 'getValue'
     ];
 
     /**
@@ -186,7 +181,6 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
-        $this->container['phone_number_type'] = $data['phone_number_type'] ?? null;
     }
 
     /**
@@ -233,30 +227,6 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setValue($value)
     {
         $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone_number_type
-     *
-     * @return PhoneNumberTypeEnum|null
-     */
-    public function getPhoneNumberType()
-    {
-        return $this->container['phone_number_type'];
-    }
-
-    /**
-     * Sets phone_number_type
-     *
-     * @param PhoneNumberTypeEnum|null $phone_number_type The type of phone number.
-     *
-     * @return self
-     */
-    public function setPhoneNumberType($phone_number_type)
-    {
-        $this->container['phone_number_type'] = $phone_number_type;
 
         return $this;
     }

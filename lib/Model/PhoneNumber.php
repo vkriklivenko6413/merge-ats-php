@@ -62,7 +62,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'phone_number_type' => 'PhoneNumberTypeEnum'
+        'phone_number_type' => 'string'
     ];
 
     /**
@@ -240,7 +240,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone_number_type
      *
-     * @return PhoneNumberTypeEnum|null
+     * @return string|null
      */
     public function getPhoneNumberType()
     {
@@ -250,7 +250,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_number_type
      *
-     * @param PhoneNumberTypeEnum|null $phone_number_type The type of phone number.
+     * @param string|null $phone_number_type phone_number_type
      *
      * @return self
      */

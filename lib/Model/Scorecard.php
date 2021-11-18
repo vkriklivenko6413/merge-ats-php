@@ -68,7 +68,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'interviewer' => 'string',
         'remote_created_at' => '\DateTime',
         'submitted_at' => '\DateTime',
-        'overall_recommendation' => 'OverallRecommendationEnum',
+        'overall_recommendation' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -426,7 +426,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets overall_recommendation
      *
-     * @return OverallRecommendationEnum|null
+     * @return string|null
      */
     public function getOverallRecommendation()
     {
@@ -436,7 +436,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets overall_recommendation
      *
-     * @param OverallRecommendationEnum|null $overall_recommendation The inteviewer's recommendation.
+     * @param string|null $overall_recommendation overall_recommendation
      *
      * @return self
      */

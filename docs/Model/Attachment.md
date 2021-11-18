@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **file_name** | **string** | The attachment&#39;s name. | [optional]
 **file_url** | **string** | The attachment&#39;s url. | [optional]
 **candidate** | **string** |  | [optional]
-**attachment_type** | [**AttachmentTypeEnum**](AttachmentTypeEnum.md) | The attachment&#39;s type. | [optional]
+**attachment_type** | **string** |  | [optional] [readonly]
 **remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **closed_at** | [**\DateTime**](\DateTime.md) | When the offer was closed. | [optional]
 **sent_at** | [**\DateTime**](\DateTime.md) | When the offer was sent. | [optional]
 **start_date** | [**\DateTime**](\DateTime.md) | The employment start date on the offer. | [optional]
-**status** | [**OfferStatusEnum**](OfferStatusEnum.md) | The offer&#39;s status. | [optional]
+**status** | **string** |  | [optional] [readonly]
 **remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

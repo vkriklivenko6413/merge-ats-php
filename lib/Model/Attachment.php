@@ -66,7 +66,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_name' => 'string',
         'file_url' => 'string',
         'candidate' => 'string',
-        'attachment_type' => 'AttachmentTypeEnum',
+        'attachment_type' => 'string',
         'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
     ];
 
@@ -374,7 +374,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attachment_type
      *
-     * @return AttachmentTypeEnum|null
+     * @return string|null
      */
     public function getAttachmentType()
     {
@@ -384,7 +384,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachment_type
      *
-     * @param AttachmentTypeEnum|null $attachment_type The attachment's type.
+     * @param string|null $attachment_type attachment_type
      *
      * @return self
      */

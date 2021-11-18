@@ -66,8 +66,7 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'interview' => 'string',
         'interviewer' => 'string',
         'remote_created_at' => '\DateTime',
-        'submitted_at' => '\DateTime',
-        'overall_recommendation' => 'OverallRecommendationEnum'
+        'submitted_at' => '\DateTime'
     ];
 
     /**
@@ -83,8 +82,7 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'interview' => 'uuid',
         'interviewer' => 'uuid',
         'remote_created_at' => 'date-time',
-        'submitted_at' => 'date-time',
-        'overall_recommendation' => null
+        'submitted_at' => 'date-time'
     ];
 
     /**
@@ -119,8 +117,7 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'interview' => 'interview',
         'interviewer' => 'interviewer',
         'remote_created_at' => 'remote_created_at',
-        'submitted_at' => 'submitted_at',
-        'overall_recommendation' => 'overall_recommendation'
+        'submitted_at' => 'submitted_at'
     ];
 
     /**
@@ -134,8 +131,7 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'interview' => 'setInterview',
         'interviewer' => 'setInterviewer',
         'remote_created_at' => 'setRemoteCreatedAt',
-        'submitted_at' => 'setSubmittedAt',
-        'overall_recommendation' => 'setOverallRecommendation'
+        'submitted_at' => 'setSubmittedAt'
     ];
 
     /**
@@ -149,8 +145,7 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'interview' => 'getInterview',
         'interviewer' => 'getInterviewer',
         'remote_created_at' => 'getRemoteCreatedAt',
-        'submitted_at' => 'getSubmittedAt',
-        'overall_recommendation' => 'getOverallRecommendation'
+        'submitted_at' => 'getSubmittedAt'
     ];
 
     /**
@@ -216,7 +211,6 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['interviewer'] = $data['interviewer'] ?? null;
         $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
         $this->container['submitted_at'] = $data['submitted_at'] ?? null;
-        $this->container['overall_recommendation'] = $data['overall_recommendation'] ?? null;
     }
 
     /**
@@ -383,30 +377,6 @@ class ScorecardRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSubmittedAt($submitted_at)
     {
         $this->container['submitted_at'] = $submitted_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets overall_recommendation
-     *
-     * @return OverallRecommendationEnum|null
-     */
-    public function getOverallRecommendation()
-    {
-        return $this->container['overall_recommendation'];
-    }
-
-    /**
-     * Sets overall_recommendation
-     *
-     * @param OverallRecommendationEnum|null $overall_recommendation The inteviewer's recommendation.
-     *
-     * @return self
-     */
-    public function setOverallRecommendation($overall_recommendation)
-    {
-        $this->container['overall_recommendation'] = $overall_recommendation;
 
         return $this;
     }
