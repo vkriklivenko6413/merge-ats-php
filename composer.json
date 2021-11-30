@@ -30,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^2.12"
     },
     "autoload": {
-        "psr-4": { "MergeHRISClient\\" : "lib/" }
+        "psr-4": { "MergeATSClient\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "MergeHRISClient\\Test\\" : "test/" }
+        "psr-4": { "MergeATSClient\\Test\\" : "test/" }
     }
 }

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * AccountDetailsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -119,9 +119,9 @@ class AccountDetailsApi
      * Operation accountDetailsRetrieve
      *
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\AccountDetails
+     * @return \MergeATSClient\Model\AccountDetails
      */
     public function accountDetailsRetrieve()
     {
@@ -133,9 +133,9 @@ class AccountDetailsApi
      * Operation accountDetailsRetrieveWithHttpInfo
      *
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\AccountDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\AccountDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountDetailsRetrieveWithHttpInfo()
     {
@@ -171,20 +171,20 @@ class AccountDetailsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\AccountDetails' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\AccountDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\AccountDetails', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\AccountDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\AccountDetails';
+            $returnType = '\MergeATSClient\Model\AccountDetails';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -202,7 +202,7 @@ class AccountDetailsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\AccountDetails',
+                        '\MergeATSClient\Model\AccountDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -238,7 +238,7 @@ class AccountDetailsApi
      */
     public function accountDetailsRetrieveAsyncWithHttpInfo()
     {
-        $returnType = '\MergeHRISClient\Model\AccountDetails';
+        $returnType = '\MergeATSClient\Model\AccountDetails';
         $request = $this->accountDetailsRetrieveRequest();
 
         return $this->client

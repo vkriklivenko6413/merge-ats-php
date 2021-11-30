@@ -1,4 +1,4 @@
-# MergeHRISClient\ApplicationsApi
+# MergeATSClient\ApplicationsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `applicationsCreate()`
 
 ```php
-applicationsCreate($x_account_token, $remote_user_id, $run_async, $application_request): \MergeHRISClient\Model\Application
+applicationsCreate($x_account_token, $remote_user_id, $run_async, $application_request): \MergeATSClient\Model\Application
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ApplicationsApi(
+$apiInstance = new MergeATSClient\Api\ApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\ApplicationsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$application_request = new \MergeHRISClient\Model\ApplicationRequest(); // \MergeHRISClient\Model\ApplicationRequest
+$application_request = new \MergeATSClient\Model\ApplicationRequest(); // \MergeATSClient\Model\ApplicationRequest
 
 try {
     $result = $apiInstance->applicationsCreate($x_account_token, $remote_user_id, $run_async, $application_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **application_request** | [**\MergeHRISClient\Model\ApplicationRequest**](../Model/ApplicationRequest.md)|  | [optional]
+ **application_request** | [**\MergeATSClient\Model\ApplicationRequest**](../Model/ApplicationRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\Application**](../Model/Application.md)
+[**\MergeATSClient\Model\Application**](../Model/Application.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `applicationsList()`
 
 ```php
-applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id): \MergeHRISClient\Model\PaginatedApplicationList
+applicationsList($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id): \MergeATSClient\Model\PaginatedApplicationList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ApplicationsApi(
+$apiInstance = new MergeATSClient\Api\ApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedApplicationList**](../Model/PaginatedApplicationList.md)
+[**\MergeATSClient\Model\PaginatedApplicationList**](../Model/PaginatedApplicationList.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 ## `applicationsRetrieve()`
 
 ```php
-applicationsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Application
+applicationsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Application
 ```
 
 
@@ -183,12 +183,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ApplicationsApi(
+$apiInstance = new MergeATSClient\Api\ApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Application**](../Model/Application.md)
+[**\MergeATSClient\Model\Application**](../Model/Application.md)
 
 ### Authorization
 

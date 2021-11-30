@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * JobsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -130,9 +130,9 @@ class JobsApi
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedJobList
+     * @return \MergeATSClient\Model\PaginatedJobList
      */
     public function jobsList($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
     {
@@ -155,9 +155,9 @@ class JobsApi
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedJobList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedJobList, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobsListWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
     {
@@ -193,20 +193,20 @@ class JobsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedJobList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedJobList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedJobList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedJobList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedJobList';
+            $returnType = '\MergeATSClient\Model\PaginatedJobList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -224,7 +224,7 @@ class JobsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedJobList',
+                        '\MergeATSClient\Model\PaginatedJobList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class JobsApi
      */
     public function jobsListAsyncWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedJobList';
+        $returnType = '\MergeATSClient\Model\PaginatedJobList';
         $request = $this->jobsListRequest($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
 
         return $this->client
@@ -539,9 +539,9 @@ class JobsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Job
+     * @return \MergeATSClient\Model\Job
      */
     public function jobsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -556,9 +556,9 @@ class JobsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Job, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Job, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -594,20 +594,20 @@ class JobsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Job' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Job' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Job', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Job', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Job';
+            $returnType = '\MergeATSClient\Model\Job';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -625,7 +625,7 @@ class JobsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Job',
+                        '\MergeATSClient\Model\Job',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class JobsApi
      */
     public function jobsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Job';
+        $returnType = '\MergeATSClient\Model\Job';
         $request = $this->jobsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

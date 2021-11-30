@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedAttachmentList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedAttachmentList implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Attachment[]'
+        'results' => '\MergeATSClient\Model\Attachment[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedAttachmentList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Attachment[]|null
+     * @return \MergeATSClient\Model\Attachment[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedAttachmentList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Attachment[]|null $results results
+     * @param \MergeATSClient\Model\Attachment[]|null $results results
      *
      * @return self
      */

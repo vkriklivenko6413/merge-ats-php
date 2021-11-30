@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * InterviewsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class InterviewsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScheduledInterviewRequest $scheduled_interview_request scheduled_interview_request (optional)
+     * @param  \MergeATSClient\Model\ScheduledInterviewRequest $scheduled_interview_request scheduled_interview_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\ScheduledInterview
+     * @return \MergeATSClient\Model\ScheduledInterview
      */
     public function interviewsCreate($x_account_token, $remote_user_id = null, $run_async = null, $scheduled_interview_request = null)
     {
@@ -139,11 +139,11 @@ class InterviewsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
+     * @param  \MergeATSClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\ScheduledInterview, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\ScheduledInterview, HTTP status code, HTTP response headers (array of strings)
      */
     public function interviewsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scheduled_interview_request = null)
     {
@@ -179,20 +179,20 @@ class InterviewsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeHRISClient\Model\ScheduledInterview' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\ScheduledInterview' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\ScheduledInterview', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\ScheduledInterview', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\ScheduledInterview';
+            $returnType = '\MergeATSClient\Model\ScheduledInterview';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +210,7 @@ class InterviewsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\ScheduledInterview',
+                        '\MergeATSClient\Model\ScheduledInterview',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -226,7 +226,7 @@ class InterviewsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
+     * @param  \MergeATSClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,14 +247,14 @@ class InterviewsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
+     * @param  \MergeATSClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function interviewsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scheduled_interview_request = null)
     {
-        $returnType = '\MergeHRISClient\Model\ScheduledInterview';
+        $returnType = '\MergeATSClient\Model\ScheduledInterview';
         $request = $this->interviewsCreateRequest($x_account_token, $remote_user_id, $run_async, $scheduled_interview_request);
 
         return $this->client
@@ -296,7 +296,7 @@ class InterviewsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
+     * @param  \MergeATSClient\Model\ScheduledInterviewRequest $scheduled_interview_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -431,9 +431,9 @@ class InterviewsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedScheduledInterviewList
+     * @return \MergeATSClient\Model\PaginatedScheduledInterviewList
      */
     public function interviewsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
@@ -457,9 +457,9 @@ class InterviewsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedScheduledInterviewList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedScheduledInterviewList, HTTP status code, HTTP response headers (array of strings)
      */
     public function interviewsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
@@ -495,20 +495,20 @@ class InterviewsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedScheduledInterviewList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedScheduledInterviewList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedScheduledInterviewList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedScheduledInterviewList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedScheduledInterviewList';
+            $returnType = '\MergeATSClient\Model\PaginatedScheduledInterviewList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -526,7 +526,7 @@ class InterviewsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedScheduledInterviewList',
+                        '\MergeATSClient\Model\PaginatedScheduledInterviewList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -586,7 +586,7 @@ class InterviewsApi
      */
     public function interviewsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_interview_stage_id = null, $modified_after = null, $modified_before = null, $organizer_id = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedScheduledInterviewList';
+        $returnType = '\MergeATSClient\Model\PaginatedScheduledInterviewList';
         $request = $this->interviewsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id);
 
         return $this->client
@@ -855,9 +855,9 @@ class InterviewsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\ScheduledInterview
+     * @return \MergeATSClient\Model\ScheduledInterview
      */
     public function interviewsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -872,9 +872,9 @@ class InterviewsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\ScheduledInterview, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\ScheduledInterview, HTTP status code, HTTP response headers (array of strings)
      */
     public function interviewsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -910,20 +910,20 @@ class InterviewsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\ScheduledInterview' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\ScheduledInterview' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\ScheduledInterview', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\ScheduledInterview', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\ScheduledInterview';
+            $returnType = '\MergeATSClient\Model\ScheduledInterview';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -941,7 +941,7 @@ class InterviewsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\ScheduledInterview',
+                        '\MergeATSClient\Model\ScheduledInterview',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -983,7 +983,7 @@ class InterviewsApi
      */
     public function interviewsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\ScheduledInterview';
+        $returnType = '\MergeATSClient\Model\ScheduledInterview';
         $request = $this->interviewsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

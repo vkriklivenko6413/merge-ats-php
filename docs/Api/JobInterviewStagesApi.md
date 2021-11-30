@@ -1,4 +1,4 @@
-# MergeHRISClient\JobInterviewStagesApi
+# MergeATSClient\JobInterviewStagesApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `jobInterviewStagesList()`
 
 ```php
-jobInterviewStagesList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedJobInterviewStageList
+jobInterviewStagesList($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedJobInterviewStageList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\JobInterviewStagesApi(
+$apiInstance = new MergeATSClient\Api\JobInterviewStagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedJobInterviewStageList**](../Model/PaginatedJobInterviewStageList.md)
+[**\MergeATSClient\Model\PaginatedJobInterviewStageList**](../Model/PaginatedJobInterviewStageList.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ## `jobInterviewStagesRetrieve()`
 
 ```php
-jobInterviewStagesRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\JobInterviewStage
+jobInterviewStagesRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\JobInterviewStage
 ```
 
 
@@ -106,12 +106,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\JobInterviewStagesApi(
+$apiInstance = new MergeATSClient\Api\JobInterviewStagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\JobInterviewStage**](../Model/JobInterviewStage.md)
+[**\MergeATSClient\Model\JobInterviewStage**](../Model/JobInterviewStage.md)
 
 ### Authorization
 

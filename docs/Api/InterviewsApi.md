@@ -1,4 +1,4 @@
-# MergeHRISClient\InterviewsApi
+# MergeATSClient\InterviewsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `interviewsCreate()`
 
 ```php
-interviewsCreate($x_account_token, $remote_user_id, $run_async, $scheduled_interview_request): \MergeHRISClient\Model\ScheduledInterview
+interviewsCreate($x_account_token, $remote_user_id, $run_async, $scheduled_interview_request): \MergeATSClient\Model\ScheduledInterview
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\InterviewsApi(
+$apiInstance = new MergeATSClient\Api\InterviewsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\InterviewsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$scheduled_interview_request = new \MergeHRISClient\Model\ScheduledInterviewRequest(); // \MergeHRISClient\Model\ScheduledInterviewRequest
+$scheduled_interview_request = new \MergeATSClient\Model\ScheduledInterviewRequest(); // \MergeATSClient\Model\ScheduledInterviewRequest
 
 try {
     $result = $apiInstance->interviewsCreate($x_account_token, $remote_user_id, $run_async, $scheduled_interview_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **scheduled_interview_request** | [**\MergeHRISClient\Model\ScheduledInterviewRequest**](../Model/ScheduledInterviewRequest.md)|  | [optional]
+ **scheduled_interview_request** | [**\MergeATSClient\Model\ScheduledInterviewRequest**](../Model/ScheduledInterviewRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\ScheduledInterview**](../Model/ScheduledInterview.md)
+[**\MergeATSClient\Model\ScheduledInterview**](../Model/ScheduledInterview.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `interviewsList()`
 
 ```php
-interviewsList($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedScheduledInterviewList
+interviewsList($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $job_interview_stage_id, $modified_after, $modified_before, $organizer_id, $page_size, $remote_id): \MergeATSClient\Model\PaginatedScheduledInterviewList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\InterviewsApi(
+$apiInstance = new MergeATSClient\Api\InterviewsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedScheduledInterviewList**](../Model/PaginatedScheduledInterviewList.md)
+[**\MergeATSClient\Model\PaginatedScheduledInterviewList**](../Model/PaginatedScheduledInterviewList.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ## `interviewsRetrieve()`
 
 ```php
-interviewsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\ScheduledInterview
+interviewsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\ScheduledInterview
 ```
 
 
@@ -179,12 +179,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\InterviewsApi(
+$apiInstance = new MergeATSClient\Api\InterviewsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\ScheduledInterview**](../Model/ScheduledInterview.md)
+[**\MergeATSClient\Model\ScheduledInterview**](../Model/ScheduledInterview.md)
 
 ### Authorization
 

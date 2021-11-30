@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * OffersApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -130,9 +130,9 @@ class OffersApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedOfferList
+     * @return \MergeATSClient\Model\PaginatedOfferList
      */
     public function offersList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -155,9 +155,9 @@ class OffersApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedOfferList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedOfferList, HTTP status code, HTTP response headers (array of strings)
      */
     public function offersListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -193,20 +193,20 @@ class OffersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedOfferList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedOfferList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedOfferList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedOfferList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedOfferList';
+            $returnType = '\MergeATSClient\Model\PaginatedOfferList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -224,7 +224,7 @@ class OffersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedOfferList',
+                        '\MergeATSClient\Model\PaginatedOfferList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class OffersApi
      */
     public function offersListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedOfferList';
+        $returnType = '\MergeATSClient\Model\PaginatedOfferList';
         $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -539,9 +539,9 @@ class OffersApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Offer
+     * @return \MergeATSClient\Model\Offer
      */
     public function offersRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -556,9 +556,9 @@ class OffersApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Offer, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Offer, HTTP status code, HTTP response headers (array of strings)
      */
     public function offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -594,20 +594,20 @@ class OffersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Offer' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Offer' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Offer', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Offer', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Offer';
+            $returnType = '\MergeATSClient\Model\Offer';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -625,7 +625,7 @@ class OffersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Offer',
+                        '\MergeATSClient\Model\Offer',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class OffersApi
      */
     public function offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Offer';
+        $returnType = '\MergeATSClient\Model\Offer';
         $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

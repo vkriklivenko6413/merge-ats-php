@@ -1,4 +1,4 @@
-# MergeHRISClient\AttachmentsApi
+# MergeATSClient\AttachmentsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `attachmentsCreate()`
 
 ```php
-attachmentsCreate($x_account_token, $remote_user_id, $run_async, $attachment_request): \MergeHRISClient\Model\Attachment
+attachmentsCreate($x_account_token, $remote_user_id, $run_async, $attachment_request): \MergeATSClient\Model\Attachment
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\AttachmentsApi(
+$apiInstance = new MergeATSClient\Api\AttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\AttachmentsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$attachment_request = new \MergeHRISClient\Model\AttachmentRequest(); // \MergeHRISClient\Model\AttachmentRequest
+$attachment_request = new \MergeATSClient\Model\AttachmentRequest(); // \MergeATSClient\Model\AttachmentRequest
 
 try {
     $result = $apiInstance->attachmentsCreate($x_account_token, $remote_user_id, $run_async, $attachment_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **attachment_request** | [**\MergeHRISClient\Model\AttachmentRequest**](../Model/AttachmentRequest.md)|  | [optional]
+ **attachment_request** | [**\MergeATSClient\Model\AttachmentRequest**](../Model/AttachmentRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\Attachment**](../Model/Attachment.md)
+[**\MergeATSClient\Model\Attachment**](../Model/Attachment.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `attachmentsList()`
 
 ```php
-attachmentsList($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedAttachmentList
+attachmentsList($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedAttachmentList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\AttachmentsApi(
+$apiInstance = new MergeATSClient\Api\AttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedAttachmentList**](../Model/PaginatedAttachmentList.md)
+[**\MergeATSClient\Model\PaginatedAttachmentList**](../Model/PaginatedAttachmentList.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 ## `attachmentsRetrieve()`
 
 ```php
-attachmentsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Attachment
+attachmentsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Attachment
 ```
 
 
@@ -175,12 +175,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\AttachmentsApi(
+$apiInstance = new MergeATSClient\Api\AttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Attachment**](../Model/Attachment.md)
+[**\MergeATSClient\Model\Attachment**](../Model/Attachment.md)
 
 ### Authorization
 

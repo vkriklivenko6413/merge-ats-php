@@ -1,4 +1,4 @@
-# MergeHRISClient\ScorecardsApi
+# MergeATSClient\ScorecardsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `scorecardsCreate()`
 
 ```php
-scorecardsCreate($x_account_token, $remote_user_id, $run_async, $scorecard_request): \MergeHRISClient\Model\Scorecard
+scorecardsCreate($x_account_token, $remote_user_id, $run_async, $scorecard_request): \MergeATSClient\Model\Scorecard
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ScorecardsApi(
+$apiInstance = new MergeATSClient\Api\ScorecardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\ScorecardsApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$scorecard_request = new \MergeHRISClient\Model\ScorecardRequest(); // \MergeHRISClient\Model\ScorecardRequest
+$scorecard_request = new \MergeATSClient\Model\ScorecardRequest(); // \MergeATSClient\Model\ScorecardRequest
 
 try {
     $result = $apiInstance->scorecardsCreate($x_account_token, $remote_user_id, $run_async, $scorecard_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **scorecard_request** | [**\MergeHRISClient\Model\ScorecardRequest**](../Model/ScorecardRequest.md)|  | [optional]
+ **scorecard_request** | [**\MergeATSClient\Model\ScorecardRequest**](../Model/ScorecardRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\Scorecard**](../Model/Scorecard.md)
+[**\MergeATSClient\Model\Scorecard**](../Model/Scorecard.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `scorecardsList()`
 
 ```php
-scorecardsList($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedScorecardList
+scorecardsList($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedScorecardList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ScorecardsApi(
+$apiInstance = new MergeATSClient\Api\ScorecardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedScorecardList**](../Model/PaginatedScorecardList.md)
+[**\MergeATSClient\Model\PaginatedScorecardList**](../Model/PaginatedScorecardList.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 ## `scorecardsRetrieve()`
 
 ```php
-scorecardsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Scorecard
+scorecardsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Scorecard
 ```
 
 
@@ -179,12 +179,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\ScorecardsApi(
+$apiInstance = new MergeATSClient\Api\ScorecardsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Scorecard**](../Model/Scorecard.md)
+[**\MergeATSClient\Model\Scorecard**](../Model/Scorecard.md)
 
 ### Authorization
 

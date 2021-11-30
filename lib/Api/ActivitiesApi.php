@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * ActivitiesApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -129,9 +129,9 @@ class ActivitiesApi
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $user_id If provided, will only return activities done by this user. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedActivityList
+     * @return \MergeATSClient\Model\PaginatedActivityList
      */
     public function activitiesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $user_id = null)
     {
@@ -153,9 +153,9 @@ class ActivitiesApi
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $user_id If provided, will only return activities done by this user. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedActivityList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedActivityList, HTTP status code, HTTP response headers (array of strings)
      */
     public function activitiesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $user_id = null)
     {
@@ -191,20 +191,20 @@ class ActivitiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedActivityList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedActivityList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedActivityList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedActivityList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedActivityList';
+            $returnType = '\MergeATSClient\Model\PaginatedActivityList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -222,7 +222,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedActivityList',
+                        '\MergeATSClient\Model\PaginatedActivityList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -278,7 +278,7 @@ class ActivitiesApi
      */
     public function activitiesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $user_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedActivityList';
+        $returnType = '\MergeATSClient\Model\PaginatedActivityList';
         $request = $this->activitiesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $user_id);
 
         return $this->client
@@ -523,9 +523,9 @@ class ActivitiesApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Activity
+     * @return \MergeATSClient\Model\Activity
      */
     public function activitiesRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -540,9 +540,9 @@ class ActivitiesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Activity, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Activity, HTTP status code, HTTP response headers (array of strings)
      */
     public function activitiesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -578,20 +578,20 @@ class ActivitiesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Activity' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Activity' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Activity', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Activity', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Activity';
+            $returnType = '\MergeATSClient\Model\Activity';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -609,7 +609,7 @@ class ActivitiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Activity',
+                        '\MergeATSClient\Model\Activity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -651,7 +651,7 @@ class ActivitiesApi
      */
     public function activitiesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Activity';
+        $returnType = '\MergeATSClient\Model\Activity';
         $request = $this->activitiesRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

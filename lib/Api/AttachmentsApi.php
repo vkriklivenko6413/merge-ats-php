@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * AttachmentsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\AttachmentRequest $attachment_request attachment_request (optional)
+     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request attachment_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Attachment
+     * @return \MergeATSClient\Model\Attachment
      */
     public function attachmentsCreate($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
     {
@@ -139,11 +139,11 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\AttachmentRequest $attachment_request (optional)
+     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
      */
     public function attachmentsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
     {
@@ -179,20 +179,20 @@ class AttachmentsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeHRISClient\Model\Attachment' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Attachment' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Attachment', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Attachment', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Attachment';
+            $returnType = '\MergeATSClient\Model\Attachment';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +210,7 @@ class AttachmentsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Attachment',
+                        '\MergeATSClient\Model\Attachment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -226,7 +226,7 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\AttachmentRequest $attachment_request (optional)
+     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,14 +247,14 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\AttachmentRequest $attachment_request (optional)
+     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function attachmentsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
     {
-        $returnType = '\MergeHRISClient\Model\Attachment';
+        $returnType = '\MergeATSClient\Model\Attachment';
         $request = $this->attachmentsCreateRequest($x_account_token, $remote_user_id, $run_async, $attachment_request);
 
         return $this->client
@@ -296,7 +296,7 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\AttachmentRequest $attachment_request (optional)
+     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -429,9 +429,9 @@ class AttachmentsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedAttachmentList
+     * @return \MergeATSClient\Model\PaginatedAttachmentList
      */
     public function attachmentsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -453,9 +453,9 @@ class AttachmentsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedAttachmentList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedAttachmentList, HTTP status code, HTTP response headers (array of strings)
      */
     public function attachmentsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -491,20 +491,20 @@ class AttachmentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedAttachmentList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedAttachmentList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedAttachmentList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedAttachmentList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedAttachmentList';
+            $returnType = '\MergeATSClient\Model\PaginatedAttachmentList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -522,7 +522,7 @@ class AttachmentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedAttachmentList',
+                        '\MergeATSClient\Model\PaginatedAttachmentList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -578,7 +578,7 @@ class AttachmentsApi
      */
     public function attachmentsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedAttachmentList';
+        $returnType = '\MergeATSClient\Model\PaginatedAttachmentList';
         $request = $this->attachmentsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -823,9 +823,9 @@ class AttachmentsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Attachment
+     * @return \MergeATSClient\Model\Attachment
      */
     public function attachmentsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -840,9 +840,9 @@ class AttachmentsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
      */
     public function attachmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -878,20 +878,20 @@ class AttachmentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Attachment' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Attachment' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Attachment', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Attachment', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Attachment';
+            $returnType = '\MergeATSClient\Model\Attachment';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -909,7 +909,7 @@ class AttachmentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Attachment',
+                        '\MergeATSClient\Model\Attachment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -951,7 +951,7 @@ class AttachmentsApi
      */
     public function attachmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Attachment';
+        $returnType = '\MergeATSClient\Model\Attachment';
         $request = $this->attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

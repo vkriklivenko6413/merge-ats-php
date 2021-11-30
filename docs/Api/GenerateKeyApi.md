@@ -1,4 +1,4 @@
-# MergeHRISClient\GenerateKeyApi
+# MergeATSClient\GenerateKeyApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `generateKeyCreate()`
 
 ```php
-generateKeyCreate($generate_remote_key_request): \MergeHRISClient\Model\RemoteKey
+generateKeyCreate($generate_remote_key_request): \MergeATSClient\Model\RemoteKey
 ```
 
 
@@ -25,18 +25,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\GenerateKeyApi(
+$apiInstance = new MergeATSClient\Api\GenerateKeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$generate_remote_key_request = new \MergeHRISClient\Model\GenerateRemoteKeyRequest(); // \MergeHRISClient\Model\GenerateRemoteKeyRequest
+$generate_remote_key_request = new \MergeATSClient\Model\GenerateRemoteKeyRequest(); // \MergeATSClient\Model\GenerateRemoteKeyRequest
 
 try {
     $result = $apiInstance->generateKeyCreate($generate_remote_key_request);
@@ -50,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **generate_remote_key_request** | [**\MergeHRISClient\Model\GenerateRemoteKeyRequest**](../Model/GenerateRemoteKeyRequest.md)|  |
+ **generate_remote_key_request** | [**\MergeATSClient\Model\GenerateRemoteKeyRequest**](../Model/GenerateRemoteKeyRequest.md)|  |
 
 ### Return type
 
-[**\MergeHRISClient\Model\RemoteKey**](../Model/RemoteKey.md)
+[**\MergeATSClient\Model\RemoteKey**](../Model/RemoteKey.md)
 
 ### Authorization
 

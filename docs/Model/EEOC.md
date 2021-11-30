@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **gender** | **string** |  | [optional] [readonly]
 **veteran_status** | **string** |  | [optional] [readonly]
 **disability_status** | **string** |  | [optional] [readonly]
-**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeATSClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

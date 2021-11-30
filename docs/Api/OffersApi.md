@@ -1,4 +1,4 @@
-# MergeHRISClient\OffersApi
+# MergeATSClient\OffersApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `offersList()`
 
 ```php
-offersList($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedOfferList
+offersList($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedOfferList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\OffersApi(
+$apiInstance = new MergeATSClient\Api\OffersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedOfferList**](../Model/PaginatedOfferList.md)
+[**\MergeATSClient\Model\PaginatedOfferList**](../Model/PaginatedOfferList.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 ## `offersRetrieve()`
 
 ```php
-offersRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Offer
+offersRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Offer
 ```
 
 
@@ -108,12 +108,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\OffersApi(
+$apiInstance = new MergeATSClient\Api\OffersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Offer**](../Model/Offer.md)
+[**\MergeATSClient\Model\Offer**](../Model/Offer.md)
 
 ### Authorization
 

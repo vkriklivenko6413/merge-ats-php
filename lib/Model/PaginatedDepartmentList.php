@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedDepartmentList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedDepartmentList implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Department[]'
+        'results' => '\MergeATSClient\Model\Department[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedDepartmentList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Department[]|null
+     * @return \MergeATSClient\Model\Department[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedDepartmentList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Department[]|null $results results
+     * @param \MergeATSClient\Model\Department[]|null $results results
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedIssueList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedIssueList implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Issue[]'
+        'results' => '\MergeATSClient\Model\Issue[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedIssueList implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Issue[]|null
+     * @return \MergeATSClient\Model\Issue[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedIssueList implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Issue[]|null $results results
+     * @param \MergeATSClient\Model\Issue[]|null $results results
      *
      * @return self
      */

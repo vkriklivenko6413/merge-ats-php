@@ -1,4 +1,4 @@
-# MergeHRISClient\CandidatesApi
+# MergeATSClient\CandidatesApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `candidatesCreate()`
 
 ```php
-candidatesCreate($x_account_token, $remote_user_id, $run_async, $candidate_request): \MergeHRISClient\Model\Candidate
+candidatesCreate($x_account_token, $remote_user_id, $run_async, $candidate_request): \MergeATSClient\Model\Candidate
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\CandidatesApi(
+$apiInstance = new MergeATSClient\Api\CandidatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\CandidatesApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$candidate_request = new \MergeHRISClient\Model\CandidateRequest(); // \MergeHRISClient\Model\CandidateRequest
+$candidate_request = new \MergeATSClient\Model\CandidateRequest(); // \MergeATSClient\Model\CandidateRequest
 
 try {
     $result = $apiInstance->candidatesCreate($x_account_token, $remote_user_id, $run_async, $candidate_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **candidate_request** | [**\MergeHRISClient\Model\CandidateRequest**](../Model/CandidateRequest.md)|  | [optional]
+ **candidate_request** | [**\MergeATSClient\Model\CandidateRequest**](../Model/CandidateRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\Candidate**](../Model/Candidate.md)
+[**\MergeATSClient\Model\Candidate**](../Model/Candidate.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `candidatesList()`
 
 ```php
-candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag): \MergeHRISClient\Model\PaginatedCandidateList
+candidatesList($x_account_token, $created_after, $created_before, $cursor, $email_address, $first_name, $include_remote_data, $last_name, $modified_after, $modified_before, $page_size, $remote_id, $tag): \MergeATSClient\Model\PaginatedCandidateList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\CandidatesApi(
+$apiInstance = new MergeATSClient\Api\CandidatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedCandidateList**](../Model/PaginatedCandidateList.md)
+[**\MergeATSClient\Model\PaginatedCandidateList**](../Model/PaginatedCandidateList.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 ## `candidatesRetrieve()`
 
 ```php
-candidatesRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Candidate
+candidatesRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Candidate
 ```
 
 
@@ -181,12 +181,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\CandidatesApi(
+$apiInstance = new MergeATSClient\Api\CandidatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Candidate**](../Model/Candidate.md)
+[**\MergeATSClient\Model\Candidate**](../Model/Candidate.md)
 
 ### Authorization
 

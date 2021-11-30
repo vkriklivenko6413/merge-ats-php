@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedRejectReasonList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedRejectReasonList implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\RejectReason[]'
+        'results' => '\MergeATSClient\Model\RejectReason[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedRejectReasonList implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\RejectReason[]|null
+     * @return \MergeATSClient\Model\RejectReason[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedRejectReasonList implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\RejectReason[]|null $results results
+     * @param \MergeATSClient\Model\RejectReason[]|null $results results
      *
      * @return self
      */

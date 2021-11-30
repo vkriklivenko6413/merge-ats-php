@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * AccountDetailsAndActions Class Doc Comment
  *
  * @category Class
  * @description # The LinkedAccount Object ### Description The &#x60;LinkedAccount&#x60; object is used to represent an end user&#39;s link with a specific integration.  ### Usage Example View a list of your organization&#39;s &#x60;LinkedAccount&#x60; objects.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -67,7 +67,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
         'end_user_origin_id' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_email_address' => 'string',
-        'integration' => '\MergeHRISClient\Model\AccountDetailsAndActionsIntegration'
+        'integration' => '\MergeATSClient\Model\AccountDetailsAndActionsIntegration'
     ];
 
     /**
@@ -402,7 +402,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets integration
      *
-     * @return \MergeHRISClient\Model\AccountDetailsAndActionsIntegration|null
+     * @return \MergeATSClient\Model\AccountDetailsAndActionsIntegration|null
      */
     public function getIntegration()
     {
@@ -412,7 +412,7 @@ class AccountDetailsAndActions implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets integration
      *
-     * @param \MergeHRISClient\Model\AccountDetailsAndActionsIntegration|null $integration integration
+     * @param \MergeATSClient\Model\AccountDetailsAndActionsIntegration|null $integration integration
      *
      * @return self
      */

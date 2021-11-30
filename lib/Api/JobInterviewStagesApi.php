@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * JobInterviewStagesApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -129,9 +129,9 @@ class JobInterviewStagesApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedJobInterviewStageList
+     * @return \MergeATSClient\Model\PaginatedJobInterviewStageList
      */
     public function jobInterviewStagesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -153,9 +153,9 @@ class JobInterviewStagesApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedJobInterviewStageList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedJobInterviewStageList, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobInterviewStagesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -191,20 +191,20 @@ class JobInterviewStagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedJobInterviewStageList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedJobInterviewStageList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedJobInterviewStageList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedJobInterviewStageList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedJobInterviewStageList';
+            $returnType = '\MergeATSClient\Model\PaginatedJobInterviewStageList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -222,7 +222,7 @@ class JobInterviewStagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedJobInterviewStageList',
+                        '\MergeATSClient\Model\PaginatedJobInterviewStageList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -278,7 +278,7 @@ class JobInterviewStagesApi
      */
     public function jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedJobInterviewStageList';
+        $returnType = '\MergeATSClient\Model\PaginatedJobInterviewStageList';
         $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -523,9 +523,9 @@ class JobInterviewStagesApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\JobInterviewStage
+     * @return \MergeATSClient\Model\JobInterviewStage
      */
     public function jobInterviewStagesRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -540,9 +540,9 @@ class JobInterviewStagesApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\JobInterviewStage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\JobInterviewStage, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobInterviewStagesRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -578,20 +578,20 @@ class JobInterviewStagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\JobInterviewStage' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\JobInterviewStage' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\JobInterviewStage', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\JobInterviewStage', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\JobInterviewStage';
+            $returnType = '\MergeATSClient\Model\JobInterviewStage';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -609,7 +609,7 @@ class JobInterviewStagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\JobInterviewStage',
+                        '\MergeATSClient\Model\JobInterviewStage',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -651,7 +651,7 @@ class JobInterviewStagesApi
      */
     public function jobInterviewStagesRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\JobInterviewStage';
+        $returnType = '\MergeATSClient\Model\JobInterviewStage';
         $request = $this->jobInterviewStagesRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

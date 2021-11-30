@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedRemoteUserList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedRemoteUserList implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\RemoteUser[]'
+        'results' => '\MergeATSClient\Model\RemoteUser[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedRemoteUserList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\RemoteUser[]|null
+     * @return \MergeATSClient\Model\RemoteUser[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedRemoteUserList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\RemoteUser[]|null $results results
+     * @param \MergeATSClient\Model\RemoteUser[]|null $results results
      *
      * @return self
      */

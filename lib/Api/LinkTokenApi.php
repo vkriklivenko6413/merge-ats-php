@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * LinkTokenApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -118,11 +118,11 @@ class LinkTokenApi
     /**
      * Operation linkTokenCreate
      *
-     * @param  \MergeHRISClient\Model\EndUserDetailsRequest $end_user_details_request end_user_details_request (required)
+     * @param  \MergeATSClient\Model\EndUserDetailsRequest $end_user_details_request end_user_details_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\LinkToken
+     * @return \MergeATSClient\Model\LinkToken
      */
     public function linkTokenCreate($end_user_details_request)
     {
@@ -133,11 +133,11 @@ class LinkTokenApi
     /**
      * Operation linkTokenCreateWithHttpInfo
      *
-     * @param  \MergeHRISClient\Model\EndUserDetailsRequest $end_user_details_request (required)
+     * @param  \MergeATSClient\Model\EndUserDetailsRequest $end_user_details_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\LinkToken, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\LinkToken, HTTP status code, HTTP response headers (array of strings)
      */
     public function linkTokenCreateWithHttpInfo($end_user_details_request)
     {
@@ -173,20 +173,20 @@ class LinkTokenApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\LinkToken' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\LinkToken' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\LinkToken', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\LinkToken', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\LinkToken';
+            $returnType = '\MergeATSClient\Model\LinkToken';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class LinkTokenApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\LinkToken',
+                        '\MergeATSClient\Model\LinkToken',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -217,7 +217,7 @@ class LinkTokenApi
     /**
      * Operation linkTokenCreateAsync
      *
-     * @param  \MergeHRISClient\Model\EndUserDetailsRequest $end_user_details_request (required)
+     * @param  \MergeATSClient\Model\EndUserDetailsRequest $end_user_details_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -235,14 +235,14 @@ class LinkTokenApi
     /**
      * Operation linkTokenCreateAsyncWithHttpInfo
      *
-     * @param  \MergeHRISClient\Model\EndUserDetailsRequest $end_user_details_request (required)
+     * @param  \MergeATSClient\Model\EndUserDetailsRequest $end_user_details_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function linkTokenCreateAsyncWithHttpInfo($end_user_details_request)
     {
-        $returnType = '\MergeHRISClient\Model\LinkToken';
+        $returnType = '\MergeATSClient\Model\LinkToken';
         $request = $this->linkTokenCreateRequest($end_user_details_request);
 
         return $this->client
@@ -281,7 +281,7 @@ class LinkTokenApi
     /**
      * Create request for operation 'linkTokenCreate'
      *
-     * @param  \MergeHRISClient\Model\EndUserDetailsRequest $end_user_details_request (required)
+     * @param  \MergeATSClient\Model\EndUserDetailsRequest $end_user_details_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

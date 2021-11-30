@@ -1,4 +1,4 @@
-# MergeHRISClient\UsersApi
+# MergeATSClient\UsersApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `usersCreate()`
 
 ```php
-usersCreate($x_account_token, $remote_user_id, $run_async, $remote_user_request): \MergeHRISClient\Model\RemoteUser
+usersCreate($x_account_token, $remote_user_id, $run_async, $remote_user_request): \MergeATSClient\Model\RemoteUser
 ```
 
 
@@ -27,12 +27,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\UsersApi(
+$apiInstance = new MergeATSClient\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $apiInstance = new MergeHRISClient\Api\UsersApi(
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
 $remote_user_id = 'remote_user_id_example'; // string | The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table.
 $run_async = True; // bool | Whether or not third-party updates should be run asynchronously.
-$remote_user_request = new \MergeHRISClient\Model\RemoteUserRequest(); // \MergeHRISClient\Model\RemoteUserRequest
+$remote_user_request = new \MergeATSClient\Model\RemoteUserRequest(); // \MergeATSClient\Model\RemoteUserRequest
 
 try {
     $result = $apiInstance->usersCreate($x_account_token, $remote_user_id, $run_async, $remote_user_request);
@@ -58,11 +58,11 @@ Name | Type | Description  | Notes
  **x_account_token** | **string**| Token identifying the end user. |
  **remote_user_id** | **string**| The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. | [optional]
  **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
- **remote_user_request** | [**\MergeHRISClient\Model\RemoteUserRequest**](../Model/RemoteUserRequest.md)|  | [optional]
+ **remote_user_request** | [**\MergeATSClient\Model\RemoteUserRequest**](../Model/RemoteUserRequest.md)|  | [optional]
 
 ### Return type
 
-[**\MergeHRISClient\Model\RemoteUser**](../Model/RemoteUser.md)
+[**\MergeATSClient\Model\RemoteUser**](../Model/RemoteUser.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ## `usersList()`
 
 ```php
-usersList($x_account_token, $created_after, $created_before, $cursor, $email, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedRemoteUserList
+usersList($x_account_token, $created_after, $created_before, $cursor, $email, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedRemoteUserList
 ```
 
 
@@ -95,12 +95,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\UsersApi(
+$apiInstance = new MergeATSClient\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedRemoteUserList**](../Model/PaginatedRemoteUserList.md)
+[**\MergeATSClient\Model\PaginatedRemoteUserList**](../Model/PaginatedRemoteUserList.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 ## `usersRetrieve()`
 
 ```php
-usersRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\RemoteUser
+usersRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\RemoteUser
 ```
 
 
@@ -175,12 +175,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\UsersApi(
+$apiInstance = new MergeATSClient\Api\UsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\RemoteUser**](../Model/RemoteUser.md)
+[**\MergeATSClient\Model\RemoteUser**](../Model/RemoteUser.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedOfficeList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedOfficeList implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Office[]'
+        'results' => '\MergeATSClient\Model\Office[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedOfficeList implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Office[]|null
+     * @return \MergeATSClient\Model\Office[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedOfficeList implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Office[]|null $results results
+     * @param \MergeATSClient\Model\Office[]|null $results results
      *
      * @return self
      */

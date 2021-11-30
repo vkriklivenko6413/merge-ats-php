@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * Candidate Class Doc Comment
  *
  * @category Class
  * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions.  ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -73,13 +73,13 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_private' => 'bool',
         'can_email' => 'bool',
         'locations' => 'string[]',
-        'phone_numbers' => '\MergeHRISClient\Model\PhoneNumber[]',
-        'email_addresses' => '\MergeHRISClient\Model\EmailAddress[]',
-        'urls' => '\MergeHRISClient\Model\Url[]',
+        'phone_numbers' => '\MergeATSClient\Model\PhoneNumber[]',
+        'email_addresses' => '\MergeATSClient\Model\EmailAddress[]',
+        'urls' => '\MergeATSClient\Model\Url[]',
         'tags' => 'string[]',
         'applications' => 'string[]',
         'attachments' => 'string[]',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
         'custom_fields' => 'array<string,mixed>'
     ];
 
@@ -612,7 +612,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone_numbers
      *
-     * @return \MergeHRISClient\Model\PhoneNumber[]|null
+     * @return \MergeATSClient\Model\PhoneNumber[]|null
      */
     public function getPhoneNumbers()
     {
@@ -622,7 +622,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_numbers
      *
-     * @param \MergeHRISClient\Model\PhoneNumber[]|null $phone_numbers phone_numbers
+     * @param \MergeATSClient\Model\PhoneNumber[]|null $phone_numbers phone_numbers
      *
      * @return self
      */
@@ -636,7 +636,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email_addresses
      *
-     * @return \MergeHRISClient\Model\EmailAddress[]|null
+     * @return \MergeATSClient\Model\EmailAddress[]|null
      */
     public function getEmailAddresses()
     {
@@ -646,7 +646,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email_addresses
      *
-     * @param \MergeHRISClient\Model\EmailAddress[]|null $email_addresses email_addresses
+     * @param \MergeATSClient\Model\EmailAddress[]|null $email_addresses email_addresses
      *
      * @return self
      */
@@ -660,7 +660,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets urls
      *
-     * @return \MergeHRISClient\Model\Url[]|null
+     * @return \MergeATSClient\Model\Url[]|null
      */
     public function getUrls()
     {
@@ -670,7 +670,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets urls
      *
-     * @param \MergeHRISClient\Model\Url[]|null $urls urls
+     * @param \MergeATSClient\Model\Url[]|null $urls urls
      *
      * @return self
      */
@@ -756,7 +756,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \MergeATSClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -766,7 +766,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeATSClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

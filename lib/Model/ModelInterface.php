@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient\Model
+ * @package  MergeATSClient\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package MergeHRISClient\Model
+ * @package MergeATSClient\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

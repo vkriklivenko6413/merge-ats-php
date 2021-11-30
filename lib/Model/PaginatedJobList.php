@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedJobList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedJobList implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Job[]'
+        'results' => '\MergeATSClient\Model\Job[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedJobList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Job[]|null
+     * @return \MergeATSClient\Model\Job[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedJobList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Job[]|null $results results
+     * @param \MergeATSClient\Model\Job[]|null $results results
      *
      * @return self
      */
