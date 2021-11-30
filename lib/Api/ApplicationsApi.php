@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * ApplicationsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class ApplicationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ApplicationRequest $application_request application_request (optional)
+     * @param  \MergeATSClient\Model\ApplicationRequest $application_request application_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Application
+     * @return \MergeATSClient\Model\Application
      */
     public function applicationsCreate($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
     {
@@ -139,11 +139,11 @@ class ApplicationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ApplicationRequest $application_request (optional)
+     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
      */
     public function applicationsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
     {
@@ -179,20 +179,20 @@ class ApplicationsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeHRISClient\Model\Application' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Application' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Application', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Application', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Application';
+            $returnType = '\MergeATSClient\Model\Application';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +210,7 @@ class ApplicationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Application',
+                        '\MergeATSClient\Model\Application',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -226,7 +226,7 @@ class ApplicationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ApplicationRequest $application_request (optional)
+     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,14 +247,14 @@ class ApplicationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ApplicationRequest $application_request (optional)
+     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function applicationsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
     {
-        $returnType = '\MergeHRISClient\Model\Application';
+        $returnType = '\MergeATSClient\Model\Application';
         $request = $this->applicationsCreateRequest($x_account_token, $remote_user_id, $run_async, $application_request);
 
         return $this->client
@@ -296,7 +296,7 @@ class ApplicationsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ApplicationRequest $application_request (optional)
+     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -433,9 +433,9 @@ class ApplicationsApi
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedApplicationList
+     * @return \MergeATSClient\Model\PaginatedApplicationList
      */
     public function applicationsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
@@ -461,9 +461,9 @@ class ApplicationsApi
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedApplicationList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedApplicationList, HTTP status code, HTTP response headers (array of strings)
      */
     public function applicationsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
@@ -499,20 +499,20 @@ class ApplicationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedApplicationList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedApplicationList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedApplicationList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedApplicationList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedApplicationList';
+            $returnType = '\MergeATSClient\Model\PaginatedApplicationList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -530,7 +530,7 @@ class ApplicationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedApplicationList',
+                        '\MergeATSClient\Model\PaginatedApplicationList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -594,7 +594,7 @@ class ApplicationsApi
      */
     public function applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedApplicationList';
+        $returnType = '\MergeATSClient\Model\PaginatedApplicationList';
         $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
 
         return $this->client
@@ -887,9 +887,9 @@ class ApplicationsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Application
+     * @return \MergeATSClient\Model\Application
      */
     public function applicationsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -904,9 +904,9 @@ class ApplicationsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
      */
     public function applicationsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -942,20 +942,20 @@ class ApplicationsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Application' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Application' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Application', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Application', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Application';
+            $returnType = '\MergeATSClient\Model\Application';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -973,7 +973,7 @@ class ApplicationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Application',
+                        '\MergeATSClient\Model\Application',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1015,7 +1015,7 @@ class ApplicationsApi
      */
     public function applicationsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Application';
+        $returnType = '\MergeATSClient\Model\Application';
         $request = $this->applicationsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

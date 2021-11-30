@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * Application Class Doc Comment
  *
  * @category Class
  * @description # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -71,7 +71,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'credited_to' => 'string',
         'current_stage' => 'string',
         'reject_reason' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
         'custom_fields' => 'array<string,mixed>'
     ];
 
@@ -516,7 +516,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \MergeATSClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -526,7 +526,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeATSClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

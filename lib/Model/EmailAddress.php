@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * EmailAddress Class Doc Comment
  *
  * @category Class
  * @description # The EmailAddress Object ### Description The &#x60;EmailAddress&#x60; object is used to represent a candidate&#39;s email address.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their email addresses.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

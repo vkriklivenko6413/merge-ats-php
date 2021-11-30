@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedTagList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedTagList implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Tag[]'
+        'results' => '\MergeATSClient\Model\Tag[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedTagList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Tag[]|null
+     * @return \MergeATSClient\Model\Tag[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedTagList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Tag[]|null $results results
+     * @param \MergeATSClient\Model\Tag[]|null $results results
      *
      * @return self
      */

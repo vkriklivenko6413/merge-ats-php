@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedScheduledInterviewList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedScheduledInterviewList implements ModelInterface, ArrayAccess, \J
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\ScheduledInterview[]'
+        'results' => '\MergeATSClient\Model\ScheduledInterview[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedScheduledInterviewList implements ModelInterface, ArrayAccess, \J
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\ScheduledInterview[]|null
+     * @return \MergeATSClient\Model\ScheduledInterview[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedScheduledInterviewList implements ModelInterface, ArrayAccess, \J
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\ScheduledInterview[]|null $results results
+     * @param \MergeATSClient\Model\ScheduledInterview[]|null $results results
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedAccountDetailsAndActionsList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\AccountDetailsAndActions[]'
+        'results' => '\MergeATSClient\Model\AccountDetailsAndActions[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\AccountDetailsAndActions[]|null
+     * @return \MergeATSClient\Model\AccountDetailsAndActions[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedAccountDetailsAndActionsList implements ModelInterface, ArrayAcce
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\AccountDetailsAndActions[]|null $results results
+     * @param \MergeATSClient\Model\AccountDetailsAndActions[]|null $results results
      *
      * @return self
      */

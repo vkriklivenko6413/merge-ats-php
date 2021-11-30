@@ -1,4 +1,4 @@
-# MergeHRISClient\SyncStatusApi
+# MergeATSClient\SyncStatusApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `syncStatusList()`
 
 ```php
-syncStatusList($x_account_token, $cursor, $page_size): \MergeHRISClient\Model\PaginatedSyncStatusList
+syncStatusList($x_account_token, $cursor, $page_size): \MergeATSClient\Model\PaginatedSyncStatusList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\SyncStatusApi(
+$apiInstance = new MergeATSClient\Api\SyncStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedSyncStatusList**](../Model/PaginatedSyncStatusList.md)
+[**\MergeATSClient\Model\PaginatedSyncStatusList**](../Model/PaginatedSyncStatusList.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 ## `syncStatusResyncCreate()`
 
 ```php
-syncStatusResyncCreate($x_account_token): \MergeHRISClient\Model\SyncStatus
+syncStatusResyncCreate($x_account_token): \MergeATSClient\Model\SyncStatus
 ```
 
 
@@ -92,12 +92,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\SyncStatusApi(
+$apiInstance = new MergeATSClient\Api\SyncStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\SyncStatus**](../Model/SyncStatus.md)
+[**\MergeATSClient\Model\SyncStatus**](../Model/SyncStatus.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * SyncStatusApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,9 +122,9 @@ class SyncStatusApi
      * @param  int $cursor The pagination cursor value. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedSyncStatusList
+     * @return \MergeATSClient\Model\PaginatedSyncStatusList
      */
     public function syncStatusList($x_account_token, $cursor = null, $page_size = null)
     {
@@ -139,9 +139,9 @@ class SyncStatusApi
      * @param  int $cursor The pagination cursor value. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedSyncStatusList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedSyncStatusList, HTTP status code, HTTP response headers (array of strings)
      */
     public function syncStatusListWithHttpInfo($x_account_token, $cursor = null, $page_size = null)
     {
@@ -177,20 +177,20 @@ class SyncStatusApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedSyncStatusList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedSyncStatusList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedSyncStatusList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedSyncStatusList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedSyncStatusList';
+            $returnType = '\MergeATSClient\Model\PaginatedSyncStatusList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -208,7 +208,7 @@ class SyncStatusApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedSyncStatusList',
+                        '\MergeATSClient\Model\PaginatedSyncStatusList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class SyncStatusApi
      */
     public function syncStatusListAsyncWithHttpInfo($x_account_token, $cursor = null, $page_size = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedSyncStatusList';
+        $returnType = '\MergeATSClient\Model\PaginatedSyncStatusList';
         $request = $this->syncStatusListRequest($x_account_token, $cursor, $page_size);
 
         return $this->client
@@ -409,9 +409,9 @@ class SyncStatusApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\SyncStatus
+     * @return \MergeATSClient\Model\SyncStatus
      */
     public function syncStatusResyncCreate($x_account_token)
     {
@@ -424,9 +424,9 @@ class SyncStatusApi
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\SyncStatus, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\SyncStatus, HTTP status code, HTTP response headers (array of strings)
      */
     public function syncStatusResyncCreateWithHttpInfo($x_account_token)
     {
@@ -462,20 +462,20 @@ class SyncStatusApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\SyncStatus' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\SyncStatus' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\SyncStatus', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\SyncStatus', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\SyncStatus';
+            $returnType = '\MergeATSClient\Model\SyncStatus';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -493,7 +493,7 @@ class SyncStatusApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\SyncStatus',
+                        '\MergeATSClient\Model\SyncStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -531,7 +531,7 @@ class SyncStatusApi
      */
     public function syncStatusResyncCreateAsyncWithHttpInfo($x_account_token)
     {
-        $returnType = '\MergeHRISClient\Model\SyncStatus';
+        $returnType = '\MergeATSClient\Model\SyncStatus';
         $request = $this->syncStatusResyncCreateRequest($x_account_token);
 
         return $this->client

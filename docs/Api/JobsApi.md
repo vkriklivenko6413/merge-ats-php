@@ -1,4 +1,4 @@
-# MergeHRISClient\JobsApi
+# MergeATSClient\JobsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `jobsList()`
 
 ```php
-jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status): \MergeHRISClient\Model\PaginatedJobList
+jobsList($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status): \MergeATSClient\Model\PaginatedJobList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\JobsApi(
+$apiInstance = new MergeATSClient\Api\JobsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedJobList**](../Model/PaginatedJobList.md)
+[**\MergeATSClient\Model\PaginatedJobList**](../Model/PaginatedJobList.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 ## `jobsRetrieve()`
 
 ```php
-jobsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\Job
+jobsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\Job
 ```
 
 
@@ -108,12 +108,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\JobsApi(
+$apiInstance = new MergeATSClient\Api\JobsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Job**](../Model/Job.md)
+[**\MergeATSClient\Model\Job**](../Model/Job.md)
 
 ### Authorization
 

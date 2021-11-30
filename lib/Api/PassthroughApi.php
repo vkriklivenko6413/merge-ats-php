@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * PassthroughApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -119,11 +119,11 @@ class PassthroughApi
      * Operation passthroughCreate
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  \MergeHRISClient\Model\DataPassthroughRequest $data_passthrough_request data_passthrough_request (required)
+     * @param  \MergeATSClient\Model\DataPassthroughRequest $data_passthrough_request data_passthrough_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\RemoteResponse
+     * @return \MergeATSClient\Model\RemoteResponse
      */
     public function passthroughCreate($x_account_token, $data_passthrough_request)
     {
@@ -135,11 +135,11 @@ class PassthroughApi
      * Operation passthroughCreateWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  \MergeHRISClient\Model\DataPassthroughRequest $data_passthrough_request (required)
+     * @param  \MergeATSClient\Model\DataPassthroughRequest $data_passthrough_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\RemoteResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\RemoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function passthroughCreateWithHttpInfo($x_account_token, $data_passthrough_request)
     {
@@ -175,20 +175,20 @@ class PassthroughApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\RemoteResponse' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\RemoteResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\RemoteResponse', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\RemoteResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\RemoteResponse';
+            $returnType = '\MergeATSClient\Model\RemoteResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -206,7 +206,7 @@ class PassthroughApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\RemoteResponse',
+                        '\MergeATSClient\Model\RemoteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -220,7 +220,7 @@ class PassthroughApi
      * Operation passthroughCreateAsync
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  \MergeHRISClient\Model\DataPassthroughRequest $data_passthrough_request (required)
+     * @param  \MergeATSClient\Model\DataPassthroughRequest $data_passthrough_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -239,14 +239,14 @@ class PassthroughApi
      * Operation passthroughCreateAsyncWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  \MergeHRISClient\Model\DataPassthroughRequest $data_passthrough_request (required)
+     * @param  \MergeATSClient\Model\DataPassthroughRequest $data_passthrough_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function passthroughCreateAsyncWithHttpInfo($x_account_token, $data_passthrough_request)
     {
-        $returnType = '\MergeHRISClient\Model\RemoteResponse';
+        $returnType = '\MergeATSClient\Model\RemoteResponse';
         $request = $this->passthroughCreateRequest($x_account_token, $data_passthrough_request);
 
         return $this->client
@@ -286,7 +286,7 @@ class PassthroughApi
      * Create request for operation 'passthroughCreate'
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  \MergeHRISClient\Model\DataPassthroughRequest $data_passthrough_request (required)
+     * @param  \MergeATSClient\Model\DataPassthroughRequest $data_passthrough_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

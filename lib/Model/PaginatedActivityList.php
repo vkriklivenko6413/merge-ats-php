@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedActivityList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedActivityList implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Activity[]'
+        'results' => '\MergeATSClient\Model\Activity[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedActivityList implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Activity[]|null
+     * @return \MergeATSClient\Model\Activity[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedActivityList implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Activity[]|null $results results
+     * @param \MergeATSClient\Model\Activity[]|null $results results
      *
      * @return self
      */

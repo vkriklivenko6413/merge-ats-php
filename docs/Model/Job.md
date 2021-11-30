@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **departments** | **string[]** | IDs of &#x60;Department&#x60; objects for this &#x60;Job&#x60;. | [optional]
 **offices** | **string[]** | IDs of &#x60;Office&#x60; objects for this &#x60;Job&#x60;. | [optional]
 **hiring_managers** | **string[]** | IDs of &#x60;RemoteUser&#x60; objects that serve as hiring managers for this &#x60;Job&#x60;. | [optional]
-**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeATSClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

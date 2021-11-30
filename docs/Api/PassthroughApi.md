@@ -1,4 +1,4 @@
-# MergeHRISClient\PassthroughApi
+# MergeATSClient\PassthroughApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `passthroughCreate()`
 
 ```php
-passthroughCreate($x_account_token, $data_passthrough_request): \MergeHRISClient\Model\RemoteResponse
+passthroughCreate($x_account_token, $data_passthrough_request): \MergeATSClient\Model\RemoteResponse
 ```
 
 
@@ -25,19 +25,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\PassthroughApi(
+$apiInstance = new MergeATSClient\Api\PassthroughApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $x_account_token = 'x_account_token_example'; // string | Token identifying the end user.
-$data_passthrough_request = new \MergeHRISClient\Model\DataPassthroughRequest(); // \MergeHRISClient\Model\DataPassthroughRequest
+$data_passthrough_request = new \MergeATSClient\Model\DataPassthroughRequest(); // \MergeATSClient\Model\DataPassthroughRequest
 
 try {
     $result = $apiInstance->passthroughCreate($x_account_token, $data_passthrough_request);
@@ -52,11 +52,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **string**| Token identifying the end user. |
- **data_passthrough_request** | [**\MergeHRISClient\Model\DataPassthroughRequest**](../Model/DataPassthroughRequest.md)|  |
+ **data_passthrough_request** | [**\MergeATSClient\Model\DataPassthroughRequest**](../Model/DataPassthroughRequest.md)|  |
 
 ### Return type
 
-[**\MergeHRISClient\Model\RemoteResponse**](../Model/RemoteResponse.md)
+[**\MergeATSClient\Model\RemoteResponse**](../Model/RemoteResponse.md)
 
 ### Authorization
 

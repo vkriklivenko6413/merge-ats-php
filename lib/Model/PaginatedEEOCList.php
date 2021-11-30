@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedEEOCList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedEEOCList implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\EEOC[]'
+        'results' => '\MergeATSClient\Model\EEOC[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedEEOCList implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\EEOC[]|null
+     * @return \MergeATSClient\Model\EEOC[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedEEOCList implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\EEOC[]|null $results results
+     * @param \MergeATSClient\Model\EEOC[]|null $results results
      *
      * @return self
      */

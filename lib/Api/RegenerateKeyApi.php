@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * RegenerateKeyApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -118,11 +118,11 @@ class RegenerateKeyApi
     /**
      * Operation regenerateKeyCreate
      *
-     * @param  \MergeHRISClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request remote_key_for_regeneration_request (required)
+     * @param  \MergeATSClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request remote_key_for_regeneration_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\RemoteKey
+     * @return \MergeATSClient\Model\RemoteKey
      */
     public function regenerateKeyCreate($remote_key_for_regeneration_request)
     {
@@ -133,11 +133,11 @@ class RegenerateKeyApi
     /**
      * Operation regenerateKeyCreateWithHttpInfo
      *
-     * @param  \MergeHRISClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
+     * @param  \MergeATSClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\RemoteKey, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\RemoteKey, HTTP status code, HTTP response headers (array of strings)
      */
     public function regenerateKeyCreateWithHttpInfo($remote_key_for_regeneration_request)
     {
@@ -173,20 +173,20 @@ class RegenerateKeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\RemoteKey' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\RemoteKey' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\RemoteKey', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\RemoteKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\RemoteKey';
+            $returnType = '\MergeATSClient\Model\RemoteKey';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -204,7 +204,7 @@ class RegenerateKeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\RemoteKey',
+                        '\MergeATSClient\Model\RemoteKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -217,7 +217,7 @@ class RegenerateKeyApi
     /**
      * Operation regenerateKeyCreateAsync
      *
-     * @param  \MergeHRISClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
+     * @param  \MergeATSClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -235,14 +235,14 @@ class RegenerateKeyApi
     /**
      * Operation regenerateKeyCreateAsyncWithHttpInfo
      *
-     * @param  \MergeHRISClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
+     * @param  \MergeATSClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function regenerateKeyCreateAsyncWithHttpInfo($remote_key_for_regeneration_request)
     {
-        $returnType = '\MergeHRISClient\Model\RemoteKey';
+        $returnType = '\MergeATSClient\Model\RemoteKey';
         $request = $this->regenerateKeyCreateRequest($remote_key_for_regeneration_request);
 
         return $this->client
@@ -281,7 +281,7 @@ class RegenerateKeyApi
     /**
      * Create request for operation 'regenerateKeyCreate'
      *
-     * @param  \MergeHRISClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
+     * @param  \MergeATSClient\Model\RemoteKeyForRegenerationRequest $remote_key_for_regeneration_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * ScorecardsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScorecardRequest $scorecard_request scorecard_request (optional)
+     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request scorecard_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Scorecard
+     * @return \MergeATSClient\Model\Scorecard
      */
     public function scorecardsCreate($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
     {
@@ -139,11 +139,11 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScorecardRequest $scorecard_request (optional)
+     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
      */
     public function scorecardsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
     {
@@ -179,20 +179,20 @@ class ScorecardsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeHRISClient\Model\Scorecard' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Scorecard' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Scorecard', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Scorecard', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Scorecard';
+            $returnType = '\MergeATSClient\Model\Scorecard';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +210,7 @@ class ScorecardsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Scorecard',
+                        '\MergeATSClient\Model\Scorecard',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -226,7 +226,7 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScorecardRequest $scorecard_request (optional)
+     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -247,14 +247,14 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScorecardRequest $scorecard_request (optional)
+     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function scorecardsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
     {
-        $returnType = '\MergeHRISClient\Model\Scorecard';
+        $returnType = '\MergeATSClient\Model\Scorecard';
         $request = $this->scorecardsCreateRequest($x_account_token, $remote_user_id, $run_async, $scorecard_request);
 
         return $this->client
@@ -296,7 +296,7 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeHRISClient\Model\ScorecardRequest $scorecard_request (optional)
+     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -431,9 +431,9 @@ class ScorecardsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedScorecardList
+     * @return \MergeATSClient\Model\PaginatedScorecardList
      */
     public function scorecardsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -457,9 +457,9 @@ class ScorecardsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedScorecardList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedScorecardList, HTTP status code, HTTP response headers (array of strings)
      */
     public function scorecardsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -495,20 +495,20 @@ class ScorecardsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedScorecardList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedScorecardList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedScorecardList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedScorecardList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedScorecardList';
+            $returnType = '\MergeATSClient\Model\PaginatedScorecardList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -526,7 +526,7 @@ class ScorecardsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedScorecardList',
+                        '\MergeATSClient\Model\PaginatedScorecardList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -586,7 +586,7 @@ class ScorecardsApi
      */
     public function scorecardsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedScorecardList';
+        $returnType = '\MergeATSClient\Model\PaginatedScorecardList';
         $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -855,9 +855,9 @@ class ScorecardsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\Scorecard
+     * @return \MergeATSClient\Model\Scorecard
      */
     public function scorecardsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -872,9 +872,9 @@ class ScorecardsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
      */
     public function scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -910,20 +910,20 @@ class ScorecardsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\Scorecard' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\Scorecard' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\Scorecard', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Scorecard', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\Scorecard';
+            $returnType = '\MergeATSClient\Model\Scorecard';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -941,7 +941,7 @@ class ScorecardsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\Scorecard',
+                        '\MergeATSClient\Model\Scorecard',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -983,7 +983,7 @@ class ScorecardsApi
      */
     public function scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\Scorecard';
+        $returnType = '\MergeATSClient\Model\Scorecard';
         $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

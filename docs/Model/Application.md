@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **credited_to** | **string** | The user credited for this application. | [optional]
 **current_stage** | **string** | The application&#39;s current stage. | [optional]
 **reject_reason** | **string** | The application&#39;s reason for rejection. | [optional]
-**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeATSClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

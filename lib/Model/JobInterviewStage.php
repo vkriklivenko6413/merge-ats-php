@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * JobInterviewStage Class Doc Comment
  *
  * @category Class
  * @description # The JobInterviewStage Object ### Description The &#x60;JobInterviewStage&#x60; object is used to represent the stage of an interview  ### Usage Example Fetch from the &#x60;LIST JobInterviewStages&#x60; endpoint and view the job interview stages used by a company.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -65,7 +65,7 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'string',
         'name' => 'string',
         'job' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
     ];
 
     /**
@@ -330,7 +330,7 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets remote_data
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \MergeATSClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -340,7 +340,7 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets remote_data
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeATSClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

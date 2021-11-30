@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * Office Class Doc Comment
  *
  * @category Class
  * @description # The Office Object ### Description The &#x60;Office&#x60; object is used to represent an office within a company.  ### Usage Example Fetch from the &#x60;LIST Offices&#x60; endpoint and view the offices within a company.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -65,7 +65,7 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'name' => 'string',
         'location' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
     ];
 
     /**
@@ -330,7 +330,7 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \MergeATSClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -340,7 +340,7 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeATSClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

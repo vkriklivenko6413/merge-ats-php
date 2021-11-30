@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next** | **string** |  | [optional]
 **previous** | **string** |  | [optional]
-**results** | [**\MergeHRISClient\Model\EEOC[]**](EEOC.md) |  | [optional]
+**results** | [**\MergeATSClient\Model\EEOC[]**](EEOC.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

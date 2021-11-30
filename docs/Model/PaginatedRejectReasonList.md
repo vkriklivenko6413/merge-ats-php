@@ -6,6 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **next** | **string** |  | [optional]
 **previous** | **string** |  | [optional]
-**results** | [**\MergeHRISClient\Model\RejectReason[]**](RejectReason.md) |  | [optional]
+**results** | [**\MergeATSClient\Model\RejectReason[]**](RejectReason.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,4 +1,4 @@
-# MergeHRISClient\IssuesApi
+# MergeATSClient\IssuesApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `issuesList()`
 
 ```php
-issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status): \MergeHRISClient\Model\PaginatedIssueList
+issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status): \MergeATSClient\Model\PaginatedIssueList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\IssuesApi(
+$apiInstance = new MergeATSClient\Api\IssuesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedIssueList**](../Model/PaginatedIssueList.md)
+[**\MergeATSClient\Model\PaginatedIssueList**](../Model/PaginatedIssueList.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ## `issuesRetrieve()`
 
 ```php
-issuesRetrieve($id): \MergeHRISClient\Model\Issue
+issuesRetrieve($id): \MergeATSClient\Model\Issue
 ```
 
 
@@ -104,12 +104,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\IssuesApi(
+$apiInstance = new MergeATSClient\Api\IssuesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\Issue**](../Model/Issue.md)
+[**\MergeATSClient\Model\Issue**](../Model/Issue.md)
 
 ### Authorization
 

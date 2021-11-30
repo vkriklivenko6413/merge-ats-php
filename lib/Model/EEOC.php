@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * EEOC Class Doc Comment
  *
  * @category Class
  * @description # The EEOC Object ### Description The &#x60;EEOC&#x60; object is used to represent the Equal Employment Opportunity Commission information for a candidate.  ### Usage Example Fetch from the &#x60;LIST EEOCs&#x60; endpoint and filter by &#x60;candidate&#x60; to show all EEOC information for a candidate.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -69,7 +69,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'gender' => 'string',
         'veteran_status' => 'string',
         'disability_status' => 'string',
-        'remote_data' => '\MergeHRISClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
     ];
 
     /**
@@ -450,7 +450,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets remote_data
      *
-     * @return \MergeHRISClient\Model\RemoteData[]|null
+     * @return \MergeATSClient\Model\RemoteData[]|null
      */
     public function getRemoteData()
     {
@@ -460,7 +460,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets remote_data
      *
-     * @param \MergeHRISClient\Model\RemoteData[]|null $remote_data remote_data
+     * @param \MergeATSClient\Model\RemoteData[]|null $remote_data remote_data
      *
      * @return self
      */

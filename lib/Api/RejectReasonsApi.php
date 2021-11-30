@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * RejectReasonsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -128,9 +128,9 @@ class RejectReasonsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedRejectReasonList
+     * @return \MergeATSClient\Model\PaginatedRejectReasonList
      */
     public function rejectReasonsList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -151,9 +151,9 @@ class RejectReasonsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedRejectReasonList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedRejectReasonList, HTTP status code, HTTP response headers (array of strings)
      */
     public function rejectReasonsListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -189,20 +189,20 @@ class RejectReasonsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedRejectReasonList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedRejectReasonList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedRejectReasonList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedRejectReasonList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedRejectReasonList';
+            $returnType = '\MergeATSClient\Model\PaginatedRejectReasonList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -220,7 +220,7 @@ class RejectReasonsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedRejectReasonList',
+                        '\MergeATSClient\Model\PaginatedRejectReasonList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -274,7 +274,7 @@ class RejectReasonsApi
      */
     public function rejectReasonsListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedRejectReasonList';
+        $returnType = '\MergeATSClient\Model\PaginatedRejectReasonList';
         $request = $this->rejectReasonsListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -507,9 +507,9 @@ class RejectReasonsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\RejectReason
+     * @return \MergeATSClient\Model\RejectReason
      */
     public function rejectReasonsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -524,9 +524,9 @@ class RejectReasonsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\RejectReason, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\RejectReason, HTTP status code, HTTP response headers (array of strings)
      */
     public function rejectReasonsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -562,20 +562,20 @@ class RejectReasonsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\RejectReason' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\RejectReason' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\RejectReason', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\RejectReason', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\RejectReason';
+            $returnType = '\MergeATSClient\Model\RejectReason';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -593,7 +593,7 @@ class RejectReasonsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\RejectReason',
+                        '\MergeATSClient\Model\RejectReason',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -635,7 +635,7 @@ class RejectReasonsApi
      */
     public function rejectReasonsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\RejectReason';
+        $returnType = '\MergeATSClient\Model\RejectReason';
         $request = $this->rejectReasonsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client

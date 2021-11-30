@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * CandidateRequest Class Doc Comment
  *
  * @category Class
  * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions.  ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -72,9 +72,9 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_private' => 'bool',
         'can_email' => 'bool',
         'locations' => 'string[]',
-        'phone_numbers' => '\MergeHRISClient\Model\PhoneNumberRequest[]',
-        'email_addresses' => '\MergeHRISClient\Model\EmailAddressRequest[]',
-        'urls' => '\MergeHRISClient\Model\UrlRequest[]',
+        'phone_numbers' => '\MergeATSClient\Model\PhoneNumberRequest[]',
+        'email_addresses' => '\MergeATSClient\Model\EmailAddressRequest[]',
+        'urls' => '\MergeATSClient\Model\UrlRequest[]',
         'tags' => 'string[]',
         'applications' => 'string[]',
         'attachments' => 'string[]',
@@ -576,7 +576,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone_numbers
      *
-     * @return \MergeHRISClient\Model\PhoneNumberRequest[]|null
+     * @return \MergeATSClient\Model\PhoneNumberRequest[]|null
      */
     public function getPhoneNumbers()
     {
@@ -586,7 +586,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_numbers
      *
-     * @param \MergeHRISClient\Model\PhoneNumberRequest[]|null $phone_numbers phone_numbers
+     * @param \MergeATSClient\Model\PhoneNumberRequest[]|null $phone_numbers phone_numbers
      *
      * @return self
      */
@@ -600,7 +600,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email_addresses
      *
-     * @return \MergeHRISClient\Model\EmailAddressRequest[]|null
+     * @return \MergeATSClient\Model\EmailAddressRequest[]|null
      */
     public function getEmailAddresses()
     {
@@ -610,7 +610,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email_addresses
      *
-     * @param \MergeHRISClient\Model\EmailAddressRequest[]|null $email_addresses email_addresses
+     * @param \MergeATSClient\Model\EmailAddressRequest[]|null $email_addresses email_addresses
      *
      * @return self
      */
@@ -624,7 +624,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets urls
      *
-     * @return \MergeHRISClient\Model\UrlRequest[]|null
+     * @return \MergeATSClient\Model\UrlRequest[]|null
      */
     public function getUrls()
     {
@@ -634,7 +634,7 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets urls
      *
-     * @param \MergeHRISClient\Model\UrlRequest[]|null $urls urls
+     * @param \MergeATSClient\Model\UrlRequest[]|null $urls urls
      *
      * @return self
      */

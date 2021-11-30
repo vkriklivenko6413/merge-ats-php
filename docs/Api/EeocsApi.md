@@ -1,4 +1,4 @@
-# MergeHRISClient\EeocsApi
+# MergeATSClient\EeocsApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `eeocsList()`
 
 ```php
-eeocsList($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeHRISClient\Model\PaginatedEEOCList
+eeocsList($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id): \MergeATSClient\Model\PaginatedEEOCList
 ```
 
 
@@ -26,12 +26,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\EeocsApi(
+$apiInstance = new MergeATSClient\Api\EeocsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\PaginatedEEOCList**](../Model/PaginatedEEOCList.md)
+[**\MergeATSClient\Model\PaginatedEEOCList**](../Model/PaginatedEEOCList.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ## `eeocsRetrieve()`
 
 ```php
-eeocsRetrieve($x_account_token, $id, $include_remote_data): \MergeHRISClient\Model\EEOC
+eeocsRetrieve($x_account_token, $id, $include_remote_data): \MergeATSClient\Model\EEOC
 ```
 
 
@@ -106,12 +106,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\EeocsApi(
+$apiInstance = new MergeATSClient\Api\EeocsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MergeHRISClient\Model\EEOC**](../Model/EEOC.md)
+[**\MergeATSClient\Model\EEOC**](../Model/EEOC.md)
 
 ### Authorization
 

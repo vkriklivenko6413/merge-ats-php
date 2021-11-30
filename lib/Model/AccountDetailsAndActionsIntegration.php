@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * AccountDetailsAndActionsIntegration Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,13 +61,13 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'categories' => '\MergeHRISClient\Model\CategoriesEnum',
+        'categories' => '\MergeATSClient\Model\CategoriesEnum',
         'image' => 'string',
         'square_image' => 'string',
         'color' => 'string',
         'slug' => 'string',
         'passthrough_available' => 'bool',
-        'available_model_operations' => '\MergeHRISClient\Model\ModelOperation[]'
+        'available_model_operations' => '\MergeATSClient\Model\ModelOperation[]'
     ];
 
     /**
@@ -290,7 +290,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Gets categories
      *
-     * @return \MergeHRISClient\Model\CategoriesEnum
+     * @return \MergeATSClient\Model\CategoriesEnum
      */
     public function getCategories()
     {
@@ -300,7 +300,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Sets categories
      *
-     * @param \MergeHRISClient\Model\CategoriesEnum $categories categories
+     * @param \MergeATSClient\Model\CategoriesEnum $categories categories
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Gets available_model_operations
      *
-     * @return \MergeHRISClient\Model\ModelOperation[]|null
+     * @return \MergeATSClient\Model\ModelOperation[]|null
      */
     public function getAvailableModelOperations()
     {
@@ -444,7 +444,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Sets available_model_operations
      *
-     * @param \MergeHRISClient\Model\ModelOperation[]|null $available_model_operations available_model_operations
+     * @param \MergeATSClient\Model\ModelOperation[]|null $available_model_operations available_model_operations
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
+namespace MergeATSClient\Model;
 
 use \ArrayAccess;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * PaginatedScorecardList Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class PaginatedScorecardList implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'next' => 'string',
         'previous' => 'string',
-        'results' => '\MergeHRISClient\Model\Scorecard[]'
+        'results' => '\MergeATSClient\Model\Scorecard[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class PaginatedScorecardList implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets results
      *
-     * @return \MergeHRISClient\Model\Scorecard[]|null
+     * @return \MergeATSClient\Model\Scorecard[]|null
      */
     public function getResults()
     {
@@ -279,7 +279,7 @@ class PaginatedScorecardList implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets results
      *
-     * @param \MergeHRISClient\Model\Scorecard[]|null $results results
+     * @param \MergeATSClient\Model\Scorecard[]|null $results results
      *
      * @return self
      */

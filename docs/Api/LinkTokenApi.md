@@ -1,4 +1,4 @@
-# MergeHRISClient\LinkTokenApi
+# MergeATSClient\LinkTokenApi
 
 All URIs are relative to https://api.merge.dev/api/ats/v1.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `linkTokenCreate()`
 
 ```php
-linkTokenCreate($end_user_details_request): \MergeHRISClient\Model\LinkToken
+linkTokenCreate($end_user_details_request): \MergeATSClient\Model\LinkToken
 ```
 
 
@@ -25,18 +25,18 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: tokenAuth
-$config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = MergeHRISClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = MergeATSClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new MergeHRISClient\Api\LinkTokenApi(
+$apiInstance = new MergeATSClient\Api\LinkTokenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$end_user_details_request = new \MergeHRISClient\Model\EndUserDetailsRequest(); // \MergeHRISClient\Model\EndUserDetailsRequest
+$end_user_details_request = new \MergeATSClient\Model\EndUserDetailsRequest(); // \MergeATSClient\Model\EndUserDetailsRequest
 
 try {
     $result = $apiInstance->linkTokenCreate($end_user_details_request);
@@ -50,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_user_details_request** | [**\MergeHRISClient\Model\EndUserDetailsRequest**](../Model/EndUserDetailsRequest.md)|  |
+ **end_user_details_request** | [**\MergeATSClient\Model\EndUserDetailsRequest**](../Model/EndUserDetailsRequest.md)|  |
 
 ### Return type
 
-[**\MergeHRISClient\Model\LinkToken**](../Model/LinkToken.md)
+[**\MergeATSClient\Model\LinkToken**](../Model/LinkToken.md)
 
 ### Authorization
 

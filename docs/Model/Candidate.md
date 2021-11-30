@@ -16,13 +16,13 @@ Name | Type | Description | Notes
 **is_private** | **bool** | Whether or not the candidate is private. | [optional]
 **can_email** | **bool** | Whether or not the candidate can be emailed. | [optional]
 **locations** | **string[]** | The candidate&#39;s locations. | [optional]
-**phone_numbers** | [**\MergeHRISClient\Model\PhoneNumber[]**](PhoneNumber.md) |  | [optional]
-**email_addresses** | [**\MergeHRISClient\Model\EmailAddress[]**](EmailAddress.md) |  | [optional]
-**urls** | [**\MergeHRISClient\Model\Url[]**](Url.md) |  | [optional]
+**phone_numbers** | [**\MergeATSClient\Model\PhoneNumber[]**](PhoneNumber.md) |  | [optional]
+**email_addresses** | [**\MergeATSClient\Model\EmailAddress[]**](EmailAddress.md) |  | [optional]
+**urls** | [**\MergeATSClient\Model\Url[]**](Url.md) |  | [optional]
 **tags** | **string[]** | Array of &#x60;Tag&#x60; names as strings. | [optional]
 **applications** | **string[]** | Array of &#x60;Application&#x60; object IDs. | [optional]
 **attachments** | **string[]** | Array of &#x60;Attachment&#x60; object IDs. | [optional]
-**remote_data** | [**\MergeHRISClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
+**remote_data** | [**\MergeATSClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

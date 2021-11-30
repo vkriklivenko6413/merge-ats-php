@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Api;
+namespace MergeATSClient\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MergeHRISClient\ApiException;
-use MergeHRISClient\Configuration;
-use MergeHRISClient\HeaderSelector;
-use MergeHRISClient\ObjectSerializer;
+use MergeATSClient\ApiException;
+use MergeATSClient\Configuration;
+use MergeATSClient\HeaderSelector;
+use MergeATSClient\ObjectSerializer;
 
 /**
  * EeocsApi Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -129,9 +129,9 @@ class EeocsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\PaginatedEEOCList
+     * @return \MergeATSClient\Model\PaginatedEEOCList
      */
     public function eeocsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -153,9 +153,9 @@ class EeocsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\PaginatedEEOCList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\PaginatedEEOCList, HTTP status code, HTTP response headers (array of strings)
      */
     public function eeocsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
@@ -191,20 +191,20 @@ class EeocsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\PaginatedEEOCList' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\PaginatedEEOCList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\PaginatedEEOCList', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\PaginatedEEOCList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\PaginatedEEOCList';
+            $returnType = '\MergeATSClient\Model\PaginatedEEOCList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -222,7 +222,7 @@ class EeocsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\PaginatedEEOCList',
+                        '\MergeATSClient\Model\PaginatedEEOCList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -278,7 +278,7 @@ class EeocsApi
      */
     public function eeocsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $returnType = '\MergeHRISClient\Model\PaginatedEEOCList';
+        $returnType = '\MergeATSClient\Model\PaginatedEEOCList';
         $request = $this->eeocsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
@@ -523,9 +523,9 @@ class EeocsApi
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeHRISClient\Model\EEOC
+     * @return \MergeATSClient\Model\EEOC
      */
     public function eeocsRetrieve($x_account_token, $id, $include_remote_data = null)
     {
@@ -540,9 +540,9 @@ class EeocsApi
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      *
-     * @throws \MergeHRISClient\ApiException on non-2xx response
+     * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeHRISClient\Model\EEOC, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\EEOC, HTTP status code, HTTP response headers (array of strings)
      */
     public function eeocsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
@@ -578,20 +578,20 @@ class EeocsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\MergeHRISClient\Model\EEOC' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\EEOC' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeHRISClient\Model\EEOC', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\EEOC', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeHRISClient\Model\EEOC';
+            $returnType = '\MergeATSClient\Model\EEOC';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -609,7 +609,7 @@ class EeocsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeHRISClient\Model\EEOC',
+                        '\MergeATSClient\Model\EEOC',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -651,7 +651,7 @@ class EeocsApi
      */
     public function eeocsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
     {
-        $returnType = '\MergeHRISClient\Model\EEOC';
+        $returnType = '\MergeATSClient\Model\EEOC';
         $request = $this->eeocsRetrieveRequest($x_account_token, $id, $include_remote_data);
 
         return $this->client
