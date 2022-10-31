@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace MergeHRISClient\Test\Model;
+namespace MergeATSClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,8 +35,8 @@ use PHPUnit\Framework\TestCase;
  * DepartmentTest Class Doc Comment
  *
  * @category    Class
- * @description # The Department Object ### Description The &#x60;Department&#x60; object is used to represent a department within a company.  ### Usage Example Fetch from the &#x60;LIST Departments&#x60; endpoint and view the departments within a company.
- * @package     MergeHRISClient
+ * @description # The Department Object ### Description The &#x60;Department&#x60; object is used to represent a department within a company. ### Usage Example Fetch from the &#x60;LIST Departments&#x60; endpoint and view the departments within a company.
+ * @package     MergeATSClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -111,6 +111,15 @@ class DepartmentTest extends TestCase
      * Test attribute "remote_data"
      */
     public function testPropertyRemoteData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_was_deleted"
+     */
+    public function testPropertyRemoteWasDeleted()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

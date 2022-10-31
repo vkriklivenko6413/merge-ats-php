@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace MergeHRISClient\Test\Model;
+namespace MergeATSClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,8 +35,8 @@ use PHPUnit\Framework\TestCase;
  * UrlRequestTest Class Doc Comment
  *
  * @category    Class
- * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent a candidate&#39;s website.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
- * @package     MergeHRISClient
+ * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent hyperlinks associated with the parent model. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
+ * @package     MergeATSClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

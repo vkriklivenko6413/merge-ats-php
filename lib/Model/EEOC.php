@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * EEOC Class Doc Comment
  *
  * @category Class
- * @description # The EEOC Object ### Description The &#x60;EEOC&#x60; object is used to represent the Equal Employment Opportunity Commission information for a candidate.  ### Usage Example Fetch from the &#x60;LIST EEOCs&#x60; endpoint and filter by &#x60;candidate&#x60; to show all EEOC information for a candidate.
+ * @description # The EEOC Object ### Description The &#x60;EEOC&#x60; object is used to represent the Equal Employment Opportunity Commission information for a candidate. ### Usage Example Fetch from the &#x60;LIST EEOCs&#x60; endpoint and filter by &#x60;candidate&#x60; to show all EEOC information for a candidate.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,11 +65,12 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'candidate' => 'string',
         'submitted_at' => '\DateTime',
-        'race' => 'string',
-        'gender' => 'string',
-        'veteran_status' => 'string',
-        'disability_status' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'race' => 'RaceEnum',
+        'gender' => 'GenderEnum',
+        'veteran_status' => 'VeteranStatusEnum',
+        'disability_status' => 'DisabilityStatusEnum',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -88,7 +89,8 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'gender' => null,
         'veteran_status' => null,
         'disability_status' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'gender' => 'gender',
         'veteran_status' => 'veteran_status',
         'disability_status' => 'disability_status',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -143,7 +146,8 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'gender' => 'setGender',
         'veteran_status' => 'setVeteranStatus',
         'disability_status' => 'setDisabilityStatus',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -160,7 +164,8 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         'gender' => 'getGender',
         'veteran_status' => 'getVeteranStatus',
         'disability_status' => 'getDisabilityStatus',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -229,6 +234,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['veteran_status'] = $data['veteran_status'] ?? null;
         $this->container['disability_status'] = $data['disability_status'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -316,7 +322,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets candidate
      *
-     * @param string|null $candidate The candidate being represented.
+     * @param string|null $candidate candidate
      *
      * @return self
      */
@@ -354,7 +360,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets race
      *
-     * @return string|null
+     * @return RaceEnum|null
      */
     public function getRace()
     {
@@ -364,7 +370,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets race
      *
-     * @param string|null $race race
+     * @param RaceEnum|null $race The candidate's race.
      *
      * @return self
      */
@@ -378,7 +384,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets gender
      *
-     * @return string|null
+     * @return GenderEnum|null
      */
     public function getGender()
     {
@@ -388,7 +394,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gender
      *
-     * @param string|null $gender gender
+     * @param GenderEnum|null $gender The candidate's gender.
      *
      * @return self
      */
@@ -402,7 +408,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets veteran_status
      *
-     * @return string|null
+     * @return VeteranStatusEnum|null
      */
     public function getVeteranStatus()
     {
@@ -412,7 +418,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets veteran_status
      *
-     * @param string|null $veteran_status veteran_status
+     * @param VeteranStatusEnum|null $veteran_status The candidate's veteran status.
      *
      * @return self
      */
@@ -426,7 +432,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets disability_status
      *
-     * @return string|null
+     * @return DisabilityStatusEnum|null
      */
     public function getDisabilityStatus()
     {
@@ -436,7 +442,7 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets disability_status
      *
-     * @param string|null $disability_status disability_status
+     * @param DisabilityStatusEnum|null $disability_status The candidate's disability status.
      *
      * @return self
      */
@@ -467,6 +473,30 @@ class EEOC implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

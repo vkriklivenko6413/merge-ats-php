@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * CandidateRequest Class Doc Comment
  *
  * @category Class
- * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions.  ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
+ * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions. ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -78,7 +78,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'tags' => 'string[]',
         'applications' => 'string[]',
         'attachments' => 'string[]',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'remote_template_id' => 'string',
+        'integration_params' => 'array<string,mixed>',
+        'linked_account_params' => 'array<string,mixed>'
     ];
 
     /**
@@ -106,7 +109,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'tags' => null,
         'applications' => 'uuid',
         'attachments' => 'uuid',
-        'custom_fields' => null
+        'custom_fields' => null,
+        'remote_template_id' => null,
+        'integration_params' => null,
+        'linked_account_params' => null
     ];
 
     /**
@@ -153,7 +159,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'tags' => 'tags',
         'applications' => 'applications',
         'attachments' => 'attachments',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'remote_template_id' => 'remote_template_id',
+        'integration_params' => 'integration_params',
+        'linked_account_params' => 'linked_account_params'
     ];
 
     /**
@@ -179,7 +188,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'tags' => 'setTags',
         'applications' => 'setApplications',
         'attachments' => 'setAttachments',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'remote_template_id' => 'setRemoteTemplateId',
+        'integration_params' => 'setIntegrationParams',
+        'linked_account_params' => 'setLinkedAccountParams'
     ];
 
     /**
@@ -205,7 +217,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'tags' => 'getTags',
         'applications' => 'getApplications',
         'attachments' => 'getAttachments',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'remote_template_id' => 'getRemoteTemplateId',
+        'integration_params' => 'getIntegrationParams',
+        'linked_account_params' => 'getLinkedAccountParams'
     ];
 
     /**
@@ -283,6 +298,9 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['applications'] = $data['applications'] ?? null;
         $this->container['attachments'] = $data['attachments'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['remote_template_id'] = $data['remote_template_id'] ?? null;
+        $this->container['integration_params'] = $data['integration_params'] ?? null;
+        $this->container['linked_account_params'] = $data['linked_account_params'] ?? null;
     }
 
     /**
@@ -293,6 +311,10 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['remote_template_id']) && (mb_strlen($this->container['remote_template_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'remote_template_id', the character length must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -737,6 +759,83 @@ class CandidateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_template_id
+     *
+     * @return string|null
+     */
+    public function getRemoteTemplateId()
+    {
+        return $this->container['remote_template_id'];
+    }
+
+    /**
+     * Sets remote_template_id
+     *
+     * @param string|null $remote_template_id remote_template_id
+     *
+     * @return self
+     */
+    public function setRemoteTemplateId($remote_template_id)
+    {
+
+        if (!is_null($remote_template_id) && (mb_strlen($remote_template_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $remote_template_id when calling CandidateRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['remote_template_id'] = $remote_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getIntegrationParams()
+    {
+        return $this->container['integration_params'];
+    }
+
+    /**
+     * Sets integration_params
+     *
+     * @param array<string,mixed>|null $integration_params integration_params
+     *
+     * @return self
+     */
+    public function setIntegrationParams($integration_params)
+    {
+        $this->container['integration_params'] = $integration_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_account_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getLinkedAccountParams()
+    {
+        return $this->container['linked_account_params'];
+    }
+
+    /**
+     * Sets linked_account_params
+     *
+     * @param array<string,mixed>|null $linked_account_params linked_account_params
+     *
+     * @return self
+     */
+    public function setLinkedAccountParams($linked_account_params)
+    {
+        $this->container['linked_account_params'] = $linked_account_params;
 
         return $this;
     }

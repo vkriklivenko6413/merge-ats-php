@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * EmailAddress Class Doc Comment
  *
  * @category Class
- * @description # The EmailAddress Object ### Description The &#x60;EmailAddress&#x60; object is used to represent a candidate&#39;s email address.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their email addresses.
+ * @description # The EmailAddress Object ### Description The &#x60;EmailAddress&#x60; object is used to represent a candidate&#39;s email address. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their email addresses.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,7 +62,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'email_address_type' => 'string'
+        'email_address_type' => 'EmailAddressTypeEnum'
     ];
 
     /**
@@ -248,7 +248,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets email_address_type
      *
-     * @return string|null
+     * @return EmailAddressTypeEnum|null
      */
     public function getEmailAddressType()
     {
@@ -258,7 +258,7 @@ class EmailAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email_address_type
      *
-     * @param string|null $email_address_type email_address_type
+     * @param EmailAddressTypeEnum|null $email_address_type The type of email address.
      *
      * @return self
      */

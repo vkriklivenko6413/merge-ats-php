@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace MergeHRISClient\Test\Model;
+namespace MergeATSClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,8 +35,8 @@ use PHPUnit\Framework\TestCase;
  * JobTest Class Doc Comment
  *
  * @category    Class
- * @description # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Job offering at a company.  ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint to show all job postings.
- * @package     MergeHRISClient
+ * @description # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Job offering at a company. ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint to show all job postings.
+ * @package     MergeATSClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -135,6 +135,15 @@ class JobTest extends TestCase
     }
 
     /**
+     * Test attribute "job_posting_urls"
+     */
+    public function testPropertyJobPostingUrls()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "remote_created_at"
      */
     public function testPropertyRemoteCreatedAt()
@@ -189,9 +198,27 @@ class JobTest extends TestCase
     }
 
     /**
+     * Test attribute "recruiters"
+     */
+    public function testPropertyRecruiters()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "remote_data"
      */
     public function testPropertyRemoteData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_was_deleted"
+     */
+    public function testPropertyRemoteWasDeleted()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

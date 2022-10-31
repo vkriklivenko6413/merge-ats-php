@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * AttachmentRequest Class Doc Comment
  *
  * @category Class
- * @description # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
+ * @description # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate. ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,7 +64,10 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'string',
         'file_name' => 'string',
         'file_url' => 'string',
-        'candidate' => 'string'
+        'candidate' => 'string',
+        'attachment_type' => 'AttachmentTypeEnum',
+        'integration_params' => 'array<string,mixed>',
+        'linked_account_params' => 'array<string,mixed>'
     ];
 
     /**
@@ -78,7 +81,10 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => null,
         'file_name' => null,
         'file_url' => 'uri',
-        'candidate' => 'uuid'
+        'candidate' => 'uuid',
+        'attachment_type' => null,
+        'integration_params' => null,
+        'linked_account_params' => null
     ];
 
     /**
@@ -111,7 +117,10 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'remote_id',
         'file_name' => 'file_name',
         'file_url' => 'file_url',
-        'candidate' => 'candidate'
+        'candidate' => 'candidate',
+        'attachment_type' => 'attachment_type',
+        'integration_params' => 'integration_params',
+        'linked_account_params' => 'linked_account_params'
     ];
 
     /**
@@ -123,7 +132,10 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'setRemoteId',
         'file_name' => 'setFileName',
         'file_url' => 'setFileUrl',
-        'candidate' => 'setCandidate'
+        'candidate' => 'setCandidate',
+        'attachment_type' => 'setAttachmentType',
+        'integration_params' => 'setIntegrationParams',
+        'linked_account_params' => 'setLinkedAccountParams'
     ];
 
     /**
@@ -135,7 +147,10 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'getRemoteId',
         'file_name' => 'getFileName',
         'file_url' => 'getFileUrl',
-        'candidate' => 'getCandidate'
+        'candidate' => 'getCandidate',
+        'attachment_type' => 'getAttachmentType',
+        'integration_params' => 'getIntegrationParams',
+        'linked_account_params' => 'getLinkedAccountParams'
     ];
 
     /**
@@ -199,6 +214,9 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['file_name'] = $data['file_name'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['candidate'] = $data['candidate'] ?? null;
+        $this->container['attachment_type'] = $data['attachment_type'] ?? null;
+        $this->container['integration_params'] = $data['integration_params'] ?? null;
+        $this->container['linked_account_params'] = $data['linked_account_params'] ?? null;
     }
 
     /**
@@ -325,6 +343,78 @@ class AttachmentRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setCandidate($candidate)
     {
         $this->container['candidate'] = $candidate;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachment_type
+     *
+     * @return AttachmentTypeEnum|null
+     */
+    public function getAttachmentType()
+    {
+        return $this->container['attachment_type'];
+    }
+
+    /**
+     * Sets attachment_type
+     *
+     * @param AttachmentTypeEnum|null $attachment_type The attachment's type.
+     *
+     * @return self
+     */
+    public function setAttachmentType($attachment_type)
+    {
+        $this->container['attachment_type'] = $attachment_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getIntegrationParams()
+    {
+        return $this->container['integration_params'];
+    }
+
+    /**
+     * Sets integration_params
+     *
+     * @param array<string,mixed>|null $integration_params integration_params
+     *
+     * @return self
+     */
+    public function setIntegrationParams($integration_params)
+    {
+        $this->container['integration_params'] = $integration_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_account_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getLinkedAccountParams()
+    {
+        return $this->container['linked_account_params'];
+    }
+
+    /**
+     * Sets linked_account_params
+     *
+     * @param array<string,mixed>|null $linked_account_params linked_account_params
+     *
+     * @return self
+     */
+    public function setLinkedAccountParams($linked_account_params)
+    {
+        $this->container['linked_account_params'] = $linked_account_params;
 
         return $this;
     }

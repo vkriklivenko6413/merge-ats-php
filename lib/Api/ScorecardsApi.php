@@ -116,306 +116,6 @@ class ScorecardsApi
     }
 
     /**
-     * Operation scorecardsCreate
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request scorecard_request (optional)
-     *
-     * @throws \MergeATSClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \MergeATSClient\Model\Scorecard
-     */
-    public function scorecardsCreate($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
-    {
-        list($response) = $this->scorecardsCreateWithHttpInfo($x_account_token, $remote_user_id, $run_async, $scorecard_request);
-        return $response;
-    }
-
-    /**
-     * Operation scorecardsCreateWithHttpInfo
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
-     *
-     * @throws \MergeATSClient\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \MergeATSClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function scorecardsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
-    {
-        $request = $this->scorecardsCreateRequest($x_account_token, $remote_user_id, $run_async, $scorecard_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 201:
-                    if ('\MergeATSClient\Model\Scorecard' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Scorecard', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\MergeATSClient\Model\Scorecard';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\MergeATSClient\Model\Scorecard',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation scorecardsCreateAsync
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function scorecardsCreateAsync($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
-    {
-        return $this->scorecardsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id, $run_async, $scorecard_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation scorecardsCreateAsyncWithHttpInfo
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function scorecardsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
-    {
-        $returnType = '\MergeATSClient\Model\Scorecard';
-        $request = $this->scorecardsCreateRequest($x_account_token, $remote_user_id, $run_async, $scorecard_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'scorecardsCreate'
-     *
-     * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
-     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ScorecardRequest $scorecard_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function scorecardsCreateRequest($x_account_token, $remote_user_id = null, $run_async = null, $scorecard_request = null)
-    {
-        // verify the required parameter 'x_account_token' is set
-        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $x_account_token when calling scorecardsCreate'
-            );
-        }
-
-        $resourcePath = '/scorecards';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($remote_user_id !== null) {
-            if('form' === 'form' && is_array($remote_user_id)) {
-                foreach($remote_user_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['remote_user_id'] = $remote_user_id;
-            }
-        }
-        // query params
-        if ($run_async !== null) {
-            if('form' === 'form' && is_array($run_async)) {
-                foreach($run_async as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['run_async'] = $run_async;
-            }
-        }
-
-        // header params
-        if ($x_account_token !== null) {
-            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($scorecard_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($scorecard_request));
-            } else {
-                $httpBody = $scorecard_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation scorecardsList
      *
      * @param  string $x_account_token Token identifying the end user. (required)
@@ -423,21 +123,23 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedScorecardList
      */
-    public function scorecardsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        list($response) = $this->scorecardsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->scorecardsListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
         return $response;
     }
 
@@ -449,21 +151,23 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedScorecardList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scorecardsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -544,20 +248,22 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        return $this->scorecardsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->scorecardsListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -573,21 +279,23 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedScorecardList';
-        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->scorecardsListRequest($x_account_token, $application_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $interview_id, $interviewer_id, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -630,18 +338,20 @@ class ScorecardsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $interview_id If provided, will only return scorecards for this interview. (optional)
      * @param  string $interviewer_id If provided, will only return scorecards for this interviewer. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scorecardsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function scorecardsListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $interview_id = null, $interviewer_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -699,6 +409,17 @@ class ScorecardsApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
+            }
+        }
+        // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
             }
         }
         // query params
@@ -765,6 +486,17 @@ class ScorecardsApi
             }
             else {
                 $queryParams['page_size'] = $page_size;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
         // query params
@@ -854,14 +586,15 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\Scorecard
      */
-    public function scorecardsRetrieve($x_account_token, $id, $include_remote_data = null)
+    public function scorecardsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        list($response) = $this->scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
+        list($response) = $this->scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
         return $response;
     }
 
@@ -871,14 +604,15 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\Scorecard, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function scorecardsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -957,13 +691,14 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
+    public function scorecardsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        return $this->scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
+        return $this->scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -977,14 +712,15 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function scorecardsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         $returnType = '\MergeATSClient\Model\Scorecard';
-        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1025,11 +761,12 @@ class ScorecardsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
+    public function scorecardsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1060,6 +797,17 @@ class ScorecardsApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

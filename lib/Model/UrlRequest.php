@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * UrlRequest Class Doc Comment
  *
  * @category Class
- * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent a candidate&#39;s website.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
+ * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent hyperlinks associated with the parent model. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,8 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string'
+        'value' => 'string',
+        'url_type' => 'UrlTypeEnum'
     ];
 
     /**
@@ -72,7 +73,8 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => 'uri'
+        'value' => 'uri',
+        'url_type' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value'
+        'value' => 'value',
+        'url_type' => 'url_type'
     ];
 
     /**
@@ -111,7 +114,8 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'url_type' => 'setUrlType'
     ];
 
     /**
@@ -120,7 +124,8 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'url_type' => 'getUrlType'
     ];
 
     /**
@@ -181,6 +186,7 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['url_type'] = $data['url_type'] ?? null;
     }
 
     /**
@@ -235,6 +241,30 @@ class UrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_type
+     *
+     * @return UrlTypeEnum|null
+     */
+    public function getUrlType()
+    {
+        return $this->container['url_type'];
+    }
+
+    /**
+     * Sets url_type
+     *
+     * @param UrlTypeEnum|null $url_type The type of site.
+     *
+     * @return self
+     */
+    public function setUrlType($url_type)
+    {
+        $this->container['url_type'] = $url_type;
 
         return $this;
     }

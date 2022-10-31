@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Offer Class Doc Comment
  *
  * @category Class
- * @description # The Offer Object ### Description The &#x60;Offer&#x60; object is used to represent an offer for an application.  ### Usage Example Fetch from the &#x60;LIST Offers&#x60; endpoint and filter by &#x60;ID&#x60; to show all offers.
+ * @description # The Offer Object ### Description The &#x60;Offer&#x60; object is used to represent an offer for an application. ### Usage Example Fetch from the &#x60;LIST Offers&#x60; endpoint and filter by &#x60;ID&#x60; to show all offers.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -69,8 +69,9 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'closed_at' => '\DateTime',
         'sent_at' => '\DateTime',
         'start_date' => '\DateTime',
-        'status' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'status' => 'OfferStatusEnum',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -90,7 +91,8 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'sent_at' => 'date-time',
         'start_date' => 'date-time',
         'status' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'sent_at' => 'sent_at',
         'start_date' => 'start_date',
         'status' => 'status',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -147,7 +150,8 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'sent_at' => 'setSentAt',
         'start_date' => 'setStartDate',
         'status' => 'setStatus',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -165,7 +169,8 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         'sent_at' => 'getSentAt',
         'start_date' => 'getStartDate',
         'status' => 'getStatus',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -235,6 +240,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['start_date'] = $data['start_date'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -322,7 +328,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets application
      *
-     * @param string|null $application The application who is receiving the offer.
+     * @param string|null $application application
      *
      * @return self
      */
@@ -346,7 +352,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets creator
      *
-     * @param string|null $creator The user who created the offer.
+     * @param string|null $creator creator
      *
      * @return self
      */
@@ -456,7 +462,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string|null
+     * @return OfferStatusEnum|null
      */
     public function getStatus()
     {
@@ -466,7 +472,7 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param OfferStatusEnum|null $status The offer's status.
      *
      * @return self
      */
@@ -497,6 +503,30 @@ class Offer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

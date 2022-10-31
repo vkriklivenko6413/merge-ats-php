@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **attachments** | **string[]** | Array of &#x60;Attachment&#x60; object IDs. | [optional]
 **remote_data** | [**\MergeATSClient\Model\RemoteData[]**](RemoteData.md) |  | [optional] [readonly]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
+**remote_was_deleted** | **bool** |  | [optional] [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

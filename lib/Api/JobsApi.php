@@ -123,10 +123,12 @@ class JobsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
@@ -134,9 +136,9 @@ class JobsApi
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedJobList
      */
-    public function jobsList($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
+    public function jobsList($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $status = null)
     {
-        list($response) = $this->jobsListWithHttpInfo($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
+        list($response) = $this->jobsListWithHttpInfo($x_account_token, $code, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $status);
         return $response;
     }
 
@@ -148,10 +150,12 @@ class JobsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
@@ -159,9 +163,9 @@ class JobsApi
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedJobList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobsListWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
+    public function jobsListWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $status = null)
     {
-        $request = $this->jobsListRequest($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
+        $request = $this->jobsListRequest($x_account_token, $code, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -242,19 +246,21 @@ class JobsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsync($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
+    public function jobsListAsync($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $status = null)
     {
-        return $this->jobsListAsyncWithHttpInfo($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status)
+        return $this->jobsListAsyncWithHttpInfo($x_account_token, $code, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -270,20 +276,22 @@ class JobsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsyncWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
+    public function jobsListAsyncWithHttpInfo($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $status = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedJobList';
-        $request = $this->jobsListRequest($x_account_token, $code, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id, $status);
+        $request = $this->jobsListRequest($x_account_token, $code, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -326,17 +334,19 @@ class JobsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      * @param  string $status If provided, will only return jobs with this status. Options: (&#39;OPEN&#39;, &#39;CLOSED&#39;, &#39;DRAFT&#39;, &#39;ARCHIVED&#39;, &#39;PENDING&#39;) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function jobsListRequest($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null, $status = null)
+    public function jobsListRequest($x_account_token, $code = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null, $status = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -397,6 +407,17 @@ class JobsApi
             }
         }
         // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
+            }
+        }
+        // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {
                 foreach($include_remote_data as $key => $value) {
@@ -438,6 +459,17 @@ class JobsApi
             }
             else {
                 $queryParams['page_size'] = $page_size;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
         // query params
@@ -538,14 +570,15 @@ class JobsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\Job
      */
-    public function jobsRetrieve($x_account_token, $id, $include_remote_data = null)
+    public function jobsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        list($response) = $this->jobsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
+        list($response) = $this->jobsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
         return $response;
     }
 
@@ -555,14 +588,15 @@ class JobsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\Job, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function jobsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        $request = $this->jobsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->jobsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -641,13 +675,14 @@ class JobsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
+    public function jobsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        return $this->jobsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
+        return $this->jobsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -661,14 +696,15 @@ class JobsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function jobsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         $returnType = '\MergeATSClient\Model\Job';
-        $request = $this->jobsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->jobsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -709,11 +745,12 @@ class JobsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function jobsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
+    public function jobsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -744,6 +781,17 @@ class JobsApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

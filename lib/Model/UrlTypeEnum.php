@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,14 +27,14 @@
  * Do not edit the class manually.
  */
 
-namespace MergeHRISClient\Model;
-use \MergeHRISClient\ObjectSerializer;
+namespace MergeATSClient\Model;
+use \MergeATSClient\ObjectSerializer;
 
 /**
  * UrlTypeEnum Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -49,6 +49,7 @@ class UrlTypeEnum
     const BLOG = 'BLOG';
     const SOCIAL_MEDIA = 'SOCIAL_MEDIA';
     const OTHER = 'OTHER';
+    const JOB_POSTING = 'JOB_POSTING';
     
     /**
      * Gets allowable values of the enum
@@ -63,6 +64,7 @@ class UrlTypeEnum
             self::BLOG,
             self::SOCIAL_MEDIA,
             self::OTHER,
+            self::JOB_POSTING,
         ];
     }
 }

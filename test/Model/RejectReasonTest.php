@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace MergeHRISClient\Test\Model;
+namespace MergeATSClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,8 +35,8 @@ use PHPUnit\Framework\TestCase;
  * RejectReasonTest Class Doc Comment
  *
  * @category    Class
- * @description # The RejectReason Object ### Description The &#x60;RejectReason&#x60; object is used to represent a reason for rejecting an application.  ### Usage Example Fetch from the &#x60;LIST RejectReasons&#x60; endpoint and filter by &#x60;ID&#x60; to show all reasons.
- * @package     MergeHRISClient
+ * @description # The RejectReason Object ### Description The &#x60;RejectReason&#x60; object is used to represent a reason for rejecting an application. ### Usage Example Fetch from the &#x60;LIST RejectReasons&#x60; endpoint and filter by &#x60;ID&#x60; to show all reasons.
+ * @package     MergeATSClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -111,6 +111,15 @@ class RejectReasonTest extends TestCase
      * Test attribute "remote_data"
      */
     public function testPropertyRemoteData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "remote_was_deleted"
+     */
+    public function testPropertyRemoteWasDeleted()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -63,8 +63,10 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_email_address' => 'string',
         'end_user_organization_name' => 'string',
         'end_user_origin_id' => 'string',
-        'categories' => 'string[]',
-        'integration' => 'string'
+        'categories' => '\MergeATSClient\Model\CategoriesEnum[]',
+        'integration' => 'string',
+        'link_expiry_mins' => 'int',
+        'should_create_magic_link_url' => 'bool'
     ];
 
     /**
@@ -79,7 +81,9 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_organization_name' => null,
         'end_user_origin_id' => null,
         'categories' => null,
-        'integration' => null
+        'integration' => null,
+        'link_expiry_mins' => null,
+        'should_create_magic_link_url' => null
     ];
 
     /**
@@ -113,7 +117,9 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_organization_name' => 'end_user_organization_name',
         'end_user_origin_id' => 'end_user_origin_id',
         'categories' => 'categories',
-        'integration' => 'integration'
+        'integration' => 'integration',
+        'link_expiry_mins' => 'link_expiry_mins',
+        'should_create_magic_link_url' => 'should_create_magic_link_url'
     ];
 
     /**
@@ -126,7 +132,9 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_organization_name' => 'setEndUserOrganizationName',
         'end_user_origin_id' => 'setEndUserOriginId',
         'categories' => 'setCategories',
-        'integration' => 'setIntegration'
+        'integration' => 'setIntegration',
+        'link_expiry_mins' => 'setLinkExpiryMins',
+        'should_create_magic_link_url' => 'setShouldCreateMagicLinkUrl'
     ];
 
     /**
@@ -139,7 +147,9 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'end_user_organization_name' => 'getEndUserOrganizationName',
         'end_user_origin_id' => 'getEndUserOriginId',
         'categories' => 'getCategories',
-        'integration' => 'getIntegration'
+        'integration' => 'getIntegration',
+        'link_expiry_mins' => 'getLinkExpiryMins',
+        'should_create_magic_link_url' => 'getShouldCreateMagicLinkUrl'
     ];
 
     /**
@@ -183,23 +193,6 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    const CATEGORIES_HRIS = 'hris';
-    const CATEGORIES_ATS = 'ats';
-    const CATEGORIES_ACCOUNTING = 'accounting';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCategoriesAllowableValues()
-    {
-        return [
-            self::CATEGORIES_HRIS,
-            self::CATEGORIES_ATS,
-            self::CATEGORIES_ACCOUNTING,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -221,6 +214,8 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['end_user_origin_id'] = $data['end_user_origin_id'] ?? null;
         $this->container['categories'] = $data['categories'] ?? null;
         $this->container['integration'] = $data['integration'] ?? null;
+        $this->container['link_expiry_mins'] = $data['link_expiry_mins'] ?? 30;
+        $this->container['should_create_magic_link_url'] = $data['should_create_magic_link_url'] ?? false;
     }
 
     /**
@@ -235,12 +230,51 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['end_user_email_address'] === null) {
             $invalidProperties[] = "'end_user_email_address' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_email_address']) > 100)) {
+            $invalidProperties[] = "invalid value for 'end_user_email_address', the character length must be smaller than or equal to 100.";
+        }
+
+        if ((mb_strlen($this->container['end_user_email_address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_email_address', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['end_user_organization_name'] === null) {
             $invalidProperties[] = "'end_user_organization_name' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_organization_name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'end_user_organization_name', the character length must be smaller than or equal to 100.";
+        }
+
+        if ((mb_strlen($this->container['end_user_organization_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_organization_name', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['end_user_origin_id'] === null) {
             $invalidProperties[] = "'end_user_origin_id' can't be null";
         }
+        if ((mb_strlen($this->container['end_user_origin_id']) > 100)) {
+            $invalidProperties[] = "invalid value for 'end_user_origin_id', the character length must be smaller than or equal to 100.";
+        }
+
+        if ((mb_strlen($this->container['end_user_origin_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'end_user_origin_id', the character length must be bigger than or equal to 1.";
+        }
+
+        if ($this->container['categories'] === null) {
+            $invalidProperties[] = "'categories' can't be null";
+        }
+        if (!is_null($this->container['integration']) && (mb_strlen($this->container['integration']) < 1)) {
+            $invalidProperties[] = "invalid value for 'integration', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['link_expiry_mins']) && ($this->container['link_expiry_mins'] > 10080)) {
+            $invalidProperties[] = "invalid value for 'link_expiry_mins', must be smaller than or equal to 10080.";
+        }
+
+        if (!is_null($this->container['link_expiry_mins']) && ($this->container['link_expiry_mins'] < 30)) {
+            $invalidProperties[] = "invalid value for 'link_expiry_mins', must be bigger than or equal to 30.";
+        }
+
         return $invalidProperties;
     }
 
@@ -269,12 +303,19 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets end_user_email_address
      *
-     * @param string $end_user_email_address end_user_email_address
+     * @param string $end_user_email_address Your end user's email address. This is purely for identification purposes - setting this value will not cause any emails to be sent.
      *
      * @return self
      */
     public function setEndUserEmailAddress($end_user_email_address)
     {
+        if ((mb_strlen($end_user_email_address) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_email_address when calling EndUserDetailsRequest., must be smaller than or equal to 100.');
+        }
+        if ((mb_strlen($end_user_email_address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_email_address when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_email_address'] = $end_user_email_address;
 
         return $this;
@@ -293,12 +334,19 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets end_user_organization_name
      *
-     * @param string $end_user_organization_name end_user_organization_name
+     * @param string $end_user_organization_name Your end user's organization.
      *
      * @return self
      */
     public function setEndUserOrganizationName($end_user_organization_name)
     {
+        if ((mb_strlen($end_user_organization_name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_organization_name when calling EndUserDetailsRequest., must be smaller than or equal to 100.');
+        }
+        if ((mb_strlen($end_user_organization_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_organization_name when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_organization_name'] = $end_user_organization_name;
 
         return $this;
@@ -317,12 +365,19 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets end_user_origin_id
      *
-     * @param string $end_user_origin_id end_user_origin_id
+     * @param string $end_user_origin_id This unique identifier typically represents the ID for your end user in your product's database. This value must be distinct from other Linked Accounts' unique identifiers.
      *
      * @return self
      */
     public function setEndUserOriginId($end_user_origin_id)
     {
+        if ((mb_strlen($end_user_origin_id) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_origin_id when calling EndUserDetailsRequest., must be smaller than or equal to 100.');
+        }
+        if ((mb_strlen($end_user_origin_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $end_user_origin_id when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_user_origin_id'] = $end_user_origin_id;
 
         return $this;
@@ -331,7 +386,7 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets categories
      *
-     * @return string[]|null
+     * @return \MergeATSClient\Model\CategoriesEnum[]
      */
     public function getCategories()
     {
@@ -341,21 +396,12 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets categories
      *
-     * @param string[]|null $categories categories
+     * @param \MergeATSClient\Model\CategoriesEnum[] $categories The integration categories to show in Merge Link.
      *
      * @return self
      */
     public function setCategories($categories)
     {
-        $allowedValues = $this->getCategoriesAllowableValues();
-        if (!is_null($categories) && array_diff($categories, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'categories', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['categories'] = $categories;
 
         return $this;
@@ -374,13 +420,74 @@ class EndUserDetailsRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets integration
      *
-     * @param string|null $integration integration
+     * @param string|null $integration The slug of a specific pre-selected integration for this linking flow token. For examples of slugs, see https://www.merge.dev/docs/basics/integration-metadata/.
      *
      * @return self
      */
     public function setIntegration($integration)
     {
+
+        if (!is_null($integration) && (mb_strlen($integration) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $integration when calling EndUserDetailsRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['integration'] = $integration;
+
+        return $this;
+    }
+
+    /**
+     * Gets link_expiry_mins
+     *
+     * @return int|null
+     */
+    public function getLinkExpiryMins()
+    {
+        return $this->container['link_expiry_mins'];
+    }
+
+    /**
+     * Sets link_expiry_mins
+     *
+     * @param int|null $link_expiry_mins An integer number of minutes between [30, 720 or 10080 if for a Magic Link URL] for how long this token is valid. Defaults to 30.
+     *
+     * @return self
+     */
+    public function setLinkExpiryMins($link_expiry_mins)
+    {
+
+        if (!is_null($link_expiry_mins) && ($link_expiry_mins > 10080)) {
+            throw new \InvalidArgumentException('invalid value for $link_expiry_mins when calling EndUserDetailsRequest., must be smaller than or equal to 10080.');
+        }
+        if (!is_null($link_expiry_mins) && ($link_expiry_mins < 30)) {
+            throw new \InvalidArgumentException('invalid value for $link_expiry_mins when calling EndUserDetailsRequest., must be bigger than or equal to 30.');
+        }
+
+        $this->container['link_expiry_mins'] = $link_expiry_mins;
+
+        return $this;
+    }
+
+    /**
+     * Gets should_create_magic_link_url
+     *
+     * @return bool|null
+     */
+    public function getShouldCreateMagicLinkUrl()
+    {
+        return $this->container['should_create_magic_link_url'];
+    }
+
+    /**
+     * Sets should_create_magic_link_url
+     *
+     * @param bool|null $should_create_magic_link_url Whether to generate a Magic Link URL. Defaults to false. For more information on Magic Link, see https://merge.dev/blog/product/integrations,-fast.-say-hello-to-magic-link/.
+     *
+     * @return self
+     */
+    public function setShouldCreateMagicLinkUrl($should_create_magic_link_url)
+    {
+        $this->container['should_create_magic_link_url'] = $should_create_magic_link_url;
 
         return $this;
     }

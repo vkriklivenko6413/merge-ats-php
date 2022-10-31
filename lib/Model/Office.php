@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Office Class Doc Comment
  *
  * @category Class
- * @description # The Office Object ### Description The &#x60;Office&#x60; object is used to represent an office within a company.  ### Usage Example Fetch from the &#x60;LIST Offices&#x60; endpoint and view the offices within a company.
+ * @description # The Office Object ### Description The &#x60;Office&#x60; object is used to represent an office within a company. ### Usage Example Fetch from the &#x60;LIST Offices&#x60; endpoint and view the offices within a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,8 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'string',
         'name' => 'string',
         'location' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => null,
         'name' => null,
         'location' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'remote_id',
         'name' => 'name',
         'location' => 'location',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -127,7 +130,8 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'setRemoteId',
         'name' => 'setName',
         'location' => 'setLocation',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -140,7 +144,8 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_id' => 'getRemoteId',
         'name' => 'getName',
         'location' => 'getLocation',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -205,6 +210,7 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['location'] = $data['location'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -347,6 +353,30 @@ class Office implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

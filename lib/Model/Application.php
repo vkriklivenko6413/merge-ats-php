@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Application Class Doc Comment
  *
  * @category Class
- * @description # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
+ * @description # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position. This is separate from the Candidate object, although some systems may only allow a Candidate to have one Application.  Please note: Application objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -72,7 +72,8 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'current_stage' => 'string',
         'reject_reason' => 'string',
         'remote_data' => '\MergeATSClient\Model\RemoteData[]',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -94,7 +95,8 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'current_stage' => 'uuid',
         'reject_reason' => 'uuid',
         'remote_data' => null,
-        'custom_fields' => null
+        'custom_fields' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -135,7 +137,8 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'current_stage' => 'current_stage',
         'reject_reason' => 'reject_reason',
         'remote_data' => 'remote_data',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -155,7 +158,8 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'current_stage' => 'setCurrentStage',
         'reject_reason' => 'setRejectReason',
         'remote_data' => 'setRemoteData',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -175,7 +179,8 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         'current_stage' => 'getCurrentStage',
         'reject_reason' => 'getRejectReason',
         'remote_data' => 'getRemoteData',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -247,6 +252,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['reject_reason'] = $data['reject_reason'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -334,7 +340,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets candidate
      *
-     * @param string|null $candidate The candidate applying.
+     * @param string|null $candidate candidate
      *
      * @return self
      */
@@ -358,7 +364,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets job
      *
-     * @param string|null $job The job being applied for.
+     * @param string|null $job job
      *
      * @return self
      */
@@ -454,7 +460,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets credited_to
      *
-     * @param string|null $credited_to The user credited for this application.
+     * @param string|null $credited_to credited_to
      *
      * @return self
      */
@@ -478,7 +484,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets current_stage
      *
-     * @param string|null $current_stage The application's current stage.
+     * @param string|null $current_stage current_stage
      *
      * @return self
      */
@@ -502,7 +508,7 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reject_reason
      *
-     * @param string|null $reject_reason The application's reason for rejection.
+     * @param string|null $reject_reason reject_reason
      *
      * @return self
      */
@@ -557,6 +563,30 @@ class Application implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted remote_was_deleted
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,18 +26,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace MergeHRISClient\Test\Api;
+namespace MergeATSClient\Test\Api;
 
-use \MergeHRISClient\Configuration;
-use \MergeHRISClient\ApiException;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\Configuration;
+use \MergeATSClient\ApiException;
+use \MergeATSClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * InterviewsApiTest Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -70,18 +70,6 @@ class InterviewsApiTest extends TestCase
      */
     public static function tearDownAfterClass(): void
     {
-    }
-
-    /**
-     * Test case for interviewsCreate
-     *
-     * .
-     *
-     */
-    public function testInterviewsCreate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
     }
 
     /**

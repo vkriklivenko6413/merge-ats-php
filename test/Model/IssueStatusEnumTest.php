@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace MergeHRISClient\Test\Model;
+namespace MergeATSClient\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description IssueStatusEnum
- * @package     MergeHRISClient
+ * @package     MergeATSClient
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

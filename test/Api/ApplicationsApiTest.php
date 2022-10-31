@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,18 +26,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace MergeHRISClient\Test\Api;
+namespace MergeATSClient\Test\Api;
 
-use \MergeHRISClient\Configuration;
-use \MergeHRISClient\ApiException;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\Configuration;
+use \MergeATSClient\ApiException;
+use \MergeATSClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * ApplicationsApiTest Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -73,6 +73,18 @@ class ApplicationsApiTest extends TestCase
     }
 
     /**
+     * Test case for applicationsChangeStageCreate
+     *
+     * .
+     *
+     */
+    public function testApplicationsChangeStageCreate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for applicationsCreate
      *
      * .
@@ -91,6 +103,18 @@ class ApplicationsApiTest extends TestCase
      *
      */
     public function testApplicationsList()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for applicationsMetaPostRetrieve
+     *
+     * .
+     *
+     */
+    public function testApplicationsMetaPostRetrieve()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

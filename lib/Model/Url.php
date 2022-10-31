@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Url Class Doc Comment
  *
  * @category Class
- * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent a candidate&#39;s website.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
+ * @description # The Url Object ### Description The &#x60;Url&#x60; object is used to represent hyperlinks associated with the parent model. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their website urls.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,7 +62,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'url_type' => 'string'
+        'url_type' => 'UrlTypeEnum'
     ];
 
     /**
@@ -248,7 +248,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets url_type
      *
-     * @return string|null
+     * @return UrlTypeEnum|null
      */
     public function getUrlType()
     {
@@ -258,7 +258,7 @@ class Url implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url_type
      *
-     * @param string|null $url_type url_type
+     * @param UrlTypeEnum|null $url_type The type of site.
      *
      * @return self
      */

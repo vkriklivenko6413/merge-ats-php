@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Attachment Class Doc Comment
  *
  * @category Class
- * @description # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate.  ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
+ * @description # The Attachment Object ### Description The &#x60;Attachment&#x60; object is used to represent a attachment for a candidate. ### Usage Example Fetch from the &#x60;LIST Attachments&#x60; endpoint and view attachments accessible by a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,8 +66,9 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_name' => 'string',
         'file_url' => 'string',
         'candidate' => 'string',
-        'attachment_type' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'attachment_type' => 'AttachmentTypeEnum',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_url' => 'uri',
         'candidate' => 'uuid',
         'attachment_type' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -120,7 +122,8 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_url' => 'file_url',
         'candidate' => 'candidate',
         'attachment_type' => 'attachment_type',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -135,7 +138,8 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_url' => 'setFileUrl',
         'candidate' => 'setCandidate',
         'attachment_type' => 'setAttachmentType',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -150,7 +154,8 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         'file_url' => 'getFileUrl',
         'candidate' => 'getCandidate',
         'attachment_type' => 'getAttachmentType',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -217,6 +222,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['candidate'] = $data['candidate'] ?? null;
         $this->container['attachment_type'] = $data['attachment_type'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -374,7 +380,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets attachment_type
      *
-     * @return string|null
+     * @return AttachmentTypeEnum|null
      */
     public function getAttachmentType()
     {
@@ -384,7 +390,7 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets attachment_type
      *
-     * @param string|null $attachment_type attachment_type
+     * @param AttachmentTypeEnum|null $attachment_type The attachment's type.
      *
      * @return self
      */
@@ -415,6 +421,30 @@ class Attachment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted remote_was_deleted
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

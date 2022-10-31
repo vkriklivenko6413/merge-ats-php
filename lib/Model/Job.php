@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Job Class Doc Comment
  *
  * @category Class
- * @description # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Job offering at a company.  ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint to show all job postings.
+ * @description # The Job Object ### Description The &#x60;Job&#x60; object is used to represent a Job offering at a company. ### Usage Example Fetch from the &#x60;LIST Jobs&#x60; endpoint to show all job postings.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -66,14 +66,17 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'description' => 'string',
         'code' => 'string',
-        'status' => 'string',
+        'status' => 'JobStatusEnum',
+        'job_posting_urls' => '\MergeATSClient\Model\Url[]',
         'remote_created_at' => '\DateTime',
         'remote_updated_at' => '\DateTime',
         'confidential' => 'bool',
         'departments' => 'string[]',
         'offices' => 'string[]',
         'hiring_managers' => 'string[]',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'recruiters' => 'string[]',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -90,13 +93,16 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'code' => null,
         'status' => null,
+        'job_posting_urls' => null,
         'remote_created_at' => 'date-time',
         'remote_updated_at' => 'date-time',
         'confidential' => null,
         'departments' => 'uuid',
         'offices' => 'uuid',
         'hiring_managers' => 'uuid',
-        'remote_data' => null
+        'recruiters' => 'uuid',
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -132,13 +138,16 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'code' => 'code',
         'status' => 'status',
+        'job_posting_urls' => 'job_posting_urls',
         'remote_created_at' => 'remote_created_at',
         'remote_updated_at' => 'remote_updated_at',
         'confidential' => 'confidential',
         'departments' => 'departments',
         'offices' => 'offices',
         'hiring_managers' => 'hiring_managers',
-        'remote_data' => 'remote_data'
+        'recruiters' => 'recruiters',
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -153,13 +162,16 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'code' => 'setCode',
         'status' => 'setStatus',
+        'job_posting_urls' => 'setJobPostingUrls',
         'remote_created_at' => 'setRemoteCreatedAt',
         'remote_updated_at' => 'setRemoteUpdatedAt',
         'confidential' => 'setConfidential',
         'departments' => 'setDepartments',
         'offices' => 'setOffices',
         'hiring_managers' => 'setHiringManagers',
-        'remote_data' => 'setRemoteData'
+        'recruiters' => 'setRecruiters',
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -174,13 +186,16 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'code' => 'getCode',
         'status' => 'getStatus',
+        'job_posting_urls' => 'getJobPostingUrls',
         'remote_created_at' => 'getRemoteCreatedAt',
         'remote_updated_at' => 'getRemoteUpdatedAt',
         'confidential' => 'getConfidential',
         'departments' => 'getDepartments',
         'offices' => 'getOffices',
         'hiring_managers' => 'getHiringManagers',
-        'remote_data' => 'getRemoteData'
+        'recruiters' => 'getRecruiters',
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -246,13 +261,16 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['description'] = $data['description'] ?? null;
         $this->container['code'] = $data['code'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['job_posting_urls'] = $data['job_posting_urls'] ?? null;
         $this->container['remote_created_at'] = $data['remote_created_at'] ?? null;
         $this->container['remote_updated_at'] = $data['remote_updated_at'] ?? null;
         $this->container['confidential'] = $data['confidential'] ?? null;
         $this->container['departments'] = $data['departments'] ?? null;
         $this->container['offices'] = $data['offices'] ?? null;
         $this->container['hiring_managers'] = $data['hiring_managers'] ?? null;
+        $this->container['recruiters'] = $data['recruiters'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -402,7 +420,7 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string|null
+     * @return JobStatusEnum|null
      */
     public function getStatus()
     {
@@ -412,13 +430,37 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param JobStatusEnum|null $status The job's status.
      *
      * @return self
      */
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_posting_urls
+     *
+     * @return \MergeATSClient\Model\Url[]|null
+     */
+    public function getJobPostingUrls()
+    {
+        return $this->container['job_posting_urls'];
+    }
+
+    /**
+     * Sets job_posting_urls
+     *
+     * @param \MergeATSClient\Model\Url[]|null $job_posting_urls job_posting_urls
+     *
+     * @return self
+     */
+    public function setJobPostingUrls($job_posting_urls)
+    {
+        $this->container['job_posting_urls'] = $job_posting_urls;
 
         return $this;
     }
@@ -568,6 +610,30 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets recruiters
+     *
+     * @return string[]|null
+     */
+    public function getRecruiters()
+    {
+        return $this->container['recruiters'];
+    }
+
+    /**
+     * Sets recruiters
+     *
+     * @param string[]|null $recruiters IDs of `RemoteUser` objects that serve as recruiters for this `Job`.
+     *
+     * @return self
+     */
+    public function setRecruiters($recruiters)
+    {
+        $this->container['recruiters'] = $recruiters;
+
+        return $this;
+    }
+
+    /**
      * Gets remote_data
      *
      * @return \MergeATSClient\Model\RemoteData[]|null
@@ -587,6 +653,30 @@ class Job implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

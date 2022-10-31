@@ -116,38 +116,40 @@ class ApplicationsApi
     }
 
     /**
-     * Operation applicationsCreate
+     * Operation applicationsChangeStageCreate
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  string $id id (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ApplicationRequest $application_request application_request (optional)
+     * @param  \MergeATSClient\Model\UpdateApplicationStageRequest $update_application_stage_request update_application_stage_request (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeATSClient\Model\Application
+     * @return \MergeATSClient\Model\ApplicationResponse
      */
-    public function applicationsCreate($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
+    public function applicationsChangeStageCreate($x_account_token, $id, $is_debug_mode = null, $run_async = null, $update_application_stage_request = null)
     {
-        list($response) = $this->applicationsCreateWithHttpInfo($x_account_token, $remote_user_id, $run_async, $application_request);
+        list($response) = $this->applicationsChangeStageCreateWithHttpInfo($x_account_token, $id, $is_debug_mode, $run_async, $update_application_stage_request);
         return $response;
     }
 
     /**
-     * Operation applicationsCreateWithHttpInfo
+     * Operation applicationsChangeStageCreateWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  string $id (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
+     * @param  \MergeATSClient\Model\UpdateApplicationStageRequest $update_application_stage_request (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeATSClient\Model\Application, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\ApplicationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applicationsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
+    public function applicationsChangeStageCreateWithHttpInfo($x_account_token, $id, $is_debug_mode = null, $run_async = null, $update_application_stage_request = null)
     {
-        $request = $this->applicationsCreateRequest($x_account_token, $remote_user_id, $run_async, $application_request);
+        $request = $this->applicationsChangeStageCreateRequest($x_account_token, $id, $is_debug_mode, $run_async, $update_application_stage_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -179,20 +181,20 @@ class ApplicationsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeATSClient\Model\Application' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\ApplicationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Application', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\ApplicationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeATSClient\Model\Application';
+            $returnType = '\MergeATSClient\Model\ApplicationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +212,324 @@ class ApplicationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeATSClient\Model\Application',
+                        '\MergeATSClient\Model\ApplicationResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation applicationsChangeStageCreateAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $id (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     * @param  \MergeATSClient\Model\UpdateApplicationStageRequest $update_application_stage_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function applicationsChangeStageCreateAsync($x_account_token, $id, $is_debug_mode = null, $run_async = null, $update_application_stage_request = null)
+    {
+        return $this->applicationsChangeStageCreateAsyncWithHttpInfo($x_account_token, $id, $is_debug_mode, $run_async, $update_application_stage_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation applicationsChangeStageCreateAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $id (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     * @param  \MergeATSClient\Model\UpdateApplicationStageRequest $update_application_stage_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function applicationsChangeStageCreateAsyncWithHttpInfo($x_account_token, $id, $is_debug_mode = null, $run_async = null, $update_application_stage_request = null)
+    {
+        $returnType = '\MergeATSClient\Model\ApplicationResponse';
+        $request = $this->applicationsChangeStageCreateRequest($x_account_token, $id, $is_debug_mode, $run_async, $update_application_stage_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'applicationsChangeStageCreate'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $id (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     * @param  \MergeATSClient\Model\UpdateApplicationStageRequest $update_application_stage_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function applicationsChangeStageCreateRequest($x_account_token, $id, $is_debug_mode = null, $run_async = null, $update_application_stage_request = null)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling applicationsChangeStageCreate'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling applicationsChangeStageCreate'
+            );
+        }
+
+        $resourcePath = '/applications/{id}/change-stage';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($is_debug_mode !== null) {
+            if('form' === 'form' && is_array($is_debug_mode)) {
+                foreach($is_debug_mode as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['is_debug_mode'] = $is_debug_mode;
+            }
+        }
+        // query params
+        if ($run_async !== null) {
+            if('form' === 'form' && is_array($run_async)) {
+                foreach($run_async as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['run_async'] = $run_async;
+            }
+        }
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_application_stage_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_application_stage_request));
+            } else {
+                $httpBody = $update_application_stage_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation applicationsCreate
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeATSClient\Model\ApplicationEndpointRequest $application_endpoint_request application_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeATSClient\Model\ApplicationResponse
+     */
+    public function applicationsCreate($x_account_token, $application_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        list($response) = $this->applicationsCreateWithHttpInfo($x_account_token, $application_endpoint_request, $is_debug_mode, $run_async);
+        return $response;
+    }
+
+    /**
+     * Operation applicationsCreateWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  \MergeATSClient\Model\ApplicationEndpointRequest $application_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
+     * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeATSClient\Model\ApplicationResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function applicationsCreateWithHttpInfo($x_account_token, $application_endpoint_request, $is_debug_mode = null, $run_async = null)
+    {
+        $request = $this->applicationsCreateRequest($x_account_token, $application_endpoint_request, $is_debug_mode, $run_async);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\MergeATSClient\Model\ApplicationResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\ApplicationResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeATSClient\Model\ApplicationResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeATSClient\Model\ApplicationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -224,16 +543,16 @@ class ApplicationsApi
      * Operation applicationsCreateAsync
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\ApplicationEndpointRequest $application_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsCreateAsync($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
+    public function applicationsCreateAsync($x_account_token, $application_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        return $this->applicationsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id, $run_async, $application_request)
+        return $this->applicationsCreateAsyncWithHttpInfo($x_account_token, $application_endpoint_request, $is_debug_mode, $run_async)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -245,17 +564,17 @@ class ApplicationsApi
      * Operation applicationsCreateAsyncWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\ApplicationEndpointRequest $application_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
+    public function applicationsCreateAsyncWithHttpInfo($x_account_token, $application_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        $returnType = '\MergeATSClient\Model\Application';
-        $request = $this->applicationsCreateRequest($x_account_token, $remote_user_id, $run_async, $application_request);
+        $returnType = '\MergeATSClient\Model\ApplicationResponse';
+        $request = $this->applicationsCreateRequest($x_account_token, $application_endpoint_request, $is_debug_mode, $run_async);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,19 +613,25 @@ class ApplicationsApi
      * Create request for operation 'applicationsCreate'
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\ApplicationEndpointRequest $application_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\ApplicationRequest $application_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applicationsCreateRequest($x_account_token, $remote_user_id = null, $run_async = null, $application_request = null)
+    public function applicationsCreateRequest($x_account_token, $application_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $x_account_token when calling applicationsCreate'
+            );
+        }
+        // verify the required parameter 'application_endpoint_request' is set
+        if ($application_endpoint_request === null || (is_array($application_endpoint_request) && count($application_endpoint_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $application_endpoint_request when calling applicationsCreate'
             );
         }
 
@@ -318,14 +643,14 @@ class ApplicationsApi
         $multipart = false;
 
         // query params
-        if ($remote_user_id !== null) {
-            if('form' === 'form' && is_array($remote_user_id)) {
-                foreach($remote_user_id as $key => $value) {
+        if ($is_debug_mode !== null) {
+            if('form' === 'form' && is_array($is_debug_mode)) {
+                foreach($is_debug_mode as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['remote_user_id'] = $remote_user_id;
+                $queryParams['is_debug_mode'] = $is_debug_mode;
             }
         }
         // query params
@@ -359,11 +684,11 @@ class ApplicationsApi
         }
 
         // for model (json/xml)
-        if (isset($application_request)) {
+        if (isset($application_endpoint_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($application_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($application_endpoint_request));
             } else {
-                $httpBody = $application_request;
+                $httpBody = $application_endpoint_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -425,6 +750,7 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -432,14 +758,15 @@ class ApplicationsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $source If provided, will only return applications with this source. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedApplicationList
      */
-    public function applicationsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null, $source = null)
     {
-        list($response) = $this->applicationsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        list($response) = $this->applicationsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id, $source);
         return $response;
     }
 
@@ -453,6 +780,7 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -460,14 +788,15 @@ class ApplicationsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $source If provided, will only return applications with this source. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedApplicationList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applicationsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null, $source = null)
     {
-        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id, $source);
 
         try {
             $options = $this->createHttpClientOption();
@@ -550,6 +879,7 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -557,13 +887,14 @@ class ApplicationsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $source If provided, will only return applications with this source. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null, $source = null)
     {
-        return $this->applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id)
+        return $this->applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id, $source)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -581,6 +912,7 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -588,14 +920,15 @@ class ApplicationsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $source If provided, will only return applications with this source. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null, $source = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedApplicationList';
-        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id);
+        $request = $this->applicationsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $credited_to_id, $current_stage_id, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $reject_reason_id, $remote_id, $source);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -640,6 +973,7 @@ class ApplicationsApi
      * @param  string $credited_to_id If provided, will only return applications credited to this user. (optional)
      * @param  string $current_stage_id If provided, will only return applications at this interview stage. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return applications for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -647,11 +981,12 @@ class ApplicationsApi
      * @param  int $page_size Number of results to return per page. (optional)
      * @param  string $reject_reason_id If provided, will only return applications with this reject reason. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
+     * @param  string $source If provided, will only return applications with this source. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applicationsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null)
+    public function applicationsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $credited_to_id = null, $current_stage_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $reject_reason_id = null, $remote_id = null, $source = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -734,6 +1069,17 @@ class ApplicationsApi
             }
         }
         // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
+            }
+        }
+        // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {
                 foreach($include_remote_data as $key => $value) {
@@ -808,6 +1154,290 @@ class ApplicationsApi
             }
             else {
                 $queryParams['remote_id'] = $remote_id;
+            }
+        }
+        // query params
+        if ($source !== null) {
+            if('form' === 'form' && is_array($source)) {
+                foreach($source as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['source'] = $source;
+            }
+        }
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation applicationsMetaPostRetrieve
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $application_remote_template_id The template ID associated with the nested application in the request. (optional)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeATSClient\Model\MetaResponse
+     */
+    public function applicationsMetaPostRetrieve($x_account_token, $application_remote_template_id = null)
+    {
+        list($response) = $this->applicationsMetaPostRetrieveWithHttpInfo($x_account_token, $application_remote_template_id);
+        return $response;
+    }
+
+    /**
+     * Operation applicationsMetaPostRetrieveWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $application_remote_template_id The template ID associated with the nested application in the request. (optional)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeATSClient\Model\MetaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function applicationsMetaPostRetrieveWithHttpInfo($x_account_token, $application_remote_template_id = null)
+    {
+        $request = $this->applicationsMetaPostRetrieveRequest($x_account_token, $application_remote_template_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\MergeATSClient\Model\MetaResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\MetaResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeATSClient\Model\MetaResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeATSClient\Model\MetaResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation applicationsMetaPostRetrieveAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $application_remote_template_id The template ID associated with the nested application in the request. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function applicationsMetaPostRetrieveAsync($x_account_token, $application_remote_template_id = null)
+    {
+        return $this->applicationsMetaPostRetrieveAsyncWithHttpInfo($x_account_token, $application_remote_template_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation applicationsMetaPostRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $application_remote_template_id The template ID associated with the nested application in the request. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function applicationsMetaPostRetrieveAsyncWithHttpInfo($x_account_token, $application_remote_template_id = null)
+    {
+        $returnType = '\MergeATSClient\Model\MetaResponse';
+        $request = $this->applicationsMetaPostRetrieveRequest($x_account_token, $application_remote_template_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'applicationsMetaPostRetrieve'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     * @param  string $application_remote_template_id The template ID associated with the nested application in the request. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function applicationsMetaPostRetrieveRequest($x_account_token, $application_remote_template_id = null)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling applicationsMetaPostRetrieve'
+            );
+        }
+
+        $resourcePath = '/applications/meta/post';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($application_remote_template_id !== null) {
+            if('form' === 'form' && is_array($application_remote_template_id)) {
+                foreach($application_remote_template_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['application_remote_template_id'] = $application_remote_template_id;
             }
         }
 
