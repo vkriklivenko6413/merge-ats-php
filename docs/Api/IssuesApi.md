@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `issuesList()`
 
 ```php
-issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status): \MergeATSClient\Model\PaginatedIssueList
+issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status): \MergeATSClient\Model\PaginatedIssueList
 ```
 
 
@@ -37,18 +37,22 @@ $apiInstance = new MergeATSClient\Api\IssuesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_token = 'account_token_example'; // string | account_token
-$cursor = 56; // int | The pagination cursor value.
+$account_token = 'account_token_example'; // string
+$cursor = cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw; // string | The pagination cursor value.
 $end_date = 'end_date_example'; // string | If included, will only include issues whose most recent action occurred before this time
-$end_user_organization_name = 'end_user_organization_name_example'; // string | end_user_organization_name
+$end_user_organization_name = 'end_user_organization_name_example'; // string
+$first_incident_time_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was after this datetime.
+$first_incident_time_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was before this datetime.
 $include_muted = 'include_muted_example'; // string | If True, will include muted issues
-$integration_name = 'integration_name_example'; // string | integration_name
+$integration_name = 'integration_name_example'; // string
+$last_incident_time_after = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was after this datetime.
+$last_incident_time_before = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | If provided, will only return issues whose first incident time was before this datetime.
 $page_size = 56; // int | Number of results to return per page.
 $start_date = 'start_date_example'; // string | If included, will only include issues whose most recent action occurred after this time
-$status = 'status_example'; // string | status
+$status = 'status_example'; // string
 
 try {
-    $result = $apiInstance->issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $include_muted, $integration_name, $page_size, $start_date, $status);
+    $result = $apiInstance->issuesList($account_token, $cursor, $end_date, $end_user_organization_name, $first_incident_time_after, $first_incident_time_before, $include_muted, $integration_name, $last_incident_time_after, $last_incident_time_before, $page_size, $start_date, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IssuesApi->issuesList: ', $e->getMessage(), PHP_EOL;
@@ -59,15 +63,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_token** | **string**| account_token | [optional]
- **cursor** | **int**| The pagination cursor value. | [optional]
+ **account_token** | **string**|  | [optional]
+ **cursor** | **string**| The pagination cursor value. | [optional]
  **end_date** | **string**| If included, will only include issues whose most recent action occurred before this time | [optional]
- **end_user_organization_name** | **string**| end_user_organization_name | [optional]
+ **end_user_organization_name** | **string**|  | [optional]
+ **first_incident_time_after** | **\DateTime**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
+ **first_incident_time_before** | **\DateTime**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
  **include_muted** | **string**| If True, will include muted issues | [optional]
- **integration_name** | **string**| integration_name | [optional]
+ **integration_name** | **string**|  | [optional]
+ **last_incident_time_after** | **\DateTime**| If provided, will only return issues whose first incident time was after this datetime. | [optional]
+ **last_incident_time_before** | **\DateTime**| If provided, will only return issues whose first incident time was before this datetime. | [optional]
  **page_size** | **int**| Number of results to return per page. | [optional]
  **start_date** | **string**| If included, will only include issues whose most recent action occurred after this time | [optional]
- **status** | **string**| status | [optional]
+ **status** | **string**|  | [optional]
 
 ### Return type
 

@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Department Class Doc Comment
  *
  * @category Class
- * @description # The Department Object ### Description The &#x60;Department&#x60; object is used to represent a department within a company.  ### Usage Example Fetch from the &#x60;LIST Departments&#x60; endpoint and view the departments within a company.
+ * @description # The Department Object ### Description The &#x60;Department&#x60; object is used to represent a department within a company. ### Usage Example Fetch from the &#x60;LIST Departments&#x60; endpoint and view the departments within a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -64,7 +64,8 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'remote_id' => 'string',
         'name' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -78,7 +79,8 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'uuid',
         'remote_id' => null,
         'name' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'remote_id' => 'remote_id',
         'name' => 'name',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -123,7 +126,8 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'remote_id' => 'setRemoteId',
         'name' => 'setName',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -135,7 +139,8 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'remote_id' => 'getRemoteId',
         'name' => 'getName',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -199,6 +204,7 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -317,6 +323,30 @@ class Department implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

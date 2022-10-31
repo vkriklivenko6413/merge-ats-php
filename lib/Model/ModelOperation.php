@@ -120,7 +120,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'model_name' => 'setModelName',
+        'model_name' => 'setMergeModelName',
         'available_operations' => 'setAvailableOperations',
         'required_post_parameters' => 'setRequiredPostParameters',
         'supported_fields' => 'setSupportedFields'
@@ -132,7 +132,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'model_name' => 'getModelName',
+        'model_name' => 'getMergeModelName',
         'available_operations' => 'getAvailableOperations',
         'required_post_parameters' => 'getRequiredPostParameters',
         'supported_fields' => 'getSupportedFields'
@@ -242,7 +242,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName()
+    public function getMergeModelName()
     {
         return $this->container['model_name'];
     }
@@ -254,7 +254,7 @@ class ModelOperation implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setModelName($model_name)
+    public function setMergeModelName($model_name)
     {
         $this->container['model_name'] = $model_name;
 

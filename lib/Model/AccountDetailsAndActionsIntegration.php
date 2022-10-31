@@ -61,7 +61,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'categories' => '\MergeATSClient\Model\CategoriesEnum',
+        'categories' => '\MergeATSClient\Model\CategoriesEnum[]',
         'image' => 'string',
         'square_image' => 'string',
         'color' => 'string',
@@ -290,7 +290,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Gets categories
      *
-     * @return \MergeATSClient\Model\CategoriesEnum
+     * @return \MergeATSClient\Model\CategoriesEnum[]
      */
     public function getCategories()
     {
@@ -300,7 +300,7 @@ class AccountDetailsAndActionsIntegration implements ModelInterface, ArrayAccess
     /**
      * Sets categories
      *
-     * @param \MergeATSClient\Model\CategoriesEnum $categories categories
+     * @param \MergeATSClient\Model\CategoriesEnum[] $categories categories
      *
      * @return self
      */

@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Tag Class Doc Comment
  *
  * @category Class
- * @description # The Tag Object ### Description The &#x60;Tag&#x60; object is used to represent a tag for a candidate.  ### Usage Example Fetch from the &#x60;LIST Tags&#x60; endpoint and view the tags used within a company.
+ * @description # The Tag Object ### Description The &#x60;Tag&#x60; object is used to represent a tag for a candidate. ### Usage Example Fetch from the &#x60;LIST Tags&#x60; endpoint and view the tags used within a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,8 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'remote_id' => 'string',
         'name' => 'string',
-        'remote_data' => 'array<string,mixed>[]'
+        'remote_data' => 'array<string,mixed>[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'remote_id' => null,
         'name' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'remote_id' => 'remote_id',
         'name' => 'name',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -119,7 +122,8 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'remote_id' => 'setRemoteId',
         'name' => 'setName',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -130,7 +134,8 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'remote_id' => 'getRemoteId',
         'name' => 'getName',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -193,6 +198,7 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['remote_id'] = $data['remote_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -287,6 +293,30 @@ class Tag implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

@@ -124,19 +124,21 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedOfferList
      */
-    public function offersList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersList($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        list($response) = $this->offersListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->offersListWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
         return $response;
     }
 
@@ -149,19 +151,21 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedOfferList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offersListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,18 +247,20 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListAsync($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        return $this->offersListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->offersListAsyncWithHttpInfo($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -271,19 +277,21 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListAsyncWithHttpInfo($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedOfferList';
-        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->offersListRequest($x_account_token, $application_id, $created_after, $created_before, $creator_id, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -327,16 +335,18 @@ class OffersApi
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $creator_id If provided, will only return offers created by this user. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offersListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function offersListRequest($x_account_token, $application_id = null, $created_after = null, $created_before = null, $creator_id = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -408,6 +418,17 @@ class OffersApi
             }
         }
         // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
+            }
+        }
+        // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {
                 foreach($include_remote_data as $key => $value) {
@@ -449,6 +470,17 @@ class OffersApi
             }
             else {
                 $queryParams['page_size'] = $page_size;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
         // query params
@@ -538,14 +570,15 @@ class OffersApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\Offer
      */
-    public function offersRetrieve($x_account_token, $id, $include_remote_data = null)
+    public function offersRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        list($response) = $this->offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
+        list($response) = $this->offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
         return $response;
     }
 
@@ -555,14 +588,15 @@ class OffersApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\Offer, HTTP status code, HTTP response headers (array of strings)
      */
-    public function offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function offersRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -641,13 +675,14 @@ class OffersApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersRetrieveAsync($x_account_token, $id, $include_remote_data = null)
+    public function offersRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        return $this->offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
+        return $this->offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -661,14 +696,15 @@ class OffersApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function offersRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         $returnType = '\MergeATSClient\Model\Offer';
-        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->offersRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -709,11 +745,12 @@ class OffersApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function offersRetrieveRequest($x_account_token, $id, $include_remote_data = null)
+    public function offersRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -744,6 +781,17 @@ class OffersApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

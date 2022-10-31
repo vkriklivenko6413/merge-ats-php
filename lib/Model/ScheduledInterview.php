@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * ScheduledInterview Class Doc Comment
  *
  * @category Class
- * @description # The ScheduledInterview Object ### Description The &#x60;ScheduledInterview&#x60; object is used to represent an interview  ### Usage Example Fetch from the &#x60;LIST ScheduledInterviews&#x60; endpoint and filter by &#x60;interviewers&#x60; to show all office locations.
+ * @description # The ScheduledInterview Object ### Description The &#x60;ScheduledInterview&#x60; object is used to represent an interview. ### Usage Example Fetch from the &#x60;LIST ScheduledInterviews&#x60; endpoint and filter by &#x60;interviewers&#x60; to show all office locations.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -72,8 +72,9 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'end_at' => '\DateTime',
         'remote_created_at' => '\DateTime',
         'remote_updated_at' => '\DateTime',
-        'status' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'status' => 'ScheduledInterviewStatusEnum',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -96,7 +97,8 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'remote_created_at' => 'date-time',
         'remote_updated_at' => 'date-time',
         'status' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -138,7 +140,8 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'remote_created_at' => 'remote_created_at',
         'remote_updated_at' => 'remote_updated_at',
         'status' => 'status',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -159,7 +162,8 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'remote_created_at' => 'setRemoteCreatedAt',
         'remote_updated_at' => 'setRemoteUpdatedAt',
         'status' => 'setStatus',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -180,7 +184,8 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         'remote_created_at' => 'getRemoteCreatedAt',
         'remote_updated_at' => 'getRemoteUpdatedAt',
         'status' => 'getStatus',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -253,6 +258,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['remote_updated_at'] = $data['remote_updated_at'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -340,7 +346,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets application
      *
-     * @param string|null $application The application being interviewed.
+     * @param string|null $application application
      *
      * @return self
      */
@@ -364,7 +370,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets job_interview_stage
      *
-     * @param string|null $job_interview_stage The stage of the interview.
+     * @param string|null $job_interview_stage job_interview_stage
      *
      * @return self
      */
@@ -388,7 +394,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets organizer
      *
-     * @param string|null $organizer The user organizing the interview.
+     * @param string|null $organizer organizer
      *
      * @return self
      */
@@ -546,7 +552,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets status
      *
-     * @return string|null
+     * @return ScheduledInterviewStatusEnum|null
      */
     public function getStatus()
     {
@@ -556,7 +562,7 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param ScheduledInterviewStatusEnum|null $status The interview's status.
      *
      * @return self
      */
@@ -587,6 +593,30 @@ class ScheduledInterview implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

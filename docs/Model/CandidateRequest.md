@@ -22,5 +22,8 @@ Name | Type | Description | Notes
 **applications** | **string[]** | Array of &#x60;Application&#x60; object IDs. | [optional]
 **attachments** | **string[]** | Array of &#x60;Attachment&#x60; object IDs. | [optional]
 **custom_fields** | **array<string,mixed>** | Custom fields configured for a given model. | [optional]
+**remote_template_id** | **string** |  | [optional]
+**integration_params** | **array<string,mixed>** |  | [optional]
+**linked_account_params** | **array<string,mixed>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

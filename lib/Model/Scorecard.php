@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Scorecard Class Doc Comment
  *
  * @category Class
- * @description # The Scorecard Object ### Description The &#x60;Scorecard&#x60; object is used to represent a Scorecard for an interview  ### Usage Example Fetch from the &#x60;LIST Scorecards&#x60; endpoint and filter by &#x60;application&#x60; to show all scorecard for an applicant.
+ * @description # The Scorecard Object ### Description The &#x60;Scorecard&#x60; object is used to represent a Scorecard for an interview. ### Usage Example Fetch from the &#x60;LIST Scorecards&#x60; endpoint and filter by &#x60;application&#x60; to show all scorecard for an applicant.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -68,8 +68,9 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'interviewer' => 'string',
         'remote_created_at' => '\DateTime',
         'submitted_at' => '\DateTime',
-        'overall_recommendation' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'overall_recommendation' => 'OverallRecommendationEnum',
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -88,7 +89,8 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_created_at' => 'date-time',
         'submitted_at' => 'date-time',
         'overall_recommendation' => null,
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_created_at' => 'remote_created_at',
         'submitted_at' => 'submitted_at',
         'overall_recommendation' => 'overall_recommendation',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -143,7 +146,8 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_created_at' => 'setRemoteCreatedAt',
         'submitted_at' => 'setSubmittedAt',
         'overall_recommendation' => 'setOverallRecommendation',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -160,7 +164,8 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         'remote_created_at' => 'getRemoteCreatedAt',
         'submitted_at' => 'getSubmittedAt',
         'overall_recommendation' => 'getOverallRecommendation',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -229,6 +234,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['submitted_at'] = $data['submitted_at'] ?? null;
         $this->container['overall_recommendation'] = $data['overall_recommendation'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -316,7 +322,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets application
      *
-     * @param string|null $application The application being scored.
+     * @param string|null $application application
      *
      * @return self
      */
@@ -340,7 +346,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets interview
      *
-     * @param string|null $interview The interview being scored.
+     * @param string|null $interview interview
      *
      * @return self
      */
@@ -364,7 +370,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets interviewer
      *
-     * @param string|null $interviewer The interviewer doing the scoring.
+     * @param string|null $interviewer interviewer
      *
      * @return self
      */
@@ -426,7 +432,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets overall_recommendation
      *
-     * @return string|null
+     * @return OverallRecommendationEnum|null
      */
     public function getOverallRecommendation()
     {
@@ -436,7 +442,7 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets overall_recommendation
      *
-     * @param string|null $overall_recommendation overall_recommendation
+     * @param OverallRecommendationEnum|null $overall_recommendation The inteviewer's recommendation.
      *
      * @return self
      */
@@ -467,6 +473,30 @@ class Scorecard implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

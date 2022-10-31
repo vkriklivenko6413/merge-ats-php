@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * JobInterviewStage Class Doc Comment
  *
  * @category Class
- * @description # The JobInterviewStage Object ### Description The &#x60;JobInterviewStage&#x60; object is used to represent the stage of an interview  ### Usage Example Fetch from the &#x60;LIST JobInterviewStages&#x60; endpoint and view the job interview stages used by a company.
+ * @description # The JobInterviewStage Object ### Description The &#x60;JobInterviewStage&#x60; object is used to represent the stage that a job application is in. ### Usage Example Fetch from the &#x60;LIST JobInterviewStages&#x60; endpoint and view the job interview stages used by a company.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,8 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'string',
         'name' => 'string',
         'job' => 'string',
-        'remote_data' => '\MergeATSClient\Model\RemoteData[]'
+        'remote_data' => '\MergeATSClient\Model\RemoteData[]',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -80,7 +81,8 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => null,
         'name' => null,
         'job' => 'uuid',
-        'remote_data' => null
+        'remote_data' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'remote_id',
         'name' => 'name',
         'job' => 'job',
-        'remote_data' => 'remote_data'
+        'remote_data' => 'remote_data',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -127,7 +130,8 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'setRemoteId',
         'name' => 'setName',
         'job' => 'setJob',
-        'remote_data' => 'setRemoteData'
+        'remote_data' => 'setRemoteData',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -140,7 +144,8 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         'remote_id' => 'getRemoteId',
         'name' => 'getName',
         'job' => 'getJob',
-        'remote_data' => 'getRemoteData'
+        'remote_data' => 'getRemoteData',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -205,6 +210,7 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['name'] = $data['name'] ?? null;
         $this->container['job'] = $data['job'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -316,7 +322,7 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets job
      *
-     * @param string|null $job If stages are specific to a job, this is the job that this stage belongs to.
+     * @param string|null $job This field is populated only if the stage is specific to a particular job. If the stage is generic, this field will not be populated.
      *
      * @return self
      */
@@ -347,6 +353,30 @@ class JobInterviewStage implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setRemoteData($remote_data)
     {
         $this->container['remote_data'] = $remote_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted Indicates whether or not this object has been deleted by third party webhooks.
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

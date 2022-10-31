@@ -126,7 +126,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'model_name' => 'setModelName',
+        'model_name' => 'setMergeModelName',
         'model_id' => 'setModelId',
         'last_sync_start' => 'setLastSyncStart',
         'next_sync_start' => 'setNextSyncStart',
@@ -140,7 +140,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'model_name' => 'getModelName',
+        'model_name' => 'getMergeModelName',
         'model_id' => 'getModelId',
         'last_sync_start' => 'getLastSyncStart',
         'next_sync_start' => 'getNextSyncStart',
@@ -228,12 +228,6 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['model_id'] === null) {
             $invalidProperties[] = "'model_id' can't be null";
         }
-        if ($this->container['last_sync_start'] === null) {
-            $invalidProperties[] = "'last_sync_start' can't be null";
-        }
-        if ($this->container['next_sync_start'] === null) {
-            $invalidProperties[] = "'next_sync_start' can't be null";
-        }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
@@ -260,7 +254,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName()
+    public function getMergeModelName()
     {
         return $this->container['model_name'];
     }
@@ -272,7 +266,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setModelName($model_name)
+    public function setMergeModelName($model_name)
     {
         $this->container['model_name'] = $model_name;
 
@@ -306,7 +300,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_sync_start
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getLastSyncStart()
     {
@@ -316,7 +310,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_sync_start
      *
-     * @param \DateTime $last_sync_start last_sync_start
+     * @param \DateTime|null $last_sync_start last_sync_start
      *
      * @return self
      */
@@ -330,7 +324,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next_sync_start
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getNextSyncStart()
     {
@@ -340,7 +334,7 @@ class SyncStatus implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next_sync_start
      *
-     * @param \DateTime $next_sync_start next_sync_start
+     * @param \DateTime|null $next_sync_start next_sync_start
      *
      * @return self
      */

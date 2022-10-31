@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,18 +26,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace MergeHRISClient\Test\Api;
+namespace MergeATSClient\Test\Api;
 
-use \MergeHRISClient\Configuration;
-use \MergeHRISClient\ApiException;
-use \MergeHRISClient\ObjectSerializer;
+use \MergeATSClient\Configuration;
+use \MergeATSClient\ApiException;
+use \MergeATSClient\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * CandidatesApiTest Class Doc Comment
  *
  * @category Class
- * @package  MergeHRISClient
+ * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -85,12 +85,36 @@ class CandidatesApiTest extends TestCase
     }
 
     /**
+     * Test case for candidatesIgnoreCreate
+     *
+     * .
+     *
+     */
+    public function testCandidatesIgnoreCreate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for candidatesList
      *
      * .
      *
      */
     public function testCandidatesList()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for candidatesMetaPostRetrieve
+     *
+     * .
+     *
+     */
+    public function testCandidatesMetaPostRetrieve()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

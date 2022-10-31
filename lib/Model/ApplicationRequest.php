@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * ApplicationRequest Class Doc Comment
  *
  * @category Class
- * @description # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
+ * @description # The Application Object ### Description The &#x60;Application&#x60; object is used to represent an Application for a job position. This is separate from the Candidate object, although some systems may only allow a Candidate to have one Application.  Please note: Application objects are constructed if the object does not exist in the remote system.  ### Usage Example Fetch from the &#x60;LIST Applications&#x60; endpoint and filter by &#x60;ID&#x60; to show all applications.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -70,7 +70,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'credited_to' => 'string',
         'current_stage' => 'string',
         'reject_reason' => 'string',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'remote_template_id' => 'string',
+        'integration_params' => 'array<string,mixed>',
+        'linked_account_params' => 'array<string,mixed>'
     ];
 
     /**
@@ -90,7 +93,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'credited_to' => 'uuid',
         'current_stage' => 'uuid',
         'reject_reason' => 'uuid',
-        'custom_fields' => null
+        'custom_fields' => null,
+        'remote_template_id' => null,
+        'integration_params' => null,
+        'linked_account_params' => null
     ];
 
     /**
@@ -129,7 +135,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'credited_to' => 'credited_to',
         'current_stage' => 'current_stage',
         'reject_reason' => 'reject_reason',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'remote_template_id' => 'remote_template_id',
+        'integration_params' => 'integration_params',
+        'linked_account_params' => 'linked_account_params'
     ];
 
     /**
@@ -147,7 +156,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'credited_to' => 'setCreditedTo',
         'current_stage' => 'setCurrentStage',
         'reject_reason' => 'setRejectReason',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'remote_template_id' => 'setRemoteTemplateId',
+        'integration_params' => 'setIntegrationParams',
+        'linked_account_params' => 'setLinkedAccountParams'
     ];
 
     /**
@@ -165,7 +177,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'credited_to' => 'getCreditedTo',
         'current_stage' => 'getCurrentStage',
         'reject_reason' => 'getRejectReason',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'remote_template_id' => 'getRemoteTemplateId',
+        'integration_params' => 'getIntegrationParams',
+        'linked_account_params' => 'getLinkedAccountParams'
     ];
 
     /**
@@ -235,6 +250,9 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['current_stage'] = $data['current_stage'] ?? null;
         $this->container['reject_reason'] = $data['reject_reason'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['remote_template_id'] = $data['remote_template_id'] ?? null;
+        $this->container['integration_params'] = $data['integration_params'] ?? null;
+        $this->container['linked_account_params'] = $data['linked_account_params'] ?? null;
     }
 
     /**
@@ -245,6 +263,10 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['remote_template_id']) && (mb_strlen($this->container['remote_template_id']) < 1)) {
+            $invalidProperties[] = "invalid value for 'remote_template_id', the character length must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -298,7 +320,7 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets candidate
      *
-     * @param string|null $candidate The candidate applying.
+     * @param string|null $candidate candidate
      *
      * @return self
      */
@@ -322,7 +344,7 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets job
      *
-     * @param string|null $job The job being applied for.
+     * @param string|null $job job
      *
      * @return self
      */
@@ -418,7 +440,7 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets credited_to
      *
-     * @param string|null $credited_to The user credited for this application.
+     * @param string|null $credited_to credited_to
      *
      * @return self
      */
@@ -442,7 +464,7 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets current_stage
      *
-     * @param string|null $current_stage The application's current stage.
+     * @param string|null $current_stage current_stage
      *
      * @return self
      */
@@ -466,7 +488,7 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets reject_reason
      *
-     * @param string|null $reject_reason The application's reason for rejection.
+     * @param string|null $reject_reason reject_reason
      *
      * @return self
      */
@@ -497,6 +519,83 @@ class ApplicationRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_template_id
+     *
+     * @return string|null
+     */
+    public function getRemoteTemplateId()
+    {
+        return $this->container['remote_template_id'];
+    }
+
+    /**
+     * Sets remote_template_id
+     *
+     * @param string|null $remote_template_id remote_template_id
+     *
+     * @return self
+     */
+    public function setRemoteTemplateId($remote_template_id)
+    {
+
+        if (!is_null($remote_template_id) && (mb_strlen($remote_template_id) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $remote_template_id when calling ApplicationRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['remote_template_id'] = $remote_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getIntegrationParams()
+    {
+        return $this->container['integration_params'];
+    }
+
+    /**
+     * Sets integration_params
+     *
+     * @param array<string,mixed>|null $integration_params integration_params
+     *
+     * @return self
+     */
+    public function setIntegrationParams($integration_params)
+    {
+        $this->container['integration_params'] = $integration_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_account_params
+     *
+     * @return array<string,mixed>|null
+     */
+    public function getLinkedAccountParams()
+    {
+        return $this->container['linked_account_params'];
+    }
+
+    /**
+     * Sets linked_account_params
+     *
+     * @param array<string,mixed>|null $linked_account_params linked_account_params
+     *
+     * @return self
+     */
+    public function setLinkedAccountParams($linked_account_params)
+    {
+        $this->container['linked_account_params'] = $linked_account_params;
 
         return $this;
     }

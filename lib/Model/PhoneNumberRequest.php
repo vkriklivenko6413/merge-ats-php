@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * PhoneNumberRequest Class Doc Comment
  *
  * @category Class
- * @description # The PhoneNumber Object ### Description The &#x60;PhoneNumber&#x60; object is used to represent a candidate&#39;s phone number.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their phone numbers.
+ * @description # The PhoneNumber Object ### Description The &#x60;PhoneNumber&#x60; object is used to represent a candidate&#39;s phone number. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their phone numbers.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,8 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string'
+        'value' => 'string',
+        'phone_number_type' => 'PhoneNumberTypeEnum'
     ];
 
     /**
@@ -72,7 +73,8 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => null
+        'value' => null,
+        'phone_number_type' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value'
+        'value' => 'value',
+        'phone_number_type' => 'phone_number_type'
     ];
 
     /**
@@ -111,7 +114,8 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'phone_number_type' => 'setPhoneNumberType'
     ];
 
     /**
@@ -120,7 +124,8 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'phone_number_type' => 'getPhoneNumberType'
     ];
 
     /**
@@ -181,6 +186,7 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['phone_number_type'] = $data['phone_number_type'] ?? null;
     }
 
     /**
@@ -227,6 +233,30 @@ class PhoneNumberRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number_type
+     *
+     * @return PhoneNumberTypeEnum|null
+     */
+    public function getPhoneNumberType()
+    {
+        return $this->container['phone_number_type'];
+    }
+
+    /**
+     * Sets phone_number_type
+     *
+     * @param PhoneNumberTypeEnum|null $phone_number_type The type of phone number.
+     *
+     * @return self
+     */
+    public function setPhoneNumberType($phone_number_type)
+    {
+        $this->container['phone_number_type'] = $phone_number_type;
 
         return $this;
     }

@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * EmailAddressRequest Class Doc Comment
  *
  * @category Class
- * @description # The EmailAddress Object ### Description The &#x60;EmailAddress&#x60; object is used to represent a candidate&#39;s email address.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their email addresses.
+ * @description # The EmailAddress Object ### Description The &#x60;EmailAddress&#x60; object is used to represent a candidate&#39;s email address. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their email addresses.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,7 +61,8 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => 'string'
+        'value' => 'string',
+        'email_address_type' => 'EmailAddressTypeEnum'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'value' => 'email'
+        'value' => 'email',
+        'email_address_type' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'value' => 'value'
+        'value' => 'value',
+        'email_address_type' => 'email_address_type'
     ];
 
     /**
@@ -111,7 +114,8 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'email_address_type' => 'setEmailAddressType'
     ];
 
     /**
@@ -120,7 +124,8 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'email_address_type' => 'getEmailAddressType'
     ];
 
     /**
@@ -181,6 +186,7 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['value'] = $data['value'] ?? null;
+        $this->container['email_address_type'] = $data['email_address_type'] ?? null;
     }
 
     /**
@@ -235,6 +241,30 @@ class EmailAddressRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_address_type
+     *
+     * @return EmailAddressTypeEnum|null
+     */
+    public function getEmailAddressType()
+    {
+        return $this->container['email_address_type'];
+    }
+
+    /**
+     * Sets email_address_type
+     *
+     * @param EmailAddressTypeEnum|null $email_address_type The type of email address.
+     *
+     * @return self
+     */
+    public function setEmailAddressType($email_address_type)
+    {
+        $this->container['email_address_type'] = $email_address_type;
 
         return $this;
     }

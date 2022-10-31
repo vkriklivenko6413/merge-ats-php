@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * Candidate Class Doc Comment
  *
  * @category Class
- * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions.  ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
+ * @description # The Candidate Object ### Description The &#x60;Candidate&#x60; object is used to represent a Candidate for various positions. ### Usage Example Fetch from the &#x60;LIST Candidates&#x60; endpoint and filter by &#x60;ID&#x60; to show all candidates.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -80,7 +80,8 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'applications' => 'string[]',
         'attachments' => 'string[]',
         'remote_data' => '\MergeATSClient\Model\RemoteData[]',
-        'custom_fields' => 'array<string,mixed>'
+        'custom_fields' => 'array<string,mixed>',
+        'remote_was_deleted' => 'bool'
     ];
 
     /**
@@ -110,7 +111,8 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'applications' => 'uuid',
         'attachments' => 'uuid',
         'remote_data' => null,
-        'custom_fields' => null
+        'custom_fields' => null,
+        'remote_was_deleted' => null
     ];
 
     /**
@@ -159,7 +161,8 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'applications' => 'applications',
         'attachments' => 'attachments',
         'remote_data' => 'remote_data',
-        'custom_fields' => 'custom_fields'
+        'custom_fields' => 'custom_fields',
+        'remote_was_deleted' => 'remote_was_deleted'
     ];
 
     /**
@@ -187,7 +190,8 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'applications' => 'setApplications',
         'attachments' => 'setAttachments',
         'remote_data' => 'setRemoteData',
-        'custom_fields' => 'setCustomFields'
+        'custom_fields' => 'setCustomFields',
+        'remote_was_deleted' => 'setRemoteWasDeleted'
     ];
 
     /**
@@ -215,7 +219,8 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         'applications' => 'getApplications',
         'attachments' => 'getAttachments',
         'remote_data' => 'getRemoteData',
-        'custom_fields' => 'getCustomFields'
+        'custom_fields' => 'getCustomFields',
+        'remote_was_deleted' => 'getRemoteWasDeleted'
     ];
 
     /**
@@ -295,6 +300,7 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['attachments'] = $data['attachments'] ?? null;
         $this->container['remote_data'] = $data['remote_data'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
+        $this->container['remote_was_deleted'] = $data['remote_was_deleted'] ?? null;
     }
 
     /**
@@ -797,6 +803,30 @@ class Candidate implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomFields($custom_fields)
     {
         $this->container['custom_fields'] = $custom_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets remote_was_deleted
+     *
+     * @return bool|null
+     */
+    public function getRemoteWasDeleted()
+    {
+        return $this->container['remote_was_deleted'];
+    }
+
+    /**
+     * Sets remote_was_deleted
+     *
+     * @param bool|null $remote_was_deleted remote_was_deleted
+     *
+     * @return self
+     */
+    public function setRemoteWasDeleted($remote_was_deleted)
+    {
+        $this->container['remote_was_deleted'] = $remote_was_deleted;
 
         return $this;
     }

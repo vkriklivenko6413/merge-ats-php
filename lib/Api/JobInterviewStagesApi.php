@@ -122,6 +122,7 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -133,9 +134,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedJobInterviewStageList
      */
-    public function jobInterviewStagesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesList($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        list($response) = $this->jobInterviewStagesListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->jobInterviewStagesListWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
         return $response;
     }
 
@@ -146,6 +147,7 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -157,9 +159,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedJobInterviewStageList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobInterviewStagesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,6 +241,7 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -249,9 +252,9 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListAsync($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
-        return $this->jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -266,6 +269,7 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -276,10 +280,10 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListAsyncWithHttpInfo($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedJobInterviewStageList';
-        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->jobInterviewStagesListRequest($x_account_token, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $job_id, $modified_after, $modified_before, $page_size, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -321,6 +325,7 @@ class JobInterviewStagesApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  string $job_id If provided, will only return interview stages for this job. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
@@ -331,7 +336,7 @@ class JobInterviewStagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function jobInterviewStagesListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function jobInterviewStagesListRequest($x_account_token, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $job_id = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -378,6 +383,17 @@ class JobInterviewStagesApi
             }
             else {
                 $queryParams['cursor'] = $cursor;
+            }
+        }
+        // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
             }
         }
         // query params

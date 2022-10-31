@@ -119,17 +119,17 @@ class AttachmentsApi
      * Operation attachmentsCreate
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\AttachmentEndpointRequest $attachment_endpoint_request attachment_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request attachment_request (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \MergeATSClient\Model\Attachment
+     * @return \MergeATSClient\Model\AttachmentResponse
      */
-    public function attachmentsCreate($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
+    public function attachmentsCreate($x_account_token, $attachment_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        list($response) = $this->attachmentsCreateWithHttpInfo($x_account_token, $remote_user_id, $run_async, $attachment_request);
+        list($response) = $this->attachmentsCreateWithHttpInfo($x_account_token, $attachment_endpoint_request, $is_debug_mode, $run_async);
         return $response;
     }
 
@@ -137,17 +137,17 @@ class AttachmentsApi
      * Operation attachmentsCreateWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\AttachmentEndpointRequest $attachment_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \MergeATSClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MergeATSClient\Model\AttachmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachmentsCreateWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
+    public function attachmentsCreateWithHttpInfo($x_account_token, $attachment_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        $request = $this->attachmentsCreateRequest($x_account_token, $remote_user_id, $run_async, $attachment_request);
+        $request = $this->attachmentsCreateRequest($x_account_token, $attachment_endpoint_request, $is_debug_mode, $run_async);
 
         try {
             $options = $this->createHttpClientOption();
@@ -179,20 +179,20 @@ class AttachmentsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\MergeATSClient\Model\Attachment' === '\SplFileObject') {
+                    if ('\MergeATSClient\Model\AttachmentResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\Attachment', []),
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\AttachmentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\MergeATSClient\Model\Attachment';
+            $returnType = '\MergeATSClient\Model\AttachmentResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -210,7 +210,7 @@ class AttachmentsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MergeATSClient\Model\Attachment',
+                        '\MergeATSClient\Model\AttachmentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -224,16 +224,16 @@ class AttachmentsApi
      * Operation attachmentsCreateAsync
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\AttachmentEndpointRequest $attachment_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsCreateAsync($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
+    public function attachmentsCreateAsync($x_account_token, $attachment_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        return $this->attachmentsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id, $run_async, $attachment_request)
+        return $this->attachmentsCreateAsyncWithHttpInfo($x_account_token, $attachment_endpoint_request, $is_debug_mode, $run_async)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -245,17 +245,17 @@ class AttachmentsApi
      * Operation attachmentsCreateAsyncWithHttpInfo
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\AttachmentEndpointRequest $attachment_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsCreateAsyncWithHttpInfo($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
+    public function attachmentsCreateAsyncWithHttpInfo($x_account_token, $attachment_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
-        $returnType = '\MergeATSClient\Model\Attachment';
-        $request = $this->attachmentsCreateRequest($x_account_token, $remote_user_id, $run_async, $attachment_request);
+        $returnType = '\MergeATSClient\Model\AttachmentResponse';
+        $request = $this->attachmentsCreateRequest($x_account_token, $attachment_endpoint_request, $is_debug_mode, $run_async);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,19 +294,25 @@ class AttachmentsApi
      * Create request for operation 'attachmentsCreate'
      *
      * @param  string $x_account_token Token identifying the end user. (required)
-     * @param  string $remote_user_id The ID of the RemoteUser modifying the resource. This can be found in the ID field (not remote_id) in the RemoteUser table. (optional)
+     * @param  \MergeATSClient\Model\AttachmentEndpointRequest $attachment_endpoint_request (required)
+     * @param  bool $is_debug_mode Whether to include debug fields (such as log file links) in the response. (optional)
      * @param  bool $run_async Whether or not third-party updates should be run asynchronously. (optional)
-     * @param  \MergeATSClient\Model\AttachmentRequest $attachment_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function attachmentsCreateRequest($x_account_token, $remote_user_id = null, $run_async = null, $attachment_request = null)
+    public function attachmentsCreateRequest($x_account_token, $attachment_endpoint_request, $is_debug_mode = null, $run_async = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $x_account_token when calling attachmentsCreate'
+            );
+        }
+        // verify the required parameter 'attachment_endpoint_request' is set
+        if ($attachment_endpoint_request === null || (is_array($attachment_endpoint_request) && count($attachment_endpoint_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $attachment_endpoint_request when calling attachmentsCreate'
             );
         }
 
@@ -318,14 +324,14 @@ class AttachmentsApi
         $multipart = false;
 
         // query params
-        if ($remote_user_id !== null) {
-            if('form' === 'form' && is_array($remote_user_id)) {
-                foreach($remote_user_id as $key => $value) {
+        if ($is_debug_mode !== null) {
+            if('form' === 'form' && is_array($is_debug_mode)) {
+                foreach($is_debug_mode as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['remote_user_id'] = $remote_user_id;
+                $queryParams['is_debug_mode'] = $is_debug_mode;
             }
         }
         // query params
@@ -359,11 +365,11 @@ class AttachmentsApi
         }
 
         // for model (json/xml)
-        if (isset($attachment_request)) {
+        if (isset($attachment_endpoint_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($attachment_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($attachment_endpoint_request));
             } else {
-                $httpBody = $attachment_request;
+                $httpBody = $attachment_endpoint_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -423,19 +429,21 @@ class AttachmentsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\PaginatedAttachmentList
      */
-    public function attachmentsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function attachmentsList($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        list($response) = $this->attachmentsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        list($response) = $this->attachmentsListWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
         return $response;
     }
 
@@ -447,19 +455,21 @@ class AttachmentsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\PaginatedAttachmentList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachmentsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function attachmentsListWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        $request = $this->attachmentsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->attachmentsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -540,18 +550,20 @@ class AttachmentsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function attachmentsListAsync($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
-        return $this->attachmentsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id)
+        return $this->attachmentsListAsyncWithHttpInfo($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -567,19 +579,21 @@ class AttachmentsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function attachmentsListAsyncWithHttpInfo($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         $returnType = '\MergeATSClient\Model\PaginatedAttachmentList';
-        $request = $this->attachmentsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_id);
+        $request = $this->attachmentsListRequest($x_account_token, $candidate_id, $created_after, $created_before, $cursor, $include_deleted_data, $include_remote_data, $modified_after, $modified_before, $page_size, $remote_fields, $remote_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -622,16 +636,18 @@ class AttachmentsApi
      * @param  \DateTime $created_after If provided, will only return objects created after this datetime. (optional)
      * @param  \DateTime $created_before If provided, will only return objects created before this datetime. (optional)
      * @param  string $cursor The pagination cursor value. (optional)
+     * @param  bool $include_deleted_data Whether to include data that was marked as deleted by third party webhooks. (optional)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
      * @param  \DateTime $modified_after If provided, will only return objects modified after this datetime. (optional)
      * @param  \DateTime $modified_before If provided, will only return objects modified before this datetime. (optional)
      * @param  int $page_size Number of results to return per page. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      * @param  string $remote_id The API provider&#39;s ID for the given object. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function attachmentsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_id = null)
+    public function attachmentsListRequest($x_account_token, $candidate_id = null, $created_after = null, $created_before = null, $cursor = null, $include_deleted_data = null, $include_remote_data = null, $modified_after = null, $modified_before = null, $page_size = null, $remote_fields = null, $remote_id = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -692,6 +708,17 @@ class AttachmentsApi
             }
         }
         // query params
+        if ($include_deleted_data !== null) {
+            if('form' === 'form' && is_array($include_deleted_data)) {
+                foreach($include_deleted_data as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_deleted_data'] = $include_deleted_data;
+            }
+        }
+        // query params
         if ($include_remote_data !== null) {
             if('form' === 'form' && is_array($include_remote_data)) {
                 foreach($include_remote_data as $key => $value) {
@@ -733,6 +760,17 @@ class AttachmentsApi
             }
             else {
                 $queryParams['page_size'] = $page_size;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
         // query params
@@ -817,19 +855,277 @@ class AttachmentsApi
     }
 
     /**
+     * Operation attachmentsMetaPostRetrieve
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \MergeATSClient\Model\MetaResponse
+     */
+    public function attachmentsMetaPostRetrieve($x_account_token)
+    {
+        list($response) = $this->attachmentsMetaPostRetrieveWithHttpInfo($x_account_token);
+        return $response;
+    }
+
+    /**
+     * Operation attachmentsMetaPostRetrieveWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \MergeATSClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \MergeATSClient\Model\MetaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function attachmentsMetaPostRetrieveWithHttpInfo($x_account_token)
+    {
+        $request = $this->attachmentsMetaPostRetrieveRequest($x_account_token);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\MergeATSClient\Model\MetaResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\MergeATSClient\Model\MetaResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\MergeATSClient\Model\MetaResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MergeATSClient\Model\MetaResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation attachmentsMetaPostRetrieveAsync
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachmentsMetaPostRetrieveAsync($x_account_token)
+    {
+        return $this->attachmentsMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation attachmentsMetaPostRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function attachmentsMetaPostRetrieveAsyncWithHttpInfo($x_account_token)
+    {
+        $returnType = '\MergeATSClient\Model\MetaResponse';
+        $request = $this->attachmentsMetaPostRetrieveRequest($x_account_token);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'attachmentsMetaPostRetrieve'
+     *
+     * @param  string $x_account_token Token identifying the end user. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function attachmentsMetaPostRetrieveRequest($x_account_token)
+    {
+        // verify the required parameter 'x_account_token' is set
+        if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $x_account_token when calling attachmentsMetaPostRetrieve'
+            );
+        }
+
+        $resourcePath = '/attachments/meta/post';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_account_token !== null) {
+            $headerParams['X-Account-Token'] = ObjectSerializer::toHeaderValue($x_account_token);
+        }
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation attachmentsRetrieve
      *
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \MergeATSClient\Model\Attachment
      */
-    public function attachmentsRetrieve($x_account_token, $id, $include_remote_data = null)
+    public function attachmentsRetrieve($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        list($response) = $this->attachmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data);
+        list($response) = $this->attachmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields);
         return $response;
     }
 
@@ -839,14 +1135,15 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \MergeATSClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \MergeATSClient\Model\Attachment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function attachmentsRetrieveWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        $request = $this->attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         try {
             $options = $this->createHttpClientOption();
@@ -925,13 +1222,14 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsRetrieveAsync($x_account_token, $id, $include_remote_data = null)
+    public function attachmentsRetrieveAsync($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
-        return $this->attachmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data)
+        return $this->attachmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data, $remote_fields)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -945,14 +1243,15 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null)
+    public function attachmentsRetrieveAsyncWithHttpInfo($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         $returnType = '\MergeATSClient\Model\Attachment';
-        $request = $this->attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data);
+        $request = $this->attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data, $remote_fields);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -993,11 +1292,12 @@ class AttachmentsApi
      * @param  string $x_account_token Token identifying the end user. (required)
      * @param  string $id (required)
      * @param  bool $include_remote_data Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+     * @param  string $remote_fields Which fields should be returned in non-normalized form. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data = null)
+    public function attachmentsRetrieveRequest($x_account_token, $id, $include_remote_data = null, $remote_fields = null)
     {
         // verify the required parameter 'x_account_token' is set
         if ($x_account_token === null || (is_array($x_account_token) && count($x_account_token) === 0)) {
@@ -1028,6 +1328,17 @@ class AttachmentsApi
             }
             else {
                 $queryParams['include_remote_data'] = $include_remote_data;
+            }
+        }
+        // query params
+        if ($remote_fields !== null) {
+            if('form' === 'form' && is_array($remote_fields)) {
+                foreach($remote_fields as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['remote_fields'] = $remote_fields;
             }
         }
 

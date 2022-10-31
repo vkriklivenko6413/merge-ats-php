@@ -36,7 +36,7 @@ use \MergeATSClient\ObjectSerializer;
  * PhoneNumber Class Doc Comment
  *
  * @category Class
- * @description # The PhoneNumber Object ### Description The &#x60;PhoneNumber&#x60; object is used to represent a candidate&#39;s phone number.  ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their phone numbers.
+ * @description # The PhoneNumber Object ### Description The &#x60;PhoneNumber&#x60; object is used to represent a candidate&#39;s phone number. ### Usage Example Fetch from the &#x60;GET Candidate&#x60; endpoint and view their phone numbers.
  * @package  MergeATSClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,7 +62,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'string',
-        'phone_number_type' => 'string'
+        'phone_number_type' => 'PhoneNumberTypeEnum'
     ];
 
     /**
@@ -240,7 +240,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets phone_number_type
      *
-     * @return string|null
+     * @return PhoneNumberTypeEnum|null
      */
     public function getPhoneNumberType()
     {
@@ -250,7 +250,7 @@ class PhoneNumber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone_number_type
      *
-     * @param string|null $phone_number_type phone_number_type
+     * @param PhoneNumberTypeEnum|null $phone_number_type The type of phone number.
      *
      * @return self
      */
