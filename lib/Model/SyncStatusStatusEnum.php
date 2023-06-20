@@ -62,7 +62,7 @@ class SyncStatusStatusEnum
             self::FAILED,
             self::DISABLED,
             self::PAUSED,
-            self::PARTIALLY_SYNCED
+            self::PARTIALLY_SYNCED,
         ];
     }
 }
